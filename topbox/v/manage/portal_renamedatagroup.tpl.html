@@ -1,0 +1,50 @@
+<form id='renameform' name='renameform' method='post' action='' >
+    <input type='hidden' name='key' value='userdefinedname'>
+
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">添加数据</h4>
+      </div>
+      <div class="modal-body">
+        
+        <table class='table'>
+        <tr><th>数据组名:</th><td>{$dgname}</td></tr>
+        <tr><th>默认显示名:</th><td><span id='showname'>{$showname}</span></td></tr>
+        <tr><th>用户定义显示名:</th><td><input id='userdefinedname' name='value' value='{$userdefinedname}'><input type='button' value='恢复默认名' onclick='userdef()'></td></tr>
+        </table>
+
+
+      </div><!-- end modal-body -->
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <input  type='button' class='btn btn-primary' name=''  onclick='dopost()' value='修改'/>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+
+</form>
+
+<!------------- -->
+<script type="text/javascript">
+var posturl = '{$home}/portal/jupdatedg/id-{$id}/name-{$dgname}';
+{literal}
+  function dopost()
+  {
+    $.post(posturl, $('#renameform').serialize(), function(data){
+      window.location.reload();
+    },'json');
+    //$('.renameform').submit();
+    //document.forms['renameform'].submit();
+    //window.parent.location.reload();
+  }
+  
+  function userdef()
+  {
+    document.getElementById('userdefinedname').value = document.getElementById('showname').innerHTML;
+  }
+
+{/literal}
+</script> 

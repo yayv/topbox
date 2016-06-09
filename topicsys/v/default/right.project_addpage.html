@@ -1,0 +1,54 @@
+<div id="step">
+    <div class="t">
+      	<div class="t">
+      		<div class="t"></div>
+      	</div>
+    </div>
+    <div class="m">
+
+        <div style='padding:15px;'>
+        <div style='margin:5px;width:400px;float:left;'>
+        {if $message}
+        <div style='border:solid 1px red;background-color:yellow;color:green'>
+        {$message}
+        </div>
+        {/if}
+        <form action="{$home}/project/paddpage/id-{$projectid}" method="post">
+            项目　名:{$projectname}<input type='hidden' name='pageid' value='{$pageid}'><br/>
+	        页面名称:<input name='pagename' value='{$pagename}' ><br/>
+            页面文件:<input name='filename' value='{$filename}' ><br/>
+            模板文件:<select name='templateid' id='templateid'>
+                        {foreach from=$templates key=k item=v}
+                            <option value='{$v->id}'>{$v->templatename}</option>
+                        {/foreach}
+                     </select><br/>
+            发布类型:<select name='publishtype' id='publishtype'>
+                            <option value='dynamic'>动态发布(页面为php文件)</option>
+                            <option value='static'>静态发布(页面为html文件)</option>
+                            <option value='manual'>自定义内容(扩展名自定)</option>
+							
+                     </select><br/>
+            <fieldset ><legend>高级参数</legend>
+            动态扩展:<input name='hookfile' value='{$hookfile}'><a href='{$home}/project/editpagehook/id-{$projectid}/pageid-{$pageid}'>编辑文件内容</a>
+            </fieldset>
+            <input type="submit">
+        </form>
+        </div>
+
+         <div style='clear:both;'></div>
+         </div>   
+		 
+		 </div>
+    <div class="b">
+      	<div class="b">
+      		<div class="b"></div>
+      	</div>
+    </div>
+</div>
+<script type='text/javascript'>
+var def_hookfile = '{$default_hookfile}';
+var hookfile     = '{$hookfile}';
+document.getElementById('publishtype').value = "{$publishtype}";
+document.getElementById('templateid').value = '{$templateid}';
+</script>
+

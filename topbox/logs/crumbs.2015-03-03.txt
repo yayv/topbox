@@ -1,0 +1,1400 @@
+URL:/
+METHOD:GET
+start(url):0.73561200 1425345985
+start_controller(defaultcontroller->index):0.74370300 1425345985
+end_controller(defaultcontroller->index):0.82532000 1425345985
+end(url):0.82533000 1425345985
+URL:/v/favicon.png
+METHOD:GET
+start(url):0.93554200 1425345985
+start_controller(v->favicon.png):0.93825900 1425345985
+end_controller(v->favicon.png):0.97568200 1425345985
+end(url):0.97571000 1425345985
+URL:/manage/
+METHOD:GET
+start(url):0.77750600 1425345997
+start_controller(manage->index):0.78142100 1425345997
+end_controller(manage->index):0.81356700 1425345997
+end(url):0.81358200 1425345997
+URL:/v/favicon.png
+METHOD:GET
+start(url):0.96909900 1425345997
+start_controller(v->favicon.png):0.96982300 1425345997
+end_controller(v->favicon.png):0.00271400 1425345998
+end(url):0.00279300 1425345998
+URL:/manage/
+METHOD:GET
+start(url):0.18563900 1425345998
+start_controller(manage->index):0.18790200 1425345998
+end_controller(manage->index):0.20025000 1425345998
+end(url):0.20025800 1425345998
+URL:/contents
+METHOD:GET
+start(url):0.14276600 1425346019
+start_controller(contents->index):0.14479200 1425346019
+start(mcontent->getTableHeader): 0.16807400 1425346019
+end(mcontent->getTableHeader): 0.24354900 1425346019
+start(mcontent->getAllData): 0.24358300 1425346019
+end(mcontent->getAllData): 0.26711600 1425346019
+start(mcontent->countAllData): 0.26714600 1425346019
+end(mcontent->countAllData): 0.26871800 1425346019
+end_controller(contents->index):0.27107500 1425346019
+end(url):0.27108000 1425346019
+URL:/favicon.ico
+METHOD:GET
+start(url):0.48301200 1425346019
+start_controller(favicon.ico->index):0.49135400 1425346019
+end_controller(favicon.ico->index):0.50762300 1425346019
+end(url):0.50763200 1425346019
+URL:/favicon.ico
+METHOD:GET
+start(url):0.55783500 1425346019
+start_controller(favicon.ico->index):0.55856700 1425346019
+end_controller(favicon.ico->index):0.61052500 1425346019
+end(url):0.61055400 1425346019
+URL:/manage/
+METHOD:GET
+start(url):0.62224400 1425346019
+start_controller(manage->index):0.62373400 1425346019
+end_controller(manage->index):0.64613600 1425346019
+end(url):0.64614700 1425346019
+URL:/manage/category
+METHOD:GET
+start(url):0.72849300 1425346020
+start_controller(manage->category):0.72903700 1425346020
+end_controller(manage->category):0.73805400 1425346020
+end(url):0.73806100 1425346020
+URL:/portal/listall
+METHOD:GET
+start(url):0.33322100 1425346022
+start(mmenu->setHome): 0.35954400 1425346022
+end(mmenu->setHome): 0.35957100 1425346022
+start_controller(portal->listall):0.35958400 1425346022
+start(mmenu->getMenu): 0.37242600 1425346022
+end(mmenu->getMenu): 0.37244400 1425346022
+start(mproject->getProjectList): 0.37573900 1425346022
+end(mproject->getProjectList): 0.38413000 1425346022
+end_controller(portal->listall):0.38651200 1425346022
+end(url):0.38651900 1425346022
+URL:/portal/create
+METHOD:GET
+start(url):0.06402200 1425346034
+start(mmenu->setHome): 0.07005500 1425346034
+end(mmenu->setHome): 0.07008100 1425346034
+start_controller(portal->create):0.07008900 1425346034
+start(mmenu->getMenu): 0.09328700 1425346034
+end(mmenu->getMenu): 0.09331100 1425346034
+end_controller(portal->create):0.09604700 1425346034
+end(url):0.09605300 1425346034
+URL:/portal/project_add
+METHOD:POST
+POST_BODY:projectname=+%E6%B5%8B%E8%AF%95+&description=%E6%BC%94%E7%A4%BA%E7%BB%99%E4%BA%BA%E7%9C%8B&author=%E5%88%98%E7%AD%96&writer=%E5%88%98%E7%AD%96&directory=show1&url=http%3A%2F%2Fshow1.localhost%2F&staticdata=s.dump&dynamicdata=d.dump
+start(url):0.90471500 1425346155
+start(mmenu->setHome): 0.91257700 1425346155
+end(mmenu->setHome): 0.91260700 1425346155
+start_controller(portal->project_add):0.91261500 1425346155
+start(mproject->addProject): 0.93801100 1425346155
+end(mproject->addProject): 0.93990700 1425346155
+end_controller(portal->project_add):0.93993500 1425346155
+end(url):0.93993800 1425346155
+URL:/portal/manage/id-16
+METHOD:GET
+start(url):0.95670800 1425346155
+start(mmenu->setHome): 0.95941400 1425346155
+end(mmenu->setHome): 0.95943000 1425346155
+start_controller(portal->manage):0.95943600 1425346155
+start(mtemplates->getTemplatesNames): 0.97500800 1425346155
+end(mtemplates->getTemplatesNames): 0.98371600 1425346155
+start(mproject->getTemplates): 0.98502700 1425346155
+end(mproject->getTemplates): 0.99078700 1425346155
+start(mproject->getPages): 0.99081100 1425346155
+end(mproject->getPages): 0.99359800 1425346155
+start(mdatagroup->getDatagroups): 0.99460000 1425346155
+end(mdatagroup->getDatagroups): 0.00077300 1425346156
+start(mproject->getAllProjectInfo): 0.00080300 1425346156
+end(mproject->getAllProjectInfo): 0.00148800 1425346156
+start(mproject->checkfile): 0.00152100 1425346156
+end(mproject->checkfile): 0.00167600 1425346156
+start(mproject->getProjectInfo): 0.00352800 1425346156
+end(mproject->getProjectInfo): 0.00401800 1425346156
+start(mmenu->getMenu): 0.00403700 1425346156
+end(mmenu->getMenu): 0.00406700 1425346156
+end_controller(portal->manage):0.00905500 1425346156
+end(url):0.00906200 1425346156
+URL:/portal/addSiteTemplate/id-16
+METHOD:GET
+start(url):0.86056900 1425346165
+start(mmenu->setHome): 0.86680400 1425346165
+end(mmenu->setHome): 0.86685900 1425346165
+start_controller(portal->addSiteTemplate):0.86688200 1425346165
+start(mproject->getAllProjectInfo): 0.90451000 1425346165
+end(mproject->getAllProjectInfo): 0.91006500 1425346165
+start(mproject->getTemplateById): 0.91011100 1425346165
+end(mproject->getTemplateById): 0.91014300 1425346165
+start(mproject->getProjectInfo): 0.91415900 1425346165
+end(mproject->getProjectInfo): 0.91590000 1425346165
+start(mmenu->getMenu): 0.91594900 1425346165
+end(mmenu->getMenu): 0.91599500 1425346165
+end_controller(portal->addSiteTemplate):0.16159000 1425346166
+end(url):0.16160600 1425346166
+URL:/templates/copyfrom
+METHOD:GET
+start(url):0.45758900 1425346169
+start_controller(templates->copyfrom):0.47086700 1425346169
+end_controller(templates->copyfrom):0.49037700 1425346169
+end(url):0.49038600 1425346169
+URL:/manage/
+METHOD:GET
+start(url):0.49729200 1425346169
+start_controller(manage->index):0.50410100 1425346169
+end_controller(manage->index):0.52154000 1425346169
+end(url):0.52154800 1425346169
+URL:/portal/addSiteTemplate/id-16
+METHOD:GET
+start(url):0.91262900 1425346171
+start(mmenu->setHome): 0.92161100 1425346171
+end(mmenu->setHome): 0.92168300 1425346171
+start_controller(portal->addSiteTemplate):0.92171500 1425346171
+start(mproject->getAllProjectInfo): 0.95121700 1425346171
+end(mproject->getAllProjectInfo): 0.96034900 1425346171
+start(mproject->getTemplateById): 0.96050400 1425346171
+end(mproject->getTemplateById): 0.96058600 1425346171
+start(mproject->getProjectInfo): 0.96279000 1425346171
+end(mproject->getProjectInfo): 0.96638500 1425346171
+start(mmenu->getMenu): 0.96642600 1425346171
+end(mmenu->getMenu): 0.96647100 1425346171
+end_controller(portal->addSiteTemplate):0.97127000 1425346171
+end(url):0.97128300 1425346171
+URL:/portal/doAddSiteTemplate/id-16
+METHOD:POST
+POST_BODY:from_tmplid=-1&id=-1&name=%E9%A6%96%E9%A1%B5&filename=index.tpl.html&content=%3Chtml%3E%0D%0A%3Cbody%3E%0D%0A%7B%24title-%3Etitle%7D%0D%0A%3C%2Fbody%3E%0D%0A%3C%2Fhtml%3E%0D%0A&type=
+start(url):0.56653800 1425346217
+start(mmenu->setHome): 0.57335000 1425346217
+end(mmenu->setHome): 0.57337400 1425346217
+start_controller(portal->doAddSiteTemplate):0.57338200 1425346217
+start(mproject->addTemplate): 0.59693300 1425346217
+end(mproject->addTemplate): 0.59820900 1425346217
+start(mproject->refreshDatalist): 0.59827400 1425346217
+end(mproject->refreshDatalist): 0.59969400 1425346217
+start(mdatagroup->updateDatagroup): 0.60050700 1425346217
+end(mdatagroup->updateDatagroup): 0.60136700 1425346217
+end_controller(portal->doAddSiteTemplate):0.60138300 1425346217
+end(url):0.60138500 1425346217
+URL:/portal/manage/id-16
+METHOD:GET
+start(url):0.61680300 1425346217
+start(mmenu->setHome): 0.61944900 1425346217
+end(mmenu->setHome): 0.61946300 1425346217
+start_controller(portal->manage):0.61946900 1425346217
+start(mtemplates->getTemplatesNames): 0.63506400 1425346217
+end(mtemplates->getTemplatesNames): 0.63575900 1425346217
+start(mproject->getTemplates): 0.63736100 1425346217
+end(mproject->getTemplates): 0.63795900 1425346217
+start(mproject->getPages): 0.63799200 1425346217
+end(mproject->getPages): 0.63856600 1425346217
+start(mdatagroup->getDatagroups): 0.63917300 1425346217
+end(mdatagroup->getDatagroups): 0.63986400 1425346217
+start(mproject->getAllProjectInfo): 0.63988900 1425346217
+end(mproject->getAllProjectInfo): 0.64042700 1425346217
+start(mproject->checkfile): 0.64045300 1425346217
+end(mproject->checkfile): 0.64168200 1425346217
+start(mproject->getProjectInfo): 0.64415600 1425346217
+end(mproject->getProjectInfo): 0.64465500 1425346217
+start(mmenu->getMenu): 0.64467900 1425346217
+end(mmenu->getMenu): 0.64470600 1425346217
+end_controller(portal->manage):0.65046300 1425346217
+end(url):0.65047200 1425346217
+URL:/portal/addpage/id-16
+METHOD:GET
+start(url):0.32319900 1425346220
+start(mmenu->setHome): 0.32592300 1425346220
+end(mmenu->setHome): 0.32594000 1425346220
+start_controller(portal->addpage):0.32594700 1425346220
+start(mproject->getProjectInfo): 0.35692200 1425346220
+end(mproject->getProjectInfo): 0.35740500 1425346220
+start(mproject->getTemplates): 0.35742100 1425346220
+end(mproject->getTemplates): 0.35784100 1425346220
+start(mproject->getProjectInfo): 0.35826400 1425346220
+end(mproject->getProjectInfo): 0.35857500 1425346220
+start(mmenu->getMenu): 0.35859300 1425346220
+end(mmenu->getMenu): 0.35861300 1425346220
+end_controller(portal->addpage):0.36059300 1425346220
+end(url):0.36059800 1425346220
+URL:/portal/doAddSitePage/id-16
+METHOD:POST
+POST_BODY:pageid=-1&pagename=%E9%A6%96%E9%A1%B5&filename=index.html&templateid=13&publishtype=static
+start(url):0.65225000 1425346230
+start(mmenu->setHome): 0.65808900 1425346230
+end(mmenu->setHome): 0.65811800 1425346230
+start_controller(portal->doAddSitePage):0.65813000 1425346230
+start(mproject->addPage): 0.68459300 1425346230
+end(mproject->addPage): 0.68567200 1425346230
+start(mproject->refreshDatalist): 0.68574100 1425346230
+end(mproject->refreshDatalist): 0.68995400 1425346230
+start(mdatagroup->updateDatagroup): 0.69111600 1425346230
+end(mdatagroup->updateDatagroup): 0.69295600 1425346230
+end_controller(portal->doAddSitePage):0.69298000 1425346230
+end(url):0.69298400 1425346230
+URL:/portal/manage/id-16
+METHOD:GET
+start(url):0.74268900 1425346233
+start(mmenu->setHome): 0.74791400 1425346233
+end(mmenu->setHome): 0.74793800 1425346233
+start_controller(portal->manage):0.74795000 1425346233
+start(mtemplates->getTemplatesNames): 0.75910300 1425346233
+end(mtemplates->getTemplatesNames): 0.75952100 1425346233
+start(mproject->getTemplates): 0.76093800 1425346233
+end(mproject->getTemplates): 0.76203400 1425346233
+start(mproject->getPages): 0.76209000 1425346233
+end(mproject->getPages): 0.76287500 1425346233
+start(mdatagroup->getDatagroups): 0.76332200 1425346233
+end(mdatagroup->getDatagroups): 0.76382200 1425346233
+start(mproject->getAllProjectInfo): 0.76384800 1425346233
+end(mproject->getAllProjectInfo): 0.76430500 1425346233
+start(mproject->checkfile): 0.76432900 1425346233
+end(mproject->checkfile): 0.76442100 1425346233
+start(mproject->getProjectInfo): 0.76550200 1425346233
+end(mproject->getProjectInfo): 0.76591000 1425346233
+start(mmenu->getMenu): 0.76592600 1425346233
+end(mmenu->getMenu): 0.76594700 1425346233
+end_controller(portal->manage):0.77087400 1425346233
+end(url):0.77089200 1425346233
+URL:/portal/editdatagroup/id-16/name-title
+METHOD:GET
+start(url):0.58776800 1425346247
+start(mmenu->setHome): 0.59322300 1425346247
+end(mmenu->setHome): 0.59325100 1425346247
+start_controller(portal->editdatagroup):0.59326200 1425346247
+start(mdatagroup->getDatagroupInfo): 0.61440800 1425346247
+end(mdatagroup->getDatagroupInfo): 0.61579900 1425346247
+start(mdatalist->getDatalist): 0.61749100 1425346247
+end(mdatalist->getDatalist): 0.62104300 1425346247
+start(mdatalist->getDatalist_count): 0.62108700 1425346247
+end(mdatalist->getDatalist_count): 0.62160000 1425346247
+start(mdatalist->getDatalist_first): 0.62162600 1425346247
+end(mdatalist->getDatalist_first): 0.62201200 1425346247
+start(mproject->getProjectInfo): 0.62377700 1425346247
+end(mproject->getProjectInfo): 0.62415900 1425346247
+start(mmenu->getMenu): 0.62417800 1425346247
+end(mmenu->getMenu): 0.62421000 1425346247
+end_controller(portal->editdatagroup):0.62853600 1425346247
+end(url):0.62854500 1425346247
+URL:/v/bootstrap3/fonts/glyphicons-halflings-regular.woff
+METHOD:GET
+start(url):0.72738700 1425346247
+start_controller(v->bootstrap3):0.73396400 1425346247
+end_controller(v->bootstrap3):0.74741100 1425346247
+end(url):0.74742100 1425346247
+URL:/manage/
+METHOD:GET
+start(url):0.79483700 1425346247
+start_controller(manage->index):0.79659100 1425346247
+end_controller(manage->index):0.81188700 1425346247
+end(url):0.81190000 1425346247
+URL:/v/bootstrap3/fonts/glyphicons-halflings-regular.ttf
+METHOD:GET
+start(url):0.82499200 1425346247
+start_controller(v->bootstrap3):0.82619900 1425346247
+end_controller(v->bootstrap3):0.84068000 1425346247
+end(url):0.84070700 1425346247
+URL:/manage/
+METHOD:GET
+start(url):0.85756000 1425346247
+start_controller(manage->index):0.85976700 1425346247
+end_controller(manage->index):0.87682200 1425346247
+end(url):0.87683400 1425346247
+URL:/portal/inputbox/id-16/name-title/dst-single
+METHOD:GET
+start(url):0.40402100 1425346250
+start(mmenu->setHome): 0.40905300 1425346250
+end(mmenu->setHome): 0.40908200 1425346250
+start_controller(portal->inputbox):0.40909500 1425346250
+end_controller(portal->inputbox):0.42644000 1425346250
+end(url):0.42645000 1425346250
+URL:/portal/pinput/id-16/name-title
+METHOD:POST
+POST_BODY:
+start(url):0.18691800 1425346301
+start(mmenu->setHome): 0.19150400 1425346301
+end(mmenu->setHome): 0.19155300 1425346301
+start_controller(portal->pinput):0.19157500 1425346301
+start(mdatalist->updateone): 0.23103000 1425346301
+end(mdatalist->updateone): 0.23164600 1425346301
+end_controller(portal->pinput):0.23167600 1425346301
+end(url):0.23167900 1425346301
+URL:/portal/editdatagroup/id-16/name-title
+METHOD:GET
+start(url):0.24761400 1425346301
+start(mmenu->setHome): 0.25290600 1425346301
+end(mmenu->setHome): 0.25293200 1425346301
+start_controller(portal->editdatagroup):0.25294100 1425346301
+start(mdatagroup->getDatagroupInfo): 0.26804300 1425346301
+end(mdatagroup->getDatagroupInfo): 0.26874200 1425346301
+start(mdatalist->getDatalist): 0.26950900 1425346301
+end(mdatalist->getDatalist): 0.27086800 1425346301
+start(mdatalist->getDatalist_count): 0.27091900 1425346301
+end(mdatalist->getDatalist_count): 0.27184000 1425346301
+start(mdatalist->getDatalist_first): 0.27189100 1425346301
+end(mdatalist->getDatalist_first): 0.27237900 1425346301
+start(mproject->getProjectInfo): 0.27399500 1425346301
+end(mproject->getProjectInfo): 0.27458500 1425346301
+start(mmenu->getMenu): 0.27464400 1425346301
+end(mmenu->getMenu): 0.27471200 1425346301
+end_controller(portal->editdatagroup):0.28159400 1425346301
+end(url):0.28162200 1425346301
+URL:/v/bootstrap3/fonts/glyphicons-halflings-regular.woff
+METHOD:GET
+start(url):0.37251200 1425346301
+start_controller(v->bootstrap3):0.37350300 1425346301
+end_controller(v->bootstrap3):0.38623400 1425346301
+end(url):0.38624600 1425346301
+URL:/manage/
+METHOD:GET
+start(url):0.45105900 1425346301
+start_controller(manage->index):0.45197900 1425346301
+end_controller(manage->index):0.46766000 1425346301
+end(url):0.46767900 1425346301
+URL:/v/bootstrap3/fonts/glyphicons-halflings-regular.ttf
+METHOD:GET
+start(url):0.47215600 1425346301
+start_controller(v->bootstrap3):0.47256600 1425346301
+end_controller(v->bootstrap3):0.48216800 1425346301
+end(url):0.48217600 1425346301
+URL:/manage/
+METHOD:GET
+start(url):0.48667000 1425346301
+start_controller(manage->index):0.48744700 1425346301
+end_controller(manage->index):0.50372100 1425346301
+end(url):0.50372900 1425346301
+URL:/portal/publish/id-16
+METHOD:GET
+start(url):0.27358300 1425346306
+start(mmenu->setHome): 0.27839000 1425346306
+end(mmenu->setHome): 0.27846600 1425346306
+start_controller(portal->publish):0.27850500 1425346306
+start(mproject->getAllProjectInfo): 0.28874100 1425346306
+end(mproject->getAllProjectInfo): 0.28927600 1425346306
+start(mpublish->setBasedir): 0.29560700 1425346306
+end(mpublish->setBasedir): 0.29563500 1425346306
+start(mdatalist->dumpToArray): 0.29615500 1425346306
+end(mdatalist->dumpToArray): 0.29681800 1425346306
+start(mpublish->publishFileContent): 0.29687500 1425346306
+end(mpublish->publishFileContent): 0.29718300 1425346306
+start(mproject->getProjectInfo): 0.29720200 1425346306
+end(mproject->getProjectInfo): 0.29810600 1425346306
+start(mpublish->publishFileContent): 0.29815500 1425346306
+end(mpublish->publishFileContent): 0.29846600 1425346306
+start(mproject->getPages): 0.29850500 1425346306
+end(mproject->getPages): 0.29969400 1425346306
+start(mproject->getTemplateById): 0.29974300 1425346306
+end(mproject->getTemplateById): 0.30001900 1425346306
+start(mpublish->publishFileContent): 0.30003400 1425346306
+end(mpublish->publishFileContent): 0.30025200 1425346306
+start(mproject->getTemplateFilename): 0.30026800 1425346306
+end(mproject->getTemplateFilename): 0.30054100 1425346306
+start(mpublish->publishStatic): 0.33668000 1425346306
+end(mpublish->publishStatic): 0.33681800 1425346306
+start(mdatalist->dumpImageNames): 0.33683300 1425346306
+end(mdatalist->dumpImageNames): 0.33766800 1425346306
+start(mpublish->publishImages): 0.33772500 1425346306
+end(mpublish->publishImages): 0.33787200 1425346306
+start(mproject->getAllProjectInfo): 0.33790300 1425346306
+end(mproject->getAllProjectInfo): 0.33872100 1425346306
+end_controller(portal->publish):0.33878400 1425346306
+end(url):0.33879300 1425346306
+URL:/portal/manage/id-16
+METHOD:GET
+start(url):0.25446600 1425346388
+start(mmenu->setHome): 0.25800900 1425346388
+end(mmenu->setHome): 0.25803800 1425346388
+start_controller(portal->manage):0.25805100 1425346388
+start(mtemplates->getTemplatesNames): 0.26813200 1425346388
+end(mtemplates->getTemplatesNames): 0.26855900 1425346388
+start(mproject->getTemplates): 0.26931400 1425346388
+end(mproject->getTemplates): 0.26970600 1425346388
+start(mproject->getPages): 0.26972800 1425346388
+end(mproject->getPages): 0.27013300 1425346388
+start(mdatagroup->getDatagroups): 0.27057000 1425346388
+end(mdatagroup->getDatagroups): 0.27135600 1425346388
+start(mproject->getAllProjectInfo): 0.27138800 1425346388
+end(mproject->getAllProjectInfo): 0.27183100 1425346388
+start(mproject->checkfile): 0.27185800 1425346388
+end(mproject->checkfile): 0.27190700 1425346388
+start(mproject->getProjectInfo): 0.27262400 1425346388
+end(mproject->getProjectInfo): 0.27310400 1425346388
+start(mmenu->getMenu): 0.27313300 1425346388
+end(mmenu->getMenu): 0.27315800 1425346388
+end_controller(portal->manage):0.27658900 1425346388
+end(url):0.27661000 1425346388
+URL:/portal/editSiteTemplate/id-16/templateid-13
+METHOD:GET
+start(url):0.29526300 1425346390
+start(mmenu->setHome): 0.30192600 1425346390
+end(mmenu->setHome): 0.30195400 1425346390
+start_controller(portal->editSiteTemplate):0.30196600 1425346390
+start(mproject->getAllProjectInfo): 0.31712700 1425346390
+end(mproject->getAllProjectInfo): 0.31768000 1425346390
+start(mproject->getTemplateById): 0.31769500 1425346390
+end(mproject->getTemplateById): 0.31806300 1425346390
+start(mproject->getProjectInfo): 0.31937300 1425346390
+end(mproject->getProjectInfo): 0.31969400 1425346390
+start(mmenu->getMenu): 0.31971200 1425346390
+end(mmenu->getMenu): 0.31973200 1425346390
+end_controller(portal->editSiteTemplate):0.32052300 1425346390
+end(url):0.32052700 1425346390
+URL:/portal/doAddSiteTemplate/id-16
+METHOD:POST
+POST_BODY:from_tmplid=&id=13&name=%E9%A6%96%E9%A1%B5&filename=index.tpl.html&content=%3Chtml%3E%0D%0A%3Cbody%3E%0D%0A%3CH1%3E%0D%0A%7B%24title-%3Etitle%7D%0D%0A%3C%2Fh1%3E%0D%0A%3C%2Fbody%3E%0D%0A%3C%2Fhtml%3E%0D%0A&type=
+start(url):0.90905800 1425346405
+start(mmenu->setHome): 0.91240900 1425346405
+end(mmenu->setHome): 0.91242800 1425346405
+start_controller(portal->doAddSiteTemplate):0.91243500 1425346405
+start(mproject->editTemplate): 0.92213200 1425346405
+end(mproject->editTemplate): 0.92867500 1425346405
+start(mproject->refreshDatalist): 0.92880700 1425346405
+end(mproject->refreshDatalist): 0.93075900 1425346405
+start(mdatagroup->updateDatagroup): 0.93196100 1425346405
+end(mdatagroup->updateDatagroup): 0.93375200 1425346405
+end_controller(portal->doAddSiteTemplate):0.93378300 1425346405
+end(url):0.93378700 1425346405
+URL:/portal/manage/id-16
+METHOD:GET
+start(url):0.94106400 1425346405
+start(mmenu->setHome): 0.94443700 1425346405
+end(mmenu->setHome): 0.94445900 1425346405
+start_controller(portal->manage):0.94446700 1425346405
+start(mtemplates->getTemplatesNames): 0.95325800 1425346405
+end(mtemplates->getTemplatesNames): 0.95370500 1425346405
+start(mproject->getTemplates): 0.95442100 1425346405
+end(mproject->getTemplates): 0.95480400 1425346405
+start(mproject->getPages): 0.95482500 1425346405
+end(mproject->getPages): 0.95517000 1425346405
+start(mdatagroup->getDatagroups): 0.95556400 1425346405
+end(mdatagroup->getDatagroups): 0.95594500 1425346405
+start(mproject->getAllProjectInfo): 0.95596000 1425346405
+end(mproject->getAllProjectInfo): 0.95619400 1425346405
+start(mproject->checkfile): 0.95620700 1425346405
+end(mproject->checkfile): 0.95623100 1425346405
+start(mproject->getProjectInfo): 0.95668800 1425346405
+end(mproject->getProjectInfo): 0.95701500 1425346405
+start(mmenu->getMenu): 0.95704500 1425346405
+end(mmenu->getMenu): 0.95706400 1425346405
+end_controller(portal->manage):0.95880300 1425346405
+end(url):0.95880900 1425346405
+URL:/portal/publish/id-16
+METHOD:GET
+start(url):0.14361700 1425346408
+start(mmenu->setHome): 0.15032600 1425346408
+end(mmenu->setHome): 0.15035600 1425346408
+start_controller(portal->publish):0.15036700 1425346408
+start(mproject->getAllProjectInfo): 0.16543100 1425346408
+end(mproject->getAllProjectInfo): 0.16688000 1425346408
+start(mpublish->setBasedir): 0.16745100 1425346408
+end(mpublish->setBasedir): 0.16747600 1425346408
+start(mdatalist->dumpToArray): 0.16821000 1425346408
+end(mdatalist->dumpToArray): 0.16901500 1425346408
+start(mpublish->publishFileContent): 0.16907100 1425346408
+end(mpublish->publishFileContent): 0.16933900 1425346408
+start(mproject->getProjectInfo): 0.16936200 1425346408
+end(mproject->getProjectInfo): 0.16977100 1425346408
+start(mpublish->publishFileContent): 0.16979600 1425346408
+end(mpublish->publishFileContent): 0.16989300 1425346408
+start(mproject->getPages): 0.16991100 1425346408
+end(mproject->getPages): 0.17105800 1425346408
+start(mproject->getTemplateById): 0.17113700 1425346408
+end(mproject->getTemplateById): 0.17239900 1425346408
+start(mpublish->publishFileContent): 0.17248700 1425346408
+end(mpublish->publishFileContent): 0.17293400 1425346408
+start(mproject->getTemplateFilename): 0.17296700 1425346408
+end(mproject->getTemplateFilename): 0.17347400 1425346408
+start(mpublish->publishStatic): 0.19886700 1425346408
+end(mpublish->publishStatic): 0.19920300 1425346408
+start(mdatalist->dumpImageNames): 0.19925400 1425346408
+end(mdatalist->dumpImageNames): 0.20039500 1425346408
+start(mpublish->publishImages): 0.20043700 1425346408
+end(mpublish->publishImages): 0.20050800 1425346408
+start(mproject->getAllProjectInfo): 0.20052700 1425346408
+end(mproject->getAllProjectInfo): 0.20102000 1425346408
+end_controller(portal->publish):0.20104800 1425346408
+end(url):0.20105100 1425346408
+URL:/portal/edit/id-16
+METHOD:GET
+start(url):0.96583200 1425346415
+start(mmenu->setHome): 0.96915000 1425346415
+end(mmenu->setHome): 0.96916800 1425346415
+start_controller(portal->edit):0.96917600 1425346415
+start(mproject->getProjectInfo): 0.98171300 1425346415
+end(mproject->getProjectInfo): 0.98224500 1425346415
+start(mmenu->getMenu): 0.98226500 1425346415
+end(mmenu->getMenu): 0.98228600 1425346415
+end_controller(portal->edit):0.98305200 1425346415
+end(url):0.98305600 1425346415
+URL:/portal/listall
+METHOD:GET
+start(url):0.38510500 1425346420
+start(mmenu->setHome): 0.38846700 1425346420
+end(mmenu->setHome): 0.38848900 1425346420
+start_controller(portal->listall):0.38849700 1425346420
+start(mmenu->getMenu): 0.39890600 1425346420
+end(mmenu->getMenu): 0.39892700 1425346420
+start(mproject->getProjectList): 0.40022600 1425346420
+end(mproject->getProjectList): 0.40087600 1425346420
+end_controller(portal->listall):0.40414800 1425346420
+end(url):0.40415900 1425346420
+URL:/portal/manage/id-16
+METHOD:GET
+start(url):0.65453500 1425346425
+start(mmenu->setHome): 0.65791700 1425346425
+end(mmenu->setHome): 0.65793800 1425346425
+start_controller(portal->manage):0.65794600 1425346425
+start(mtemplates->getTemplatesNames): 0.66623900 1425346425
+end(mtemplates->getTemplatesNames): 0.66662500 1425346425
+start(mproject->getTemplates): 0.66743000 1425346425
+end(mproject->getTemplates): 0.66785800 1425346425
+start(mproject->getPages): 0.66788000 1425346425
+end(mproject->getPages): 0.66827600 1425346425
+start(mdatagroup->getDatagroups): 0.66872400 1425346425
+end(mdatagroup->getDatagroups): 0.66916100 1425346425
+start(mproject->getAllProjectInfo): 0.66918300 1425346425
+end(mproject->getAllProjectInfo): 0.66956500 1425346425
+start(mproject->checkfile): 0.66958700 1425346425
+end(mproject->checkfile): 0.66962700 1425346425
+start(mproject->getProjectInfo): 0.67034100 1425346425
+end(mproject->getProjectInfo): 0.67077100 1425346425
+start(mmenu->getMenu): 0.67080400 1425346425
+end(mmenu->getMenu): 0.67083900 1425346425
+end_controller(portal->manage):0.67533600 1425346425
+end(url):0.67534500 1425346425
+URL:/portal/edit/id-16
+METHOD:GET
+start(url):0.75837300 1425346428
+start(mmenu->setHome): 0.76290900 1425346428
+end(mmenu->setHome): 0.76296400 1425346428
+start_controller(portal->edit):0.76298600 1425346428
+start(mproject->getProjectInfo): 0.77643900 1425346428
+end(mproject->getProjectInfo): 0.77700500 1425346428
+start(mmenu->getMenu): 0.77703100 1425346428
+end(mmenu->getMenu): 0.77705700 1425346428
+end_controller(portal->edit):0.77806500 1425346428
+end(url):0.77807400 1425346428
+URL:/portal/manage/id-16
+METHOD:GET
+start(url):0.53377700 1425346513
+start(mmenu->setHome): 0.53767600 1425346513
+end(mmenu->setHome): 0.53769400 1425346513
+start_controller(portal->manage):0.53770300 1425346513
+start(mtemplates->getTemplatesNames): 0.54876800 1425346513
+end(mtemplates->getTemplatesNames): 0.54923700 1425346513
+start(mproject->getTemplates): 0.55008800 1425346513
+end(mproject->getTemplates): 0.55049700 1425346513
+start(mproject->getPages): 0.55051700 1425346513
+end(mproject->getPages): 0.55093800 1425346513
+start(mdatagroup->getDatagroups): 0.55151600 1425346513
+end(mdatagroup->getDatagroups): 0.55196600 1425346513
+start(mproject->getAllProjectInfo): 0.55198600 1425346513
+end(mproject->getAllProjectInfo): 0.55229100 1425346513
+start(mproject->checkfile): 0.55230600 1425346513
+end(mproject->checkfile): 0.55233600 1425346513
+start(mproject->getProjectInfo): 0.55289400 1425346513
+end(mproject->getProjectInfo): 0.55322200 1425346513
+start(mmenu->getMenu): 0.55323800 1425346513
+end(mmenu->getMenu): 0.55325800 1425346513
+end_controller(portal->manage):0.55551300 1425346513
+end(url):0.55555600 1425346513
+URL:/portal/publish/id-16
+METHOD:GET
+start(url):0.70827400 1425346516
+start(mmenu->setHome): 0.71307900 1425346516
+end(mmenu->setHome): 0.71310600 1425346516
+start_controller(portal->publish):0.71311700 1425346516
+start(mproject->getAllProjectInfo): 0.72490800 1425346516
+end(mproject->getAllProjectInfo): 0.72552000 1425346516
+start(mpublish->setBasedir): 0.72591500 1425346516
+end(mpublish->setBasedir): 0.72593300 1425346516
+start(mdatalist->dumpToArray): 0.72672000 1425346516
+end(mdatalist->dumpToArray): 0.72846800 1425346516
+start(mpublish->publishFileContent): 0.72857400 1425346516
+end(mpublish->publishFileContent): 0.72915300 1425346516
+start(mproject->getProjectInfo): 0.72917900 1425346516
+end(mproject->getProjectInfo): 0.72962800 1425346516
+start(mpublish->publishFileContent): 0.72965600 1425346516
+end(mpublish->publishFileContent): 0.72977600 1425346516
+start(mproject->getPages): 0.72979300 1425346516
+end(mproject->getPages): 0.73042500 1425346516
+start(mproject->getTemplateById): 0.73045900 1425346516
+end(mproject->getTemplateById): 0.73084100 1425346516
+start(mpublish->publishFileContent): 0.73086700 1425346516
+end(mpublish->publishFileContent): 0.73109400 1425346516
+start(mproject->getTemplateFilename): 0.73111700 1425346516
+end(mproject->getTemplateFilename): 0.73149100 1425346516
+start(mpublish->publishStatic): 0.75797700 1425346516
+end(mpublish->publishStatic): 0.75812900 1425346516
+start(mdatalist->dumpImageNames): 0.75815000 1425346516
+end(mdatalist->dumpImageNames): 0.75878300 1425346516
+start(mpublish->publishImages): 0.75881100 1425346516
+end(mpublish->publishImages): 0.75886600 1425346516
+start(mproject->getAllProjectInfo): 0.75888500 1425346516
+end(mproject->getAllProjectInfo): 0.75935600 1425346516
+end_controller(portal->publish):0.75938700 1425346516
+end(url):0.75939100 1425346516
+URL:/portal/editSiteTemplate/id-16/templateid-13
+METHOD:GET
+start(url):0.48767100 1425346523
+start(mmenu->setHome): 0.49090400 1425346523
+end(mmenu->setHome): 0.49093200 1425346523
+start_controller(portal->editSiteTemplate):0.49094100 1425346523
+start(mproject->getAllProjectInfo): 0.50658800 1425346523
+end(mproject->getAllProjectInfo): 0.50709900 1425346523
+start(mproject->getTemplateById): 0.50711700 1425346523
+end(mproject->getTemplateById): 0.50734800 1425346523
+start(mproject->getProjectInfo): 0.50815200 1425346523
+end(mproject->getProjectInfo): 0.50850200 1425346523
+start(mmenu->getMenu): 0.50851700 1425346523
+end(mmenu->getMenu): 0.50853500 1425346523
+end_controller(portal->editSiteTemplate):0.50923200 1425346523
+end(url):0.50923700 1425346523
+URL:/portal/doAddSiteTemplate/id-16
+METHOD:POST
+POST_BODY:from_tmplid=&id=13&name=%E9%A6%96%E9%A1%B5&filename=index.tpl.html&content=%3Chtml%3E%0D%0A%3Cbody%3E%0D%0Ax%3CH1%3E%0D%0A%7B%24title-%3Etitle%7D%0D%0A%3C%2Fh1%3E%0D%0A%3Chr%3E%0D%0A%3Ca+href%3D%27%7B%24link-%3Eurl%7D%27%3E%7B%24link-%3Etitle%7D%3C%2Fa%3E%0D%0A%3C%2Fbody%3E%0D%0A%3C%2Fhtml%3E%0D%0A&type=
+start(url):0.21660100 1425346572
+start(mmenu->setHome): 0.22059700 1425346572
+end(mmenu->setHome): 0.22062100 1425346572
+start_controller(portal->doAddSiteTemplate):0.22063200 1425346572
+start(mproject->editTemplate): 0.23170500 1425346572
+end(mproject->editTemplate): 0.23831300 1425346572
+start(mproject->refreshDatalist): 0.23839200 1425346572
+end(mproject->refreshDatalist): 0.23937900 1425346572
+start(mdatagroup->updateDatagroup): 0.23979200 1425346572
+end(mdatagroup->updateDatagroup): 0.24108500 1425346572
+end_controller(portal->doAddSiteTemplate):0.24110000 1425346572
+end(url):0.24110300 1425346572
+URL:/portal/manage/id-16
+METHOD:GET
+start(url):0.24602800 1425346572
+start(mmenu->setHome): 0.24967400 1425346572
+end(mmenu->setHome): 0.24973100 1425346572
+start_controller(portal->manage):0.24975300 1425346572
+start(mtemplates->getTemplatesNames): 0.25913100 1425346572
+end(mtemplates->getTemplatesNames): 0.25973500 1425346572
+start(mproject->getTemplates): 0.26144500 1425346572
+end(mproject->getTemplates): 0.26204800 1425346572
+start(mproject->getPages): 0.26208400 1425346572
+end(mproject->getPages): 0.26266400 1425346572
+start(mdatagroup->getDatagroups): 0.26318400 1425346572
+end(mdatagroup->getDatagroups): 0.26366900 1425346572
+start(mproject->getAllProjectInfo): 0.26368700 1425346572
+end(mproject->getAllProjectInfo): 0.26397500 1425346572
+start(mproject->checkfile): 0.26399100 1425346572
+end(mproject->checkfile): 0.26402000 1425346572
+start(mproject->getProjectInfo): 0.26459200 1425346572
+end(mproject->getProjectInfo): 0.26499000 1425346572
+start(mmenu->getMenu): 0.26501200 1425346572
+end(mmenu->getMenu): 0.26503600 1425346572
+end_controller(portal->manage):0.26937800 1425346572
+end(url):0.26938600 1425346572
+URL:/portal/editdatagroup/id-16/name-link
+METHOD:GET
+start(url):0.74627500 1425346577
+start(mmenu->setHome): 0.74944700 1425346577
+end(mmenu->setHome): 0.74946800 1425346577
+start_controller(portal->editdatagroup):0.74947600 1425346577
+start(mdatagroup->getDatagroupInfo): 0.76051900 1425346577
+end(mdatagroup->getDatagroupInfo): 0.76113100 1425346577
+start(mdatalist->getDatalist): 0.76168900 1425346577
+end(mdatalist->getDatalist): 0.76232500 1425346577
+start(mdatalist->getDatalist_count): 0.76235600 1425346577
+end(mdatalist->getDatalist_count): 0.76317600 1425346577
+start(mdatalist->getDatalist_first): 0.76322900 1425346577
+end(mdatalist->getDatalist_first): 0.76418400 1425346577
+start(mproject->getProjectInfo): 0.76605900 1425346577
+end(mproject->getProjectInfo): 0.76642300 1425346577
+start(mmenu->getMenu): 0.76644200 1425346577
+end(mmenu->getMenu): 0.76646400 1425346577
+end_controller(portal->editdatagroup):0.76892300 1425346577
+end(url):0.76893500 1425346577
+URL:/v/bootstrap3/fonts/glyphicons-halflings-regular.woff
+METHOD:GET
+start(url):0.85605000 1425346577
+start_controller(v->bootstrap3):0.85741200 1425346577
+end_controller(v->bootstrap3):0.87157200 1425346577
+end(url):0.87158400 1425346577
+URL:/manage/
+METHOD:GET
+start(url):0.92286100 1425346577
+start_controller(manage->index):0.92334100 1425346577
+end_controller(manage->index):0.93502900 1425346577
+end(url):0.93503900 1425346577
+URL:/v/bootstrap3/fonts/glyphicons-halflings-regular.ttf
+METHOD:GET
+start(url):0.94130600 1425346577
+start_controller(v->bootstrap3):0.94255900 1425346577
+end_controller(v->bootstrap3):0.95647500 1425346577
+end(url):0.95648700 1425346577
+URL:/manage/
+METHOD:GET
+start(url):0.97234300 1425346577
+start_controller(manage->index):0.97283400 1425346577
+end_controller(manage->index):0.98337400 1425346577
+end(url):0.98338100 1425346577
+URL:/portal/inputbox/id-16/name-link/dst-single
+METHOD:GET
+start(url):0.53539500 1425346579
+start(mmenu->setHome): 0.54098100 1425346579
+end(mmenu->setHome): 0.54100900 1425346579
+start_controller(portal->inputbox):0.54102100 1425346579
+end_controller(portal->inputbox):0.55435500 1425346579
+end(url):0.55436500 1425346579
+URL:/portal/pinput/id-16/name-link
+METHOD:POST
+POST_BODY:
+start(url):0.98641500 1425346591
+start(mmenu->setHome): 0.98959300 1425346591
+end(mmenu->setHome): 0.98961400 1425346591
+start_controller(portal->pinput):0.98962200 1425346591
+start(mdatalist->updateone): 0.99807600 1425346591
+end(mdatalist->updateone): 0.99912200 1425346591
+end_controller(portal->pinput):0.99915700 1425346591
+end(url):0.99916900 1425346591
+URL:/portal/editdatagroup/id-16/name-link
+METHOD:GET
+start(url):0.03410800 1425346592
+start(mmenu->setHome): 0.03824200 1425346592
+end(mmenu->setHome): 0.03826800 1425346592
+start_controller(portal->editdatagroup):0.03827700 1425346592
+start(mdatagroup->getDatagroupInfo): 0.05560900 1425346592
+end(mdatagroup->getDatagroupInfo): 0.05620900 1425346592
+start(mdatalist->getDatalist): 0.05670100 1425346592
+end(mdatalist->getDatalist): 0.05728200 1425346592
+start(mdatalist->getDatalist_count): 0.05730200 1425346592
+end(mdatalist->getDatalist_count): 0.05769100 1425346592
+start(mdatalist->getDatalist_first): 0.05771000 1425346592
+end(mdatalist->getDatalist_first): 0.05807400 1425346592
+start(mproject->getProjectInfo): 0.05960700 1425346592
+end(mproject->getProjectInfo): 0.06010200 1425346592
+start(mmenu->getMenu): 0.06012800 1425346592
+end(mmenu->getMenu): 0.06015300 1425346592
+end_controller(portal->editdatagroup):0.06436300 1425346592
+end(url):0.06441300 1425346592
+URL:/v/bootstrap3/fonts/glyphicons-halflings-regular.woff
+METHOD:GET
+start(url):0.15882300 1425346592
+start_controller(v->bootstrap3):0.15968900 1425346592
+end_controller(v->bootstrap3):0.17734900 1425346592
+end(url):0.17735800 1425346592
+URL:/manage/
+METHOD:GET
+start(url):0.23315600 1425346592
+start_controller(manage->index):0.23394200 1425346592
+end_controller(manage->index):0.24312700 1425346592
+end(url):0.24313500 1425346592
+URL:/v/bootstrap3/fonts/glyphicons-halflings-regular.ttf
+METHOD:GET
+start(url):0.24829300 1425346592
+start_controller(v->bootstrap3):0.25025100 1425346592
+end_controller(v->bootstrap3):0.26299600 1425346592
+end(url):0.26300800 1425346592
+URL:/manage/
+METHOD:GET
+start(url):0.27549200 1425346592
+start_controller(manage->index):0.27599700 1425346592
+end_controller(manage->index):0.28907800 1425346592
+end(url):0.28908700 1425346592
+URL:/portal/publish/id-16
+METHOD:GET
+start(url):0.41672900 1425346594
+start(mmenu->setHome): 0.42142700 1425346594
+end(mmenu->setHome): 0.42145300 1425346594
+start_controller(portal->publish):0.42146300 1425346594
+start(mproject->getAllProjectInfo): 0.42973400 1425346594
+end(mproject->getAllProjectInfo): 0.43059800 1425346594
+start(mpublish->setBasedir): 0.43123400 1425346594
+end(mpublish->setBasedir): 0.43126400 1425346594
+start(mdatalist->dumpToArray): 0.43194200 1425346594
+end(mdatalist->dumpToArray): 0.43265400 1425346594
+start(mpublish->publishFileContent): 0.43270400 1425346594
+end(mpublish->publishFileContent): 0.43296900 1425346594
+start(mproject->getProjectInfo): 0.43299500 1425346594
+end(mproject->getProjectInfo): 0.43344100 1425346594
+start(mpublish->publishFileContent): 0.43346300 1425346594
+end(mpublish->publishFileContent): 0.43355200 1425346594
+start(mproject->getPages): 0.43356500 1425346594
+end(mproject->getPages): 0.43396900 1425346594
+start(mproject->getTemplateById): 0.43398500 1425346594
+end(mproject->getTemplateById): 0.43424900 1425346594
+start(mpublish->publishFileContent): 0.43426400 1425346594
+end(mpublish->publishFileContent): 0.43441100 1425346594
+start(mproject->getTemplateFilename): 0.43442700 1425346594
+end(mproject->getTemplateFilename): 0.43469700 1425346594
+start(mpublish->publishStatic): 0.45596800 1425346594
+end(mpublish->publishStatic): 0.45613200 1425346594
+start(mdatalist->dumpImageNames): 0.45615100 1425346594
+end(mdatalist->dumpImageNames): 0.45660700 1425346594
+start(mpublish->publishImages): 0.45662500 1425346594
+end(mpublish->publishImages): 0.45667000 1425346594
+start(mproject->getAllProjectInfo): 0.45668000 1425346594
+end(mproject->getAllProjectInfo): 0.45725900 1425346594
+end_controller(portal->publish):0.45733700 1425346594
+end(url):0.45734700 1425346594
+URL:/portal/publish/id-16
+METHOD:GET
+start(url):0.32580200 1425346637
+start(mmenu->setHome): 0.33064600 1425346637
+end(mmenu->setHome): 0.33067300 1425346637
+start_controller(portal->publish):0.33068400 1425346637
+start(mproject->getAllProjectInfo): 0.34445200 1425346637
+end(mproject->getAllProjectInfo): 0.34501000 1425346637
+start(mpublish->setBasedir): 0.34543900 1425346637
+end(mpublish->setBasedir): 0.34546900 1425346637
+start(mdatalist->dumpToArray): 0.34586300 1425346637
+end(mdatalist->dumpToArray): 0.34640800 1425346637
+start(mpublish->publishFileContent): 0.34643900 1425346637
+end(mpublish->publishFileContent): 0.34661200 1425346637
+start(mproject->getProjectInfo): 0.34662500 1425346637
+end(mproject->getProjectInfo): 0.34693900 1425346637
+start(mpublish->publishFileContent): 0.34696800 1425346637
+end(mpublish->publishFileContent): 0.34702500 1425346637
+start(mproject->getPages): 0.34703500 1425346637
+end(mproject->getPages): 0.34743900 1425346637
+start(mproject->getTemplateById): 0.34745800 1425346637
+end(mproject->getTemplateById): 0.34768800 1425346637
+start(mpublish->publishFileContent): 0.34770200 1425346637
+end(mpublish->publishFileContent): 0.34782300 1425346637
+start(mproject->getTemplateFilename): 0.34783800 1425346637
+end(mproject->getTemplateFilename): 0.34805600 1425346637
+start(mpublish->publishStatic): 0.37306900 1425346637
+end(mpublish->publishStatic): 0.37326600 1425346637
+start(mdatalist->dumpImageNames): 0.37328800 1425346637
+end(mdatalist->dumpImageNames): 0.37376900 1425346637
+start(mpublish->publishImages): 0.37378500 1425346637
+end(mpublish->publishImages): 0.37382900 1425346637
+start(mproject->getAllProjectInfo): 0.37383900 1425346637
+end(mproject->getAllProjectInfo): 0.37411700 1425346637
+end_controller(portal->publish):0.37414000 1425346637
+end(url):0.37414200 1425346637
+URL:/portal/manage/id-16
+METHOD:GET
+start(url):0.44036300 1425346668
+start(mmenu->setHome): 0.44361700 1425346668
+end(mmenu->setHome): 0.44363900 1425346668
+start_controller(portal->manage):0.44364700 1425346668
+start(mtemplates->getTemplatesNames): 0.45305000 1425346668
+end(mtemplates->getTemplatesNames): 0.45346600 1425346668
+start(mproject->getTemplates): 0.45419000 1425346668
+end(mproject->getTemplates): 0.45460600 1425346668
+start(mproject->getPages): 0.45462400 1425346668
+end(mproject->getPages): 0.45501600 1425346668
+start(mdatagroup->getDatagroups): 0.45541000 1425346668
+end(mdatagroup->getDatagroups): 0.45580500 1425346668
+start(mproject->getAllProjectInfo): 0.45581800 1425346668
+end(mproject->getAllProjectInfo): 0.45609200 1425346668
+start(mproject->checkfile): 0.45610600 1425346668
+end(mproject->checkfile): 0.45613300 1425346668
+start(mproject->getProjectInfo): 0.45661200 1425346668
+end(mproject->getProjectInfo): 0.45692600 1425346668
+start(mmenu->getMenu): 0.45694200 1425346668
+end(mmenu->getMenu): 0.45696100 1425346668
+end_controller(portal->manage):0.45867100 1425346668
+end(url):0.45867700 1425346668
+URL:/portal/editpage/id-16/pageid-15
+METHOD:GET
+start(url):0.60942400 1425346671
+start(mmenu->setHome): 0.61383100 1425346671
+end(mmenu->setHome): 0.61384800 1425346671
+start_controller(portal->editpage):0.61385400 1425346671
+start(mproject->getProjectInfo): 0.62860600 1425346671
+end(mproject->getProjectInfo): 0.62902700 1425346671
+start(mproject->getTemplates): 0.62904400 1425346671
+end(mproject->getTemplates): 0.62935100 1425346671
+start(mproject->getPage): 0.62936500 1425346671
+end(mproject->getPage): 0.62968100 1425346671
+start(mproject->getProjectInfo): 0.63594900 1425346671
+end(mproject->getProjectInfo): 0.63633400 1425346671
+start(mmenu->getMenu): 0.63635400 1425346671
+end(mmenu->getMenu): 0.63637500 1425346671
+end_controller(portal->editpage):0.63739000 1425346671
+end(url):0.63739900 1425346671
+URL:/portal/doAddSitePage/id-16
+METHOD:POST
+POST_BODY:pageid=15&pagename=%E9%A6%96%E9%A1%B5&filename=index.html&templateid=13&publishtype=dynamic
+start(url):0.19184000 1425346675
+start(mmenu->setHome): 0.19537700 1425346675
+end(mmenu->setHome): 0.19540300 1425346675
+start_controller(portal->doAddSitePage):0.19541500 1425346675
+start(mproject->editPage): 0.20694800 1425346675
+end(mproject->editPage): 0.20771500 1425346675
+start(mproject->refreshDatalist): 0.20779800 1425346675
+end(mproject->refreshDatalist): 0.20875800 1425346675
+start(mdatagroup->updateDatagroup): 0.20920200 1425346675
+end(mdatagroup->updateDatagroup): 0.21101300 1425346675
+end_controller(portal->doAddSitePage):0.21104200 1425346675
+end(url):0.21104800 1425346675
+URL:/portal/manage/id-16
+METHOD:GET
+start(url):0.24434900 1425346678
+start(mmenu->setHome): 0.24854300 1425346678
+end(mmenu->setHome): 0.24856500 1425346678
+start_controller(portal->manage):0.24857300 1425346678
+start(mtemplates->getTemplatesNames): 0.25757300 1425346678
+end(mtemplates->getTemplatesNames): 0.25799200 1425346678
+start(mproject->getTemplates): 0.25904200 1425346678
+end(mproject->getTemplates): 0.25953500 1425346678
+start(mproject->getPages): 0.25955800 1425346678
+end(mproject->getPages): 0.25988100 1425346678
+start(mdatagroup->getDatagroups): 0.26031800 1425346678
+end(mdatagroup->getDatagroups): 0.26071400 1425346678
+start(mproject->getAllProjectInfo): 0.26073000 1425346678
+end(mproject->getAllProjectInfo): 0.26098800 1425346678
+start(mproject->checkfile): 0.26100300 1425346678
+end(mproject->checkfile): 0.26102800 1425346678
+start(mproject->getProjectInfo): 0.26151200 1425346678
+end(mproject->getProjectInfo): 0.26178300 1425346678
+start(mmenu->getMenu): 0.26179900 1425346678
+end(mmenu->getMenu): 0.26181900 1425346678
+end_controller(portal->manage):0.26420400 1425346678
+end(url):0.26421700 1425346678
+URL:/portal/editSiteTemplate/id-16/templateid-13
+METHOD:GET
+start(url):0.09133900 1425346734
+start(mmenu->setHome): 0.09599600 1425346734
+end(mmenu->setHome): 0.09601400 1425346734
+start_controller(portal->editSiteTemplate):0.09602100 1425346734
+start(mproject->getAllProjectInfo): 0.10770600 1425346734
+end(mproject->getAllProjectInfo): 0.10900600 1425346734
+start(mproject->getTemplateById): 0.10905600 1425346734
+end(mproject->getTemplateById): 0.10984300 1425346734
+start(mproject->getProjectInfo): 0.11138600 1425346734
+end(mproject->getProjectInfo): 0.11187600 1425346734
+start(mmenu->getMenu): 0.11190200 1425346734
+end(mmenu->getMenu): 0.11193400 1425346734
+end_controller(portal->editSiteTemplate):0.11309900 1425346734
+end(url):0.11310500 1425346734
+URL:/portal/doAddSiteTemplate/id-16
+METHOD:POST
+POST_BODY:from_tmplid=&id=13&name=%E9%A6%96%E9%A1%B5&filename=index.tpl.html&content=%3Chtml%3E%0D%0A%3Cbody%3E%0D%0A%3CH1%3E%0D%0A%7B%24title-%3Etitle+showname%3D%27%E9%A6%96%E9%A1%B5%E6%A0%87%E9%A2%98%27%7D%0D%0A%3C%2Fh1%3E%0D%0A%3Chr%3E%0D%0A%3Ca+href%3D%27%7B%24link-%3Eurl%7D%27%3E%7B%24link-%3Etitle%7D%3C%2Fa%3E%0D%0A%3C%2Fbody%3E%0D%0A%3C%2Fhtml%3E%0D%0A&type=
+start(url):0.75646800 1425346746
+start(mmenu->setHome): 0.75962800 1425346746
+end(mmenu->setHome): 0.75964900 1425346746
+start_controller(portal->doAddSiteTemplate):0.75965700 1425346746
+start(mproject->editTemplate): 0.77066400 1425346746
+end(mproject->editTemplate): 0.77766000 1425346746
+start(mproject->refreshDatalist): 0.77774400 1425346746
+end(mproject->refreshDatalist): 0.77867700 1425346746
+start(mdatagroup->updateDatagroup): 0.77903400 1425346746
+end(mdatagroup->updateDatagroup): 0.78054600 1425346746
+end_controller(portal->doAddSiteTemplate):0.78056700 1425346746
+end(url):0.78057000 1425346746
+URL:/portal/manage/id-16
+METHOD:GET
+start(url):0.78844600 1425346746
+start(mmenu->setHome): 0.79132700 1425346746
+end(mmenu->setHome): 0.79136400 1425346746
+start_controller(portal->manage):0.79137400 1425346746
+start(mtemplates->getTemplatesNames): 0.79893400 1425346746
+end(mtemplates->getTemplatesNames): 0.79938000 1425346746
+start(mproject->getTemplates): 0.80021800 1425346746
+end(mproject->getTemplates): 0.80067100 1425346746
+start(mproject->getPages): 0.80069500 1425346746
+end(mproject->getPages): 0.80109000 1425346746
+start(mdatagroup->getDatagroups): 0.80157600 1425346746
+end(mdatagroup->getDatagroups): 0.80218600 1425346746
+start(mproject->getAllProjectInfo): 0.80221000 1425346746
+end(mproject->getAllProjectInfo): 0.80274700 1425346746
+start(mproject->checkfile): 0.80280300 1425346746
+end(mproject->checkfile): 0.80288500 1425346746
+start(mproject->getProjectInfo): 0.80424900 1425346746
+end(mproject->getProjectInfo): 0.80521400 1425346746
+start(mmenu->getMenu): 0.80526600 1425346746
+end(mmenu->getMenu): 0.80528600 1425346746
+end_controller(portal->manage):0.80710400 1425346746
+end(url):0.80711100 1425346746
+URL:/portal/editdatagroup/id-16/name-link
+METHOD:GET
+start(url):0.53008000 1425346749
+start(mmenu->setHome): 0.53278800 1425346749
+end(mmenu->setHome): 0.53280300 1425346749
+start_controller(portal->editdatagroup):0.53280900 1425346749
+start(mdatagroup->getDatagroupInfo): 0.54429900 1425346749
+end(mdatagroup->getDatagroupInfo): 0.54527300 1425346749
+start(mdatalist->getDatalist): 0.54631700 1425346749
+end(mdatalist->getDatalist): 0.54786000 1425346749
+start(mdatalist->getDatalist_count): 0.54791500 1425346749
+end(mdatalist->getDatalist_count): 0.54860500 1425346749
+start(mdatalist->getDatalist_first): 0.54862000 1425346749
+end(mdatalist->getDatalist_first): 0.54896300 1425346749
+start(mproject->getProjectInfo): 0.55048600 1425346749
+end(mproject->getProjectInfo): 0.55102300 1425346749
+start(mmenu->getMenu): 0.55105200 1425346749
+end(mmenu->getMenu): 0.55108900 1425346749
+end_controller(portal->editdatagroup):0.55362000 1425346749
+end(url):0.55363100 1425346749
+URL:/v/bootstrap3/fonts/glyphicons-halflings-regular.woff
+METHOD:GET
+start(url):0.61697300 1425346749
+start_controller(v->bootstrap3):0.61744700 1425346749
+end_controller(v->bootstrap3):0.62958800 1425346749
+end(url):0.62960000 1425346749
+URL:/manage/
+METHOD:GET
+start(url):0.67799500 1425346749
+start_controller(manage->index):0.67884100 1425346749
+end_controller(manage->index):0.69020000 1425346749
+end(url):0.69020800 1425346749
+URL:/v/bootstrap3/fonts/glyphicons-halflings-regular.ttf
+METHOD:GET
+start(url):0.69605400 1425346749
+start_controller(v->bootstrap3):0.69642400 1425346749
+end_controller(v->bootstrap3):0.70385500 1425346749
+end(url):0.70386200 1425346749
+URL:/manage/
+METHOD:GET
+start(url):0.72099700 1425346749
+start_controller(manage->index):0.72154500 1425346749
+end_controller(manage->index):0.73465400 1425346749
+end(url):0.73466200 1425346749
+URL:/portal/manage/id-16
+METHOD:GET
+start(url):0.43140800 1425346751
+start(mmenu->setHome): 0.43546900 1425346751
+end(mmenu->setHome): 0.43549300 1425346751
+start_controller(portal->manage):0.43550200 1425346751
+start(mtemplates->getTemplatesNames): 0.44617100 1425346751
+end(mtemplates->getTemplatesNames): 0.44663000 1425346751
+start(mproject->getTemplates): 0.44741100 1425346751
+end(mproject->getTemplates): 0.44795900 1425346751
+start(mproject->getPages): 0.44798100 1425346751
+end(mproject->getPages): 0.44840300 1425346751
+start(mdatagroup->getDatagroups): 0.44884400 1425346751
+end(mdatagroup->getDatagroups): 0.44929800 1425346751
+start(mproject->getAllProjectInfo): 0.44931400 1425346751
+end(mproject->getAllProjectInfo): 0.44961800 1425346751
+start(mproject->checkfile): 0.44963500 1425346751
+end(mproject->checkfile): 0.44966200 1425346751
+start(mproject->getProjectInfo): 0.45013500 1425346751
+end(mproject->getProjectInfo): 0.45041000 1425346751
+start(mmenu->getMenu): 0.45042800 1425346751
+end(mmenu->getMenu): 0.45044800 1425346751
+end_controller(portal->manage):0.45221100 1425346751
+end(url):0.45221700 1425346751
+URL:/portal/renamebox/id-16/name-link/showname-link/uname-link
+METHOD:GET
+start(url):0.72447200 1425346753
+start(mmenu->setHome): 0.72980800 1425346753
+end(mmenu->setHome): 0.72983500 1425346753
+start_controller(portal->renamebox):0.72984700 1425346753
+end_controller(portal->renamebox):0.74512400 1425346753
+end(url):0.74513300 1425346753
+URL:/portal/renamebox/id-16/name-title/showname-%E9%A6%96%E9%A1%B5%E6%A0%87%E9%A2%98/uname-title
+METHOD:GET
+start(url):0.63244500 1425346758
+start(mmenu->setHome): 0.63812600 1425346758
+end(mmenu->setHome): 0.63815400 1425346758
+start_controller(portal->renamebox):0.63816700 1425346758
+end_controller(portal->renamebox):0.64947300 1425346758
+end(url):0.64948300 1425346758
+URL:/portal/jupdatedg/id-16/name-title
+METHOD:POST
+POST_BODY:key=userdefinedname&value=%E9%A6%96%E9%A1%B5%E6%A0%87%E9%A2%98
+start(url):0.32824700 1425346761
+start(mmenu->setHome): 0.33173600 1425346761
+end(mmenu->setHome): 0.33176800 1425346761
+start_controller(portal->jupdatedg):0.33178300 1425346761
+start(mdatagroup->updateDatagroupInfo): 0.34314800 1425346761
+end(mdatagroup->updateDatagroupInfo): 0.34544400 1425346761
+end_controller(portal->jupdatedg):0.34548800 1425346761
+end(url):0.34549300 1425346761
+URL:/portal/manage/id-16
+METHOD:GET
+start(url):0.35350100 1425346761
+start(mmenu->setHome): 0.35901600 1425346761
+end(mmenu->setHome): 0.35903700 1425346761
+start_controller(portal->manage):0.35904500 1425346761
+start(mtemplates->getTemplatesNames): 0.36628100 1425346761
+end(mtemplates->getTemplatesNames): 0.36701400 1425346761
+start(mproject->getTemplates): 0.36785600 1425346761
+end(mproject->getTemplates): 0.36830500 1425346761
+start(mproject->getPages): 0.36832700 1425346761
+end(mproject->getPages): 0.36870200 1425346761
+start(mdatagroup->getDatagroups): 0.36911800 1425346761
+end(mdatagroup->getDatagroups): 0.36957300 1425346761
+start(mproject->getAllProjectInfo): 0.36959000 1425346761
+end(mproject->getAllProjectInfo): 0.36990800 1425346761
+start(mproject->checkfile): 0.36992400 1425346761
+end(mproject->checkfile): 0.36995400 1425346761
+start(mproject->getProjectInfo): 0.37046900 1425346761
+end(mproject->getProjectInfo): 0.37077300 1425346761
+start(mmenu->getMenu): 0.37078900 1425346761
+end(mmenu->getMenu): 0.37080800 1425346761
+end_controller(portal->manage):0.37287800 1425346761
+end(url):0.37289200 1425346761
+URL:/portal/editdatagroup/id-16/name-title
+METHOD:GET
+start(url):0.50781800 1425346767
+start(mmenu->setHome): 0.51315000 1425346767
+end(mmenu->setHome): 0.51318000 1425346767
+start_controller(portal->editdatagroup):0.51319300 1425346767
+start(mdatagroup->getDatagroupInfo): 0.52250000 1425346767
+end(mdatagroup->getDatagroupInfo): 0.52308300 1425346767
+start(mdatalist->getDatalist): 0.52355200 1425346767
+end(mdatalist->getDatalist): 0.52404500 1425346767
+start(mdatalist->getDatalist_count): 0.52406500 1425346767
+end(mdatalist->getDatalist_count): 0.52440900 1425346767
+start(mdatalist->getDatalist_first): 0.52442900 1425346767
+end(mdatalist->getDatalist_first): 0.52480500 1425346767
+start(mproject->getProjectInfo): 0.52619900 1425346767
+end(mproject->getProjectInfo): 0.52657600 1425346767
+start(mmenu->getMenu): 0.52660000 1425346767
+end(mmenu->getMenu): 0.52662700 1425346767
+end_controller(portal->editdatagroup):0.52896200 1425346767
+end(url):0.52897900 1425346767
+URL:/v/bootstrap3/fonts/glyphicons-halflings-regular.woff
+METHOD:GET
+start(url):0.62448500 1425346767
+start_controller(v->bootstrap3):0.62494900 1425346767
+end_controller(v->bootstrap3):0.64075400 1425346767
+end(url):0.64076600 1425346767
+URL:/manage/
+METHOD:GET
+start(url):0.71582300 1425346767
+start_controller(manage->index):0.71640300 1425346767
+end_controller(manage->index):0.72799900 1425346767
+end(url):0.72800600 1425346767
+URL:/v/bootstrap3/fonts/glyphicons-halflings-regular.ttf
+METHOD:GET
+start(url):0.73447400 1425346767
+start_controller(v->bootstrap3):0.73497800 1425346767
+end_controller(v->bootstrap3):0.74450700 1425346767
+end(url):0.74451600 1425346767
+URL:/manage/
+METHOD:GET
+start(url):0.75652700 1425346767
+start_controller(manage->index):0.75701700 1425346767
+end_controller(manage->index):0.76927100 1425346767
+end(url):0.76928600 1425346767
+URL:/portal/manage/id-16
+METHOD:GET
+start(url):0.10616200 1425346783
+start(mmenu->setHome): 0.11137100 1425346783
+end(mmenu->setHome): 0.11140200 1425346783
+start_controller(portal->manage):0.11141600 1425346783
+start(mtemplates->getTemplatesNames): 0.12070200 1425346783
+end(mtemplates->getTemplatesNames): 0.12115100 1425346783
+start(mproject->getTemplates): 0.12200200 1425346783
+end(mproject->getTemplates): 0.12251800 1425346783
+start(mproject->getPages): 0.12254000 1425346783
+end(mproject->getPages): 0.12300600 1425346783
+start(mdatagroup->getDatagroups): 0.12339000 1425346783
+end(mdatagroup->getDatagroups): 0.12384600 1425346783
+start(mproject->getAllProjectInfo): 0.12386100 1425346783
+end(mproject->getAllProjectInfo): 0.12416400 1425346783
+start(mproject->checkfile): 0.12418100 1425346783
+end(mproject->checkfile): 0.12420800 1425346783
+start(mproject->getProjectInfo): 0.12469700 1425346783
+end(mproject->getProjectInfo): 0.12508200 1425346783
+start(mmenu->getMenu): 0.12510100 1425346783
+end(mmenu->getMenu): 0.12512200 1425346783
+end_controller(portal->manage):0.12691500 1425346783
+end(url):0.12692100 1425346783
+URL:/portal/editSiteTemplate/id-16/templateid-13
+METHOD:GET
+start(url):0.58211300 1425346817
+start(mmenu->setHome): 0.58500300 1425346817
+end(mmenu->setHome): 0.58502800 1425346817
+start_controller(portal->editSiteTemplate):0.58503900 1425346817
+start(mproject->getAllProjectInfo): 0.59871600 1425346817
+end(mproject->getAllProjectInfo): 0.59928300 1425346817
+start(mproject->getTemplateById): 0.59930300 1425346817
+end(mproject->getTemplateById): 0.59967800 1425346817
+start(mproject->getProjectInfo): 0.60056100 1425346817
+end(mproject->getProjectInfo): 0.60093200 1425346817
+start(mmenu->getMenu): 0.60095100 1425346817
+end(mmenu->getMenu): 0.60097100 1425346817
+end_controller(portal->editSiteTemplate):0.60184100 1425346817
+end(url):0.60184800 1425346817
+URL:/portal/doAddSiteTemplate/id-16
+METHOD:POST
+POST_BODY:from_tmplid=&id=13&name=%E9%A6%96%E9%A1%B5&filename=index.tpl.html&content=%3Chtml%3E%0D%0A%3Cbody%3E%0D%0A%3CH1%3E%0D%0A%7B%24title-%3Etitle+showname%3D%27%E9%A6%96%E9%A1%B5%E6%A0%87%E9%A2%98%27%7D%0D%0A%3C%2Fh1%3E%0D%0A%3Chr%3E%0D%0A%3Ca+href%3D%27%7B%24link-%3Eurl%7D%27%3E%0D%0A++++%3Cimg+src%3D%27%7B%24link-%3Eimg%7D%27%3E%0D%0A%3C%2Fa%3E%0D%0A%3C%2Fbody%3E%0D%0A%3C%2Fhtml%3E%0D%0A&type=
+start(url):0.07414300 1425346871
+start(mmenu->setHome): 0.07890200 1425346871
+end(mmenu->setHome): 0.07892800 1425346871
+start_controller(portal->doAddSiteTemplate):0.07894000 1425346871
+start(mproject->editTemplate): 0.09080500 1425346871
+end(mproject->editTemplate): 0.09650800 1425346871
+start(mproject->refreshDatalist): 0.09664100 1425346871
+end(mproject->refreshDatalist): 0.09862600 1425346871
+start(mdatagroup->updateDatagroup): 0.09976300 1425346871
+end(mdatagroup->updateDatagroup): 0.10272100 1425346871
+end_controller(portal->doAddSiteTemplate):0.10275600 1425346871
+end(url):0.10276100 1425346871
+URL:/portal/manage/id-16
+METHOD:GET
+start(url):0.10867100 1425346871
+start(mmenu->setHome): 0.11200700 1425346871
+end(mmenu->setHome): 0.11202600 1425346871
+start_controller(portal->manage):0.11203400 1425346871
+start(mtemplates->getTemplatesNames): 0.12288600 1425346871
+end(mtemplates->getTemplatesNames): 0.12331700 1425346871
+start(mproject->getTemplates): 0.12403400 1425346871
+end(mproject->getTemplates): 0.12448600 1425346871
+start(mproject->getPages): 0.12450300 1425346871
+end(mproject->getPages): 0.12489700 1425346871
+start(mdatagroup->getDatagroups): 0.12529100 1425346871
+end(mdatagroup->getDatagroups): 0.12570800 1425346871
+start(mproject->getAllProjectInfo): 0.12572200 1425346871
+end(mproject->getAllProjectInfo): 0.12609000 1425346871
+start(mproject->checkfile): 0.12610600 1425346871
+end(mproject->checkfile): 0.12613200 1425346871
+start(mproject->getProjectInfo): 0.12660600 1425346871
+end(mproject->getProjectInfo): 0.12690200 1425346871
+start(mmenu->getMenu): 0.12692000 1425346871
+end(mmenu->getMenu): 0.12694000 1425346871
+end_controller(portal->manage):0.12873300 1425346871
+end(url):0.12873900 1425346871
+URL:/portal/editdatagroup/id-16/name-link
+METHOD:GET
+start(url):0.08288200 1425346875
+start(mmenu->setHome): 0.08810000 1425346875
+end(mmenu->setHome): 0.08812600 1425346875
+start_controller(portal->editdatagroup):0.08813800 1425346875
+start(mdatagroup->getDatagroupInfo): 0.10050100 1425346875
+end(mdatagroup->getDatagroupInfo): 0.10118100 1425346875
+start(mdatalist->getDatalist): 0.10171500 1425346875
+end(mdatalist->getDatalist): 0.10233100 1425346875
+start(mdatalist->getDatalist_count): 0.10235300 1425346875
+end(mdatalist->getDatalist_count): 0.10263800 1425346875
+start(mdatalist->getDatalist_first): 0.10265900 1425346875
+end(mdatalist->getDatalist_first): 0.10299300 1425346875
+start(mproject->getProjectInfo): 0.10425000 1425346875
+end(mproject->getProjectInfo): 0.10459000 1425346875
+start(mmenu->getMenu): 0.10460600 1425346875
+end(mmenu->getMenu): 0.10462500 1425346875
+end_controller(portal->editdatagroup):0.10652900 1425346875
+end(url):0.10653800 1425346875
+URL:/v/bootstrap3/fonts/glyphicons-halflings-regular.woff
+METHOD:GET
+start(url):0.17496300 1425346875
+start_controller(v->bootstrap3):0.17564000 1425346875
+end_controller(v->bootstrap3):0.18896200 1425346875
+end(url):0.18897300 1425346875
+URL:/manage/
+METHOD:GET
+start(url):0.29726000 1425346875
+start_controller(manage->index):0.29808000 1425346875
+end_controller(manage->index):0.31217100 1425346875
+end(url):0.31217900 1425346875
+URL:/v/bootstrap3/fonts/glyphicons-halflings-regular.ttf
+METHOD:GET
+start(url):0.31749400 1425346875
+start_controller(v->bootstrap3):0.31786400 1425346875
+end_controller(v->bootstrap3):0.32662600 1425346875
+end(url):0.32664200 1425346875
+URL:/manage/
+METHOD:GET
+start(url):0.35096300 1425346875
+start_controller(manage->index):0.35169600 1425346875
+end_controller(manage->index):0.36607200 1425346875
+end(url):0.36608200 1425346875
+URL:/portal/editbox/id-16/name-link/dataid-1
+METHOD:GET
+start(url):0.82101900 1425346877
+start(mmenu->setHome): 0.82577800 1425346877
+end(mmenu->setHome): 0.82580200 1425346877
+start_controller(portal->editbox):0.82581300 1425346877
+start(mdatalist->getDataDetail): 0.83807500 1425346877
+end(mdatalist->getDataDetail): 0.83863700 1425346877
+start(mdatalist->selectone): 0.83865700 1425346877
+end(mdatalist->selectone): 0.83893700 1425346877
+end_controller(portal->editbox):0.84472600 1425346877
+end(url):0.84473800 1425346877
+URL:/portal/peditData/id-16/name-link
+METHOD:POST
+POST_BODY:
+start(url):0.64922900 1425346883
+start(mmenu->setHome): 0.65361700 1425346883
+end(mmenu->setHome): 0.65367400 1425346883
+start_controller(portal->peditData):0.65369700 1425346883
+start(mdatalist->updateone): 0.66999200 1425346883
+end(mdatalist->updateone): 0.67103900 1425346883
+end_controller(portal->peditData):0.67106600 1425346883
+end(url):0.67106900 1425346883
+URL:/portal/editdatagroup/id-16/name-link
+METHOD:GET
+start(url):0.67812700 1425346883
+start(mmenu->setHome): 0.68298100 1425346883
+end(mmenu->setHome): 0.68300300 1425346883
+start_controller(portal->editdatagroup):0.68301100 1425346883
+start(mdatagroup->getDatagroupInfo): 0.69092900 1425346883
+end(mdatagroup->getDatagroupInfo): 0.69199000 1425346883
+start(mdatalist->getDatalist): 0.69246000 1425346883
+end(mdatalist->getDatalist): 0.69332800 1425346883
+start(mdatalist->getDatalist_count): 0.69335300 1425346883
+end(mdatalist->getDatalist_count): 0.69374100 1425346883
+start(mdatalist->getDatalist_first): 0.69376300 1425346883
+end(mdatalist->getDatalist_first): 0.69419600 1425346883
+start(mproject->getProjectInfo): 0.69807400 1425346883
+end(mproject->getProjectInfo): 0.69881700 1425346883
+start(mmenu->getMenu): 0.69884500 1425346883
+end(mmenu->getMenu): 0.69887900 1425346883
+end_controller(portal->editdatagroup):0.70404000 1425346883
+end(url):0.70405000 1425346883
+URL:/v/bootstrap3/fonts/glyphicons-halflings-regular.woff
+METHOD:GET
+start(url):0.76789600 1425346883
+start_controller(v->bootstrap3):0.76833100 1425346883
+end_controller(v->bootstrap3):0.77647200 1425346883
+end(url):0.77648100 1425346883
+URL:/manage/
+METHOD:GET
+start(url):0.81959200 1425346883
+start_controller(manage->index):0.82043900 1425346883
+end_controller(manage->index):0.83063800 1425346883
+end(url):0.83064600 1425346883
+URL:/v/bootstrap3/fonts/glyphicons-halflings-regular.ttf
+METHOD:GET
+start(url):0.83838100 1425346883
+start_controller(v->bootstrap3):0.83876600 1425346883
+end_controller(v->bootstrap3):0.85071800 1425346883
+end(url):0.85074800 1425346883
+URL:/manage/
+METHOD:GET
+start(url):0.86273800 1425346883
+start_controller(manage->index):0.86326800 1425346883
+end_controller(manage->index):0.87103300 1425346883
+end(url):0.87104000 1425346883
+URL:/portal/publish/id-16
+METHOD:GET
+start(url):0.21896600 1425346886
+start(mmenu->setHome): 0.22237200 1425346886
+end(mmenu->setHome): 0.22240300 1425346886
+start_controller(portal->publish):0.22241700 1425346886
+start(mproject->getAllProjectInfo): 0.23072900 1425346886
+end(mproject->getAllProjectInfo): 0.23161100 1425346886
+start(mpublish->setBasedir): 0.23226900 1425346886
+end(mpublish->setBasedir): 0.23228800 1425346886
+start(mdatalist->dumpToArray): 0.23298400 1425346886
+end(mdatalist->dumpToArray): 0.23359000 1425346886
+start(mpublish->publishFileContent): 0.23362100 1425346886
+end(mpublish->publishFileContent): 0.23388600 1425346886
+start(mproject->getProjectInfo): 0.23390500 1425346886
+end(mproject->getProjectInfo): 0.23426400 1425346886
+start(mpublish->publishFileContent): 0.23428300 1425346886
+end(mpublish->publishFileContent): 0.23435600 1425346886
+start(mproject->getPages): 0.23436800 1425346886
+end(mproject->getPages): 0.23475000 1425346886
+start(mproject->getTemplateById): 0.23476600 1425346886
+end(mproject->getTemplateById): 0.23503700 1425346886
+start(mpublish->publishFileContent): 0.23505300 1425346886
+end(mpublish->publishFileContent): 0.23519400 1425346886
+start(mproject->getTemplateFilename): 0.23521000 1425346886
+end(mproject->getTemplateFilename): 0.23550500 1425346886
+start(mpublish->publishDynamic): 0.23552900 1425346886
+end(mpublish->publishDynamic): 0.23720600 1425346886
+start(mpublish->publishManual): 0.23728700 1425346886
+end(mpublish->publishManual): 0.23794400 1425346886
+start(mdatalist->dumpImageNames): 0.23801500 1425346886
+end(mdatalist->dumpImageNames): 0.23914200 1425346886
+start(mpublish->publishImages): 0.23916000 1425346886
+end(mpublish->publishImages): 0.23920800 1425346886
+start(mproject->getAllProjectInfo): 0.23921800 1425346886
+end(mproject->getAllProjectInfo): 0.23949100 1425346886
+end_controller(portal->publish):0.23951400 1425346886
+end(url):0.23951600 1425346886

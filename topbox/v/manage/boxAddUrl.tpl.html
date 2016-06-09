@@ -1,0 +1,100 @@
+
+<!-- Modal -->
+{*
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+*}  
+
+<form class='form-horizontal' name='dd' action="/cockroach/doAddTodo" method="POST">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">抓取新的URL</h4>
+      </div>
+      <div class="modal-body">
+
+          <div class="form-group row">
+              <label for="inputURL" class="col-xs-2 control-label">游戏:</label>
+              <div class="col-xs-9">
+              <input id='boxurl' name='game' type="text" class="form-control" id="inputGame" placeholder="游戏名">
+              </div>
+          </div>
+
+          <div class="form-group row">
+              <label for="inputURL" class="col-xs-2 control-label">内容标题:</label>
+              <div class="col-xs-9">
+              <input id='boxurl' name='title' type="text" class="form-control" id="inputTitle" placeholder="http://">
+              </div>
+          </div>
+
+          <div class="form-group row">
+              <label for="inputURL" class="col-xs-2 control-label">URL:</label>
+              <div class="col-xs-9">
+              <input id='boxurl' name='url' type="url" class="form-control" id="inputURL" placeholder="http://">
+              </div>
+          </div>
+
+          <div class="form-group row">
+              <label for="inputURL" class="col-xs-2 control-label">TYPE:</label>
+              <label class="radio-inline col-xs-1"></label>
+              <label class="radio-inline col-xs-2">
+                <input type="radio" id="inlineCheckbox1" name='type' value="list">列表 &nbsp;
+              </label>
+              <label class="radio-inline col-xs-2">                
+                <input type="radio" id="inlineCheckbox2" name='type' value="content">最终页
+              </label>
+          </div>
+
+          <div class="form-group row">
+              <label for="inputURL" class="col-xs-2 control-label">延迟加载:</label>
+              <label class="radio-inline col-xs-1"></label>
+              <label class="radio-inline col-xs-2">
+                <input type="radio" id="inlineCheckbox1" name='lazyload' value="1">是
+              </label>
+              <label class="radio-inline col-xs-2">
+                <input type="radio" id="inlineCheckbox2" name='lazyload' value="0">否
+              </label>
+          </div>
+
+          <div class="form-group row">
+              <label for="inputURL" class="col-xs-2 control-label">是否会有更新:</label>
+              <label class="radio-inline col-xs-1"></label>
+              <label class="radio-inline col-xs-2">
+                <input type="radio" id="inlineCheckbox1" name='willupdate' value="1">是
+              </label>
+              <label class="radio-inline col-xs-2">
+                <input type="radio" id="inlineCheckbox2" name='willupdate' value="0">否
+              </label>
+          </div>
+
+          <div class="form-group row">
+              <label for="sourceauthor" class="col-xs-2 control-label">原作者:</label>
+              <div class="col-xs-9">
+              <input id='sourceauthor' name='sourceauthor' type="text" class="form-control" id="author" placeholder="">
+              </div>
+          </div>
+          <div class="form-group row">
+              <label for="sourceauthor" class="col-xs-2 control-label">标签:</label>
+              <div class="col-xs-9">
+              <input id='sourceauthor' name='tags' type="text" class="form-control" id="author" placeholder="">
+              </div>
+          </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <button type="submit" class="btn btn-primary" >确认提交</button>
+      </div>
+    </div>
+  </div>
+</form>
+
+{*
+</div>
+*}
+<script type='text/javascript'>
+$(document).ready(function(){
+  $('#boxurl').val($('#url').val());
+});
+
+</script>

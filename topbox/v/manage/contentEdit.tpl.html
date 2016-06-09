@@ -1,0 +1,109 @@
+<form class='form-horizontal' name='condEdit' action="/contents/saveContent" method="POST">
+<div class="modal-dialog">
+	<div class="modal-content">
+		<div class="modal-header">
+			<h5>编辑内容</h5>
+		</div>
+		<div class="modal-body">
+
+			<div class="input-group col-md-12">
+		        <span class="input-group-addon" style="width:100px"> id </span>
+		        <input type="text" name="id" class="form-control" value="{$records['id']}"></input>
+			</div>
+
+			<div class="input-group col-md-12">
+		        <span class="input-group-addon" style="width:100px"> url </span>
+		        <input type="text" name="url" class="form-control" value="{$records['url']}"></input>
+			</div>
+
+			<div class="input-group col-md-12">
+		        <span class="input-group-addon" style="width:100px"> title </span>
+		        <input type="text" name="title" class="form-control" value="{$records['title']}"></input>
+			</div>
+
+			<div class="input-group col-md-12">
+		        <span class="input-group-addon" style="width:100px"> cover </span>
+		        <input type="text" name="cover" class="form-control" value="{$records['cover']}"></input>
+			</div>
+
+			<div class="input-group col-md-12">
+		        <span class="input-group-addon" style="width:100px"> shortname </span>
+		        <input type="text" name="shortname" class="form-control" value="{$records['shortname']}"></input>
+			</div>
+
+			<div class="input-group col-md-12">
+		        <span class="input-group-addon" style="width:100px"> substract </span>
+		        <input type="text" name="substract" class="form-control" value="{$records['substract']}"></input>
+			</div>
+
+			<div class="input-group col-md-12">
+		        <span class="input-group-addon" style="width:100px"> content </span>
+		        <input type="text" name="content" class="form-control" value="{$records['content']}"></input>
+			</div>
+
+			<div class="input-group col-md-12">
+		        <span class="input-group-addon" style="width:100px"> contenttype </span>
+		        <input type="text" name="contenttype" class="form-control" value="{$records['contenttype']}"></input>
+			</div>
+
+			<div class="input-group col-md-12">
+		        <span class="input-group-addon" style="width:100px"> file </span>
+		        <input type="text" name="file" class="form-control" value="{$records['file']}"></input>
+			</div>
+
+			<div class="input-group col-md-12">
+		        <span class="input-group-addon" style="width:100px"> width </span>
+		        <input type="text" name="width" class="form-control" value="{$records['width']}"></input>
+			</div>
+
+			<div class="input-group col-md-12">
+		        <span class="input-group-addon" style="width:100px"> height </span>
+		        <input type="text" name="height" class="form-control" value="{$records['height']}"></input>
+			</div>
+
+			<div class="input-group col-md-12">
+		        <span class="input-group-addon" style="width:100px"> resolution </span>
+		        <input type="text" name="resolution" class="form-control" value="{$records['resolution']}"></input>
+			</div>
+
+			<div class="input-group col-md-12">
+		        <span class="input-group-addon" style="width:100px"> size </span>
+		        <input type="text" name="size" class="form-control" value="{$records['size']}"></input>
+			</div>
+
+			<div class="input-group col-md-12">
+		        <span class="input-group-addon" style="width:100px"> length </span>
+		        <input type="text" name="length" class="form-control" value="{$records['length']}"></input>
+			</div>
+
+			<div class="input-group col-md-12">
+		        <span class="input-group-addon" style="width:100px"> source </span>
+		        <input type="text" name="source" class="form-control" value="{$records['source']}"></input>
+			</div>
+
+			<div class="input-group col-md-12">
+		        <span class="input-group-addon" style="width:100px"> sourcetype </span>
+		        <input type="text" name="sourcetype" class="form-control" value="{$records['sourcetype']}"></input>
+			</div>
+
+			<div class="input-group col-md-12">
+		        <span class="input-group-addon" style="width:100px"> author </span>
+		        <input type="text" name="author" class="form-control" value="{$records['author']}"></input>
+			</div>
+
+			<div class="input-group col-md-12">
+		        <span class="input-group-addon" style="width:100px"> editor </span>
+		        <input type="text" name="editor" class="form-control" value="{$records['editor']}"></input>
+			</div>
+
+		</div>
+		
+		<div class="modal-footer">
+			<button type="submit" class="btn btn-primary"> Save Changes </a>
+			<button class="btn btn-primary" type="button" data-dismiss="modal">Close</button>
+		</div>
+
+
+	</div>
+</div>
+</form>

@@ -1,0 +1,101 @@
+
+
+
+  	    <div id="showTag" style="font-size:20px">
+	    	<table class="table table-bordered">
+			      <thead>
+			      <tr style="background-color:#C0ECF8">
+			        <th> id        </th>
+			        <th> name      </th>
+			        <th> type      </th>
+			        <th> operation </th>
+			      </tr>
+			      </thead>
+
+			      <tbody id="content">
+			      {foreach from=$tags item=tag}
+				      <tr style="font-size:15px; ">
+				        <td class="editCell{$tag['id']}">{$tag['id']}</td>   
+				        <td class="editCell{$tag['id']}">{$tag['name']}</td>   
+				        <td class="editCell{$tag['id']}">{$tag['type']}</td>   
+				        <td id="btns" >
+				        	<a href="tags/removeTag" class="btn btn-default" onclick="return removeTag('{$tag['name']}');" >删除</a>
+	  						<a href="#add" class="btn btn-default" onclick="editTag('{$tag['id']}');" id="editBtn{$tag['id']}">编辑</a>
+	  						<a href="tags/saveTag" class="btn btn-default" id="saveBtn{$tag['id']}" style="display:none">保存</a>
+				        </td>
+				      </tr>
+			      {/foreach}
+			      </tbody>
+
+			</table>
+		</div>
+
+	
+
+	 <div style="margin-top:50px">
+	  	<a href="tags/addTag" class="btn btn-default">添加标签</a>
+	  	<a href="tags/saveAll" class="btn btn-default">保存修改</a>
+	 </div>
+
+
+<script type='text/javascript'>
+
+
+	// function body_ready(){
+
+		function removeTag(name){
+			var remove = window.confirm("确定要删除标签\""+name+"\"吗?");
+			return remove;
+		}
+
+
+		function editTag(id){ 
+			$("#editBtn"+id).hide();
+			$("#saveBtn"+id).show();
+
+
+			var content; 
+			var className = ".editCell"+id;
+
+			$(className).click(function(){ 
+					var clickObj = $(this); 
+					content = clickObj.html(); 
+					changeToEdit(clickObj); 
+				});
+
+				function changeToEdit(node){ 
+					node.html(""); 
+					var origWidth = node.css("width");
+
+					var inputObj = $("<input type='text'/>"); 
+					inputObj.css("height",node.css("font-size")+2) 
+					.css("width", origWidth)
+					.val(content).appendTo(node) 
+					;
+
+					inputObj.parent().css("width", origWidth);
+					
+					inputObj.click(function(){ 
+						return false;  //覆盖掉之前的click方法逻辑
+					}).keyup(function(event){ 
+						var keyvalue = event.which; 
+						if(keyvalue==13){ 
+							node.html(node.children("input").val()); 
+						} 
+
+						if(keyvalue==27){ 
+							node.html(content); 
+						} 
+					}).blur(function(){ 
+						if(node.children("input").val()!=content){ 
+							node.html(node.children("input").val()); 
+						}else{ 
+							node.html(content); 
+						} 
+					}); 
+				} 
+		}
+	// }
+
+
+</script>

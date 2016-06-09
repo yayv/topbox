@@ -1,0 +1,15 @@
+安装说明
+
+1. 需要网站根目录下包含以下几个文件:
+    /js/jquery-1.2.6.js
+    /js/thickbox.js
+    /js/thickbox.css
+    /image/close.gif    # 这个文件名可以在 thickbox.css 文件中修改i
+    
+2. topicsys系统可以作为虚拟主机的根也可以做某一级路径    
+
+3. 修改 config.php 文件，针对使用的虚拟主机的域名填写配置选项
+
+4. 记得修改数据库的主机名称，如果使用别名，记得做好hosts
+
+

@@ -1,0 +1,51 @@
+
+<div class='row form-horizontal'>
+	<div class="form-group">
+		<label for="inputURL" class="col-xs-1 control-label">URL:</label>
+		<div class="col-xs-10">
+			<input id='url' name='url' type="url" class="form-control col-xs-10" id="inputURL" placeholder="http://">
+		</div>
+		<a href='#infoModal' data-url='/cockroach/boxAddUrl' class='btn btn-primary' data-toggle="modal" data-target="#infoModal">添加</a>
+
+	</div>
+</div>
+
+<div class='row'>
+
+<div class='col-xs-12'>
+<div class='col-xs-1 text-right'><a href='/cockroach/rules'>规则:</a></div>
+<ul class="nav nav-pills col-xs-10">
+	{section loop=$status name=i}
+	<li class="label label-default">{$status[i].host}</li>
+	{/section}
+</ul>
+</div>
+
+<div class='col-xs-12'> &nbsp; </div>
+
+<div class='col-xs-1'> </div>
+<div class='list-group col-xs-10'>
+		{section loop=$rules name=i}
+		<div class='list-group-item row'>
+			<span class="badge">{$rules[i].host}</span>
+			{$rules[i].id} : <a target='_blank' href='{$urls[i].url}'>{$rules[i].url_rule}</a>
+		</div>
+		{/section}
+</div>
+<div class='col-xs-1'> </div>
+</div>
+
+<div class='row text-center'>
+<ul class="pagination">
+{if $pages}
+	<li><a href="#">&laquo;</a></li>
+{section loop=$pages name=j}
+  <li><a href="/cockroach/?start={$pages[j]}">{($pages[j]-$pages[j]%20)/20+1}</a></li>
+{/section}
+  <li><a href="#">&raquo;</a></li>
+{/if}
+</ul>
+</div>
+
+
+

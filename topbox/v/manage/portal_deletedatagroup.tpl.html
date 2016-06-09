@@ -1,0 +1,62 @@
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">删除数据组</h4>
+      </div>
+      <div class="modal-body">
+        
+
+      <h3>确认要删除<strong style="color:#0066CC">{$data->showname}</strong>吗？</h3>
+      <h5>此数据组有{$count->nums}条数据</h5>
+
+
+      </div><!-- end modal-body -->
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <input  type='button' class='btn btn-primary' name=''  onclick='dodelete("{$home}/portal/deletedatagroup/id-{$id}/name-{$dgname}")' value='确认删除'/>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+
+
+<!------------- -->
+<script type="text/javascript">
+{literal}
+function dodelete(url)
+{
+    $.getJSON(url,function(data){
+        window.parent.location = window.parent.location ;
+    });
+}
+
+function resize(me)
+{
+    x = 360 - 50;
+    y = 320 - 50;
+
+    var imageWidth = me.width;
+    var imageHeight = me.height;
+    if (imageWidth > x) {
+      imageHeight = imageHeight * (x / imageWidth); 
+      imageWidth = x; 
+      if (imageHeight > y) { 
+        imageWidth = imageWidth * (y / imageHeight); 
+        imageHeight = y; 
+      }
+    } else if (imageHeight > y) { 
+      imageWidth = imageWidth * (y / imageHeight); 
+      imageHeight = y; 
+      if (imageWidth > x) { 
+        imageHeight = imageHeight * (x / imageWidth); 
+        imageWidth = x;
+      }
+    }
+ 
+    $('#showimg').attr('width', imageWidth);
+    $('#showimg').attr('height', imageHeight);
+}
+{/literal}
+</script> 
+

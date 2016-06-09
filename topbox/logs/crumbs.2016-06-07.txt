@@ -1,0 +1,36 @@
+URL:/
+METHOD:GET
+start(url):0.87265400 1465303092
+start_controller(defaultcontroller->index):0.88825400 1465303092
+CallStack is NOT empty
+defaultcontroller->index
+URL:/favicon.ico
+METHOD:GET
+start(url):0.02865400 1465303093
+start_controller(favicon.ico->index):0.02865400 1465303093
+CallStack is NOT empty
+favicon.ico->index
+URL:/favicon.ico
+METHOD:GET
+start(url):0.04425400 1465303093
+start_controller(favicon.ico->index):0.04425400 1465303093
+CallStack is NOT empty
+favicon.ico->index
+URL:/
+METHOD:GET
+start(url):0.62480900 1465304184
+start_controller(defaultcontroller->index):0.62480900 1465304184
+CallStack is NOT empty
+defaultcontroller->index
+URL:/
+METHOD:GET
+start(url):0.64247200 1465304333
+start_controller(defaultcontroller->index):0.64247200 1465304333
+CallStack is NOT empty
+defaultcontroller->index
+URL:/
+METHOD:GET
+start(url):0.49834900 1465304377
+start_controller(defaultcontroller->index):0.49834900 1465304377
+CallStack is NOT empty
+defaultcontroller->index

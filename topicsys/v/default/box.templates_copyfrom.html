@@ -1,0 +1,38 @@
+<div id="step">
+    <div class="t">
+      	<div class="t">
+      		<div class="t"></div>
+      	</div>
+    </div>
+    <div class="m">
+		  所有的基础模板:
+		  <ul type=none>
+		  {foreach from=$templates key=k item=v}
+				<li style='border-bottom:solid 1px red;'><div style='width:240px;float:left;'>{$v->name}</div><div style='float:right;'>[<a target='_blank'  href='{$home}/common_templates/{$v->preview}'>效果页</a>|<a href='javascript:void(0)' onclick='copyto({$v->templateid})'>复制</a>]</div><div style='clear:both;'></div></li>
+		  {/foreach}
+		  </ul>
+          <div style='clear:both;'></div>
+         </div>   
+		 
+		 </div>
+    <div class="b">
+      	<div class="b">
+      		<div class="b"></div>
+      	</div>
+    </div>
+</div>
+<script type='text/javascript'>
+var home = "{$home}";
+{literal}
+function copyto(id)
+{
+	if(window.parent.setvalues)
+	{
+		window.parent.setvalues(home+'/templates/jgetcontent/id-'+id);
+		window.parent.tb_remove();
+	}
+	else
+		alert('对不起，本页应该在框架内使用');
+}
+{/literal}
+</script>

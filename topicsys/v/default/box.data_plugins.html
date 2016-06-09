@@ -1,0 +1,57 @@
+<div id="step">
+    <div class="t">
+      	<div class="t">
+      		<div class="t"></div>
+      	</div>
+    </div>
+    <div class="m">
+
+    <form method='post' action='' enctype='multipart/form-data'>
+        <input type='hidden' id='projectid' name='projectid' value='{$projcetid}'>
+        <input type='hidden' id='dgname' name='dgname' value='{$name}'>
+        <input type='hidden' id='typeid' name='typeid' value='{$typeid}'>
+		<input type='hidden' id='dgtype' name='dgtype' value='{$dgtype}'>
+		{section name=a loop=$datalist}
+		<label>{$datalist[a]->cover_title}</label><input type="checkbox" name="title" id="{$smarty.section.a.index}" value="{$smarty.section.a.index}"><br>
+        {/section}
+		
+        <input type='button' name='btn' onclick="btn_submit()" value="提交">
+
+    </form>
+
+    </div>
+    <div class="b">
+      	<div class="b">
+      		<div class="b"></div>
+      	</div>
+    </div>
+</div>
+
+<script>
+var url='{$home}/data/input_json';
+{literal}
+
+
+function btn_submit()
+{
+
+    var checks = document.getElementsByName("title");
+	var pid    = document.getElementById("projectid").value;
+	var dname  = document.getElementById("dgname").value;
+	var typeid = document.getElementById("typeid").value;
+	var dgtype = document.getElementById("dgtype").value; 
+	var ckbox  = new Array();
+	for(var i=0; i<checks.length; i++)
+	{
+	  if(checks[i].checked)
+	  {
+	     ckbox[ckbox.length] = checks[i].value;
+	  }
+	}
+
+	window.location=url+'/id-'+ckbox+'/pid-'+pid+'/dname-'+dname+'/typeid-'+typeid+'/dgtype-'+dgtype;
+}
+{/literal}
+</script>
+
+

@@ -1,0 +1,56 @@
+<div id="step">
+    <div class="t">
+      	<div class="t">
+      		<div class="t"></div>
+      	</div>
+    </div>
+    <div class="m">
+
+        <div style='padding:15px;'>
+        <div style='margin:5px;width:400px;float:left;'>
+        {$notify}
+        <form action="/portal/doAddSiteTemplate/id-{$project->id}" method="post">
+			<input type="hidden" name="from_tmplid" id='from_tmplid' value="{$template->from_tmplid}">
+            <!--编号:--><input type="hidden" name="id"   value="{$template->id}"><br/>
+            名　称:<input type="text" name="name" value="{$template->templatename}"><br/>
+            文件名:<input type="text" name="filename" value="{$template->templatefile}"><br/>
+            说　明:模板内参数用的引号，请使用<font color='red'>双引号</font><br/>
+            内　容:(<a href='/templates/copyfrom#TB_iframe=true&width=720&height=420&modal=true&title=复制模板' class='thickbox'>从公共模板复制</a>)<br/>
+            　　 <textarea id='content' rows="20" cols="100" name="content" style="font-size:12px;line-height:18px;">{$template->content}</textarea><br/>
+            类　型:<input type="text" name="type" value="{$template->type}">(weekend, hezuo)<br/>
+            <input class='btn btn-primary' value='保存' type="submit">
+        </form>
+        </div>
+          
+          <div style='clear:both;'></div>
+         </div>   
+		 
+		 </div>
+    <div class="b">
+      	<div class="b">
+      		<div class="b"></div>
+      	</div>
+    </div>
+</div>
+<script type='text/javascript'>
+{literal}
+function setvalues(url)
+{
+	// ajax get content
+	$.getJSON(url,function(data){
+		if(data.ret)
+		{
+			if(data.content)
+			{
+				$('#content').val(data.content);
+				$('#from_tmplid').val(data.id);
+			}
+		}
+		else
+		{
+			alert(data.msg);
+		}
+	});
+}
+{/literal}
+</script>

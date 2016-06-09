@@ -1,0 +1,29 @@
+<div id="step">
+    <div class="t">
+      	<div class="t">
+      		<div class="t"></div>
+      	</div>
+    </div>
+    <div class="m">
+    	<div style='margin: 0pt; padding: 1px 1px 10px 10px;'>
+        {$notify}
+        <form action="{$home}/templates/pedit/tid-{$templateid}" method="post">
+            名　称:<input type="text" name="name" value="{$name}"><br/>
+            文件名:<input type="text" name="filename" readonly=true value="{$filename}"><br/>
+            内　容:<br/>
+            　　 <textarea id='content' rows="20" cols="100" name="content" style="font-size:12px;line-height:18px;">{$content}</textarea><br/>
+            类　型:<input type="text" name="type" value="{$type}">(weekend, hezuo)<br/>
+            <input type="submit">
+        </form>
+
+		</div>
+    </div>
+    <div class="b">
+      	<div class="b">
+      		<div class="b"></div>
+      	</div>
+    </div>
+</div>
+
+		
+

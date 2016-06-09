@@ -1,0 +1,41 @@
+<div id="step">
+    <div class="t">
+      	<div class="t">
+      		<div class="t"></div>
+      	</div>
+    </div>
+    <div class="m">
+
+    <form method='post' action='{$home}/data/pinput/id-{$id}/name-{$dgname}' enctype='multipart/form-data'>
+        <input type='hidden' name='dgtype' value='{$type}'>
+        标题:<input name='title' ><br/>
+        连接:<input name='url'><br/>
+        <fieldset>
+            <legend> 图片: </legend>
+            上传:<input name='imagedata' type=file> 或 连接:<input name='imageurl'  type=text>
+        </fieldset> 
+        摘要:<textarea name='abstract'></textarea><br/>
+        提示:<input name='alt' ><br/>
+		发布时间:<input type=radio name=pubtime value='last' checked onclick="b()">最后编辑时间 <input type=radio name=pubtime value='edit' onclick="a()">指定时间 <input type=text name='edittime' value="{$edittime}" id="timedit" readonly="readonly"><br/>
+        <input type='submit' name=''>
+    </form>
+
+    </div>
+    <div class="b">
+      	<div class="b">
+      		<div class="b"></div>
+      	</div>
+    </div>
+</div>
+<script type="text/javascript">
+{literal}
+function a()
+{
+  document.getElementById("timedit").removeAttribute("readOnly");
+}
+function b(){
+document.getElementById("timedit").setAttribute("readOnly","true");
+}
+
+{/literal}
+</script>			

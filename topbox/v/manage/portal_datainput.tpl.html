@@ -1,0 +1,86 @@
+<form method='post' action='/portal/pinput/id-{$id}/name-{$dgname}' role="form" class="form-horizontal" enctype='multipart/form-data'>
+  <input type='hidden' name='dgtype' value='{$type}'>
+
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">添加数据</h4>
+      </div>
+      <div class="modal-body">
+        
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="inputEmail">标题:</label>
+          <div class="controls col-sm-10">
+            <input name='title' class='form-control'>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="inputEmail">连接:</label>
+          <div class="controls col-sm-10">
+            <input name='url' class='form-control'>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="inputEmail">提示:</label>
+          <div class="controls col-sm-10">
+            <input name='alt' class='form-control'>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="inputEmail">上传图片:</label>
+          <div class="controls col-sm-10">
+            <input class='form-file' name='imagedata' type=file /> 
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class='control-label col-sm-2'>或外链:</label>
+          <div class="controls col-sm-10">
+            <input class='form-control' name='imageurl'  type=text>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="inputEmail">摘要:</label>
+          <div class="controls col-sm-10">
+            <textarea name='abstract' class='form-control'></textarea>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="inputEmail">发布时间:</label>
+          <div class="controls col-sm-10">
+            <input type=radio name=pubtime value='last' checked onclick="b()">最后编辑时间 
+            <input type=radio name=pubtime value='edit' onclick="a()">指定时间 
+            <input type=text name='edittime' value="{$edittime}" id="timedit" readonly="readonly">
+          </div>
+        </div>
+
+      </div><!-- end modal-body -->
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <input  type='submit' class='btn btn-primary' name='' value='添加'/>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+
+</form>
+
+<!------------- -->
+<script type="text/javascript">
+{literal}
+function a()
+{
+  document.getElementById("timedit").removeAttribute("readOnly");
+}
+function b(){
+document.getElementById("timedit").setAttribute("readOnly","true");
+}
+
+{/literal}
+</script>			

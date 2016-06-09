@@ -1,0 +1,19 @@
+{if $message}
+<div style='border:solid 1px red;background-color:yellow;color:green'>
+{$message}
+</div>
+{/if}
+<form method='POST' action='{$home}/project/padd'>
+	<table>
+	<tr><td>项目名称:</td><td><input type='text' name='projectname' value='{$projectname}' ></td></tr>
+	<tr><td>项目描述:</td><td><textarea name='description'>{$description}</textarea></td></tr>
+	<tr><td>技术负责人:</td><td><input type='text' name='author' value='{$author}' readonly='readonly'></td></tr>
+	<tr><td>编辑负责人:</td><td><input type='text' name='writer' value='{$writer}'></td></tr>
+	<tr><td>发布目录:</td><td><input type='text' name='directory' value='{$directory}'></td></tr>
+	<tr><td>基础URL:</td><td><input type='text' name='url' value='{$url}'></td></tr>
+	<tr><td>静态数据:</td><td><input type='text' name='staticdata' value='{$staticdata}'></td></tr>
+	<tr><td>动态数据:</td><td><input type='text' name='dynamicdata' value='{$dynamicdata}'></td></tr>
+	<tr><td/><td><input type='submit' value='创建'><input type='reset' value='重填'></td></tr>
+	</table>
+</form>
+

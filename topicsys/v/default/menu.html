@@ -1,0 +1,8 @@
+{foreach from=$menulist item=menu key=key}
+<div class="step-off">
+	{$menu.title}:{$menu.name}<br/>
+	{foreach from=$menu.list item=menuitem key=k2}
+	<a target='{$menuitem.target}' href='{$menuitem.url}'>{$menuitem.title}</a>
+	{/foreach}
+</div>
+{/foreach}

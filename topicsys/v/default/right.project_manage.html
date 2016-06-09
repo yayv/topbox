@@ -1,0 +1,161 @@
+<div id="step">
+    <div class="t">
+      	<div class="t">
+      		<div class="t"></div>
+      	</div>
+    </div>
+    <div class="m">
+    
+    <fieldset id='templatemanage' >
+        <legend>模板管理 [<a href='#' onclick='toggleShow("tempaltemanage_content")'>x</a>]</legend>
+<div id='tempaltemanage_content' style='display:;'>
+<a href='{$home}/project/addtemplate/id-{$id}'>增加模板</a><br/>
+	<table class='manage'><tr class='header'><th>模板</th><th>模板文件</th><th>模板样本</th><th></th></tr>
+	{foreach from=$templates item=v key=k}
+         <tr>
+			<td>{$v->templatename}</td>
+			<td>{$v->templatefile}</td>
+			<td>修改自:{$v->name}</td>
+			<td><a href='{$home}/project/edittemplate/id-{$id}/templateid-{$v->id}'>编辑</a></td>
+		 </tr>
+	{/foreach}
+	</table>
+</div>
+    </fieldset><br/>
+
+    <fieldset id='pagemanage'>
+        <legend>页面管理 [<a href='#' onclick='toggleShow("pagemanage_content")'>x</a>]</legend>		
+<div id='pagemanage_content' style='display:;'>
+<a href='{$home}/project/addpage/id-{$id}'>增加页面</a><br/>
+<table class='manage'>
+	<tr class='header'>
+		<th>页面名</th>
+		<th>文件名</th>
+		<th>模板</th>
+		<th>发布方式</th>
+		<th></th>
+	</tr>
+	{section loop=$pages name=k}
+	<tr>
+	  <td>{$pages[k]->pagename}</td>
+	  <td>{$pages[k]->filename}</td>
+	  <td>{$pages[k]->templatename}</td>
+	  <td>{if $pages[k]->publishtype=='dynamic'}动态发布{elseif $pages[k]->publishtype=='static'}静态发布{elseif $pages[k]->publishtype=='manual'}自定义内容{elseif $pages[k]->publishtype=='auto'}自动调取{/if}</td>
+	  <td>
+	        <a href="{$home}/project/editpage/id-{$id}/pageid-{$pages[k]->id}">编辑</a>
+	        <a href='{$home}/project/page_s/id-{$id}/pageid-{$pages[k]->id}?#TB_iframe=true&width=360&height=320&modal=true&title=删除数据' class='thickbox'>删除</a>
+			<a href="{$project->url}/{$pages[k]->filename}" target='publish'>浏览</a>
+	   </td>
+	</tr>
+	{/section}
+</table>
+</div>
+    </fieldset><br/>
+
+    <fieldset id='datamanage'>
+        <legend>数据管理 [<a href='#' onclick='toggleShow("datamanage_content")'>x</a>]</legend>    
+<div id='datamanage_content' style='display:;'>
+
+    <table class='manage'>
+        <tr class='header'>
+            <th>数据组名称</th>
+            <th>类型</th>
+            <th>说明</th>
+            <th>成员变量</th>
+            <th>数据源</th>
+            <th>数据源类型</th>
+            <th>更新方式</th>
+            <th>使用状态</th>
+        </tr>
+        {section loop=$datagroup name=k}
+            <tr><td ><span id='dgun{$datagroup[k]->name}'>{$datagroup[k]->userdefinedname}</span></td>
+                <td>{if $datagroup[k]->type=='single'}单条{else}列表{/if}</td>
+                <td title='{$datagroup[k]->alt}'><a style='cursor:pointer;'>?</a></td>
+                <td>x</td>
+                <td><span class='datasource'></span></td>
+                <td>{if $datagroup[k]->sourcetype=='manual'}录入{else}{$datagroup[k]->sourcetype}{/if}</td>
+                <td></td>
+                <td>{if $datagroup[k]->reference}使用中 <a href='{$home}/project/editdatagroup/id-{$id}/name-{$datagroup[k]->name}'>编辑</a>&nbsp;<a href='javascript:void(0)' onclick='renamedg("{$datagroup[k]->name}", "{$datagroup[k]->showname}","{$datagroup[k]->userdefinedname}")'>改名</a></td>{else}未使用 <a href='{$home}/data/deletedgbox/id-{$id}/name-{$datagroup[k]->name}?#TB_iframe=true&width=360&height=320&modal=true&title=删除数据' class='thickbox'>删除</a>　<a href='javascript:void(0)' onclick='renamedg("{$datagroup[k]->name}", "{$datagroup[k]->showname}","{$datagroup[k]->userdefinedname}")'>改名</a>　<input type="checkbox" name="del" id="{$datagroup[k]->id}" value="{$datagroup[k]->name}"></td>{/if} 			
+            </tr>
+        {/section}
+		
+		</table>
+	<div style="width:100px; font-size:18px; padding-left:500px;"><a href='javascript:void(0)' onclick="del_more()" style="cursor:pointer;">多项删除</a></div>
+    <div>注: 名称为显示名，与模板内的变量名，说明，类型等信息都不可在这里更改，这些内容是从模板文件中自动分析出来的。</div>
+
+</div>
+    </fieldset>
+    
+	<fieldset id='publish'>
+        <legend>资源管理</legend>		
+
+		  <form action="{$home}/project/addimg/id-{$id}" method="post" enctype="multipart/form-data" id="form1" name="form1">
+		   已上传资源：{$dir}<br />
+           上传资源:<input type="file" name="filename" />注：只能上传.zip压缩包,上传完之后要点击发布<br/>
+           <input type="submit" onclick="check()">
+        </form> 
+    </fieldset>	
+    <fieldset id='publish'>
+        <legend>发布</legend>
+        <a target='publish' href='{$home}/project/publish/id-{$id}'>发布</a> | <a target='publish' href='{$project->url}'>浏览</a> | <a target='publish' href='{$home}/project/republish/id-{$id}'>重新发布</a>(危险操作) <br /><br />
+    </fieldset>
+
+ <br/><hr>维护数据,预览项目,发布项目<br/>
+
+    </div>
+    <div class="b">
+      	<div class="b">
+      		<div class="b"></div>
+      	</div>
+    </div>
+</div>
+<script type='text/javascript'>
+var pid = '{$id}';
+var baseurl  = '{$home}';
+{literal}
+function renamedg(name, showname, uname)
+{
+	var url = baseurl+'/data/renamebox/id-'+pid+'/name-'+name+'/showname-'+encodeURI(showname)+'/uname-'+encodeURI(uname);
+    tb_show('录入数据',url+'?#TB_iframe=true&width=360&height=120&modal=true&');
+    return ;
+}
+
+function toggleShow(id)
+{
+    var tag = document.getElementById(id);
+    var disp = tag.style.display;
+    if(disp!='none')
+        tag.style.display = 'none';
+    else
+        tag.style.display = '';
+}
+function del_more()
+{
+   var del_id=new Array();
+   var dname=new Array();
+   var dels=document.getElementsByName("del");
+   
+   for(i=0; i<dels.length; i++)
+   {
+      if(dels[i].checked)
+	  {
+      del_id[del_id.length]=dels[i].id;
+	  dname[dname.length]=dels[i].value;
+	  
+	  }
+   }
+   if(del_id.length==0)
+   {
+     alert("还没有选择要删除的数据");
+   }
+   else
+   {
+   url=baseurl+'/data/deletedgboxmore/id-'+del_id+'/pid-'+pid+'/dname-'+dname+'/l-'+del_id.length;
+   tb_show('删除数据',url+'?#TB_iframe=true&width=360&height=120&modal=true&');
+   //window.location=url;
+   return ;
+   }
+  
+}
+{/literal}
+</script>

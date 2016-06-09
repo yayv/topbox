@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{$sitename}-{$article.title}</title>
+	<style>
+	{literal}
+	body{padding:100px;}
+	h1{width:960px;}
+	section{width:960px;line-height: 170%;}
+	article{border-top:solid 1px black;margin-top:50px;padding-top:50px;}
+	{/literal}
+	</style>
+</head>
+<body>
+	<h1><a href='/article/{$article.shortname}'>{$article.title}</a></h1>
+	<section>
+		{$article.id} : {$article.author} : {$article.date} : <a href='{$article.source}'>{$article.sourcetype}</a>
+	</section>
+	
+	<section>
+		<article>{$article.content}</article>
+	</section>
+</body>
+</html>

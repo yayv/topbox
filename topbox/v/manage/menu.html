@@ -1,0 +1,28 @@
+
+{*<div class="col-md-3">*}
+	<div role="complementary" class="bs-docs-sidebar hidden-print hidden-xs hidden-sm">
+	<ul class="nav bs-docs-sidenav">
+	{foreach from=$menulist item=menu key=key}            	
+		<li>
+		  <a href="#overview" style='font-weight:bold;font-size:15px;'>{$menu.title}:{$menu.name}</a>
+		  <ul class="nav">
+			{foreach from=$menu.list item=menuitem key=k2}
+			<li><a target='{$menuitem.target}' href='{$menuitem.url}'>{$menuitem.title}</a></li>
+			{/foreach}
+			{*
+		    <li><a href="#overview-doctype">HTML5 doctype</a></li>
+		    *}
+		  </ul>
+		</li>
+	{/foreach}				
+	</ul>
+	<a href="#top" class="back-to-top">
+	  Back to top
+	</a>
+
+	<a class="bs-docs-theme-toggle" href="#">
+	  Preview theme
+	</a>
+
+	</div>
+{*</div>*}

@@ -1,0 +1,12 @@
+URL:/
+METHOD:GET
+start(url):0.69969000 1465384114
+start_controller(defaultcontroller->index):0.69969000 1465384114
+end_controller(defaultcontroller->index):0.74649000 1465384114
+end(url):0.74649000 1465384114
+URL:/
+METHOD:GET
+start(url):0.38395300 1465384150
+start_controller(defaultcontroller->index):0.38395300 1465384150
+end_controller(defaultcontroller->index):0.39955300 1465384150
+end(url):0.39955300 1465384150

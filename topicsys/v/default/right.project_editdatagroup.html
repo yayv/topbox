@@ -1,0 +1,252 @@
+<div id="step">
+    <div class="t">
+      	<div class="t">
+      		<div class="t"></div>
+      	</div>
+    </div>
+    <div class="m">
+    
+    {$msg}
+    <div>
+    {$dg->userdefinedname} [<a href='javascript:void(0)' onclick='toggleshow("advanceoptions")'>高级选项</a>]<br/>
+    {$dg->alt} 
+    </div>
+    <dl id='advanceoptions' style='display:none;border:solid 1px black;'>
+    <dt>数据组信息</dt>
+        <dd title='{$dg->name}'>{$dg->showname}</dd>
+        <dd>{$dg->type}</dd>
+        <dd>{$dg->showname}</dd>
+        <dd>{$dg->alt}</dd>
+        <dd>{$dg->members}</dd>
+
+    <br/><span style='clear:both;'></span>
+    <dt>参数</dt>
+        <dd>数据源:<span id='datasource'>{$dg->datasource}</span> <input type='button' value='E' onclick='changeDatasource()'> </dd>
+        <dd>数据源类型:<span id='sourcetype'>{$dg->sourcetype}</span><input type='button' value='E' onclick='changeSourcetype()'> </dd>
+        <dd>更新方式:<span id='updatetype'>{$dg->updatetype}</span><input type='button' value='E' onclick='changeUpdatetype()'> </dd>
+    </dl>
+
+    <br/><br style='clear:both;'/><span style='clear:both;'></span>
+    
+    <ul style='list-style-type:none;padding:0;margin-bottom:0;'>
+        <li class='litablehead'>
+		    <div class='w30'>id</div>
+            <div class='w150'>标题</div>
+            <div class='w30'>连接</div>
+            <div class='w30'>图片</div>
+            <div class='w150'>摘要</div>
+            <div class='wblank'>&nbsp;</div>
+            <div class='w150'>提示</div>
+            <div class='w90'>操作</div>
+            <div class='w90'>发布时间</div>
+			<div class='w90'>编辑人员</div>
+            <div class='w20'>&nbsp;</div><span style='clear:both;'></span>
+        </li>
+    </ul>
+    <ul id='datalist' style='list-style-type:none;padding:0;margin-top:0;'>
+    {section loop=$datalist name=k}
+        <li class='litableline' id='o_{$datalist[k]->id}'>
+		    <div class='w30'>{$datalist[k]->id}</div>
+            <div class='w150' title='{$datalist[k]->title}'>{$datalist[k]->title}</div>
+            <div class='w30'><a href='{$datalist[k]->url}' target=_blank>&nbsp;<img src='{$home}{$themepath}/images/external-link.png'/></a></div>
+            <div class='w30'>{if 'http://'==$datalist[k]->image|truncate:7:''}
+                 <a href='{$datalist[k]->image}' target=_blank class='thickbox'>查看</a>
+                {else}
+                {if $datalist[k]->image}
+                <a href='{$baseurl}/data/showimg/id-{$id}/name-{$datalist[k]->datagroupname}/dataid-{$datalist[k]->id}/for-show.jpg'  class='thickbox' target=_blank>查看</a>{else}&nbsp;{/if}
+                {/if}</div>
+            <div class='w150' style='border-left:1px solid black;border-right:1px solid black;' title='{$datalist[k]->abstract}'>{if $datalist[k]->abstract}{$datalist[k]->abstract|truncate:10:"..."}{else}&nbsp;{/if}</div>
+            <div class='wblank'>&nbsp;</div>
+            <div class='w150' style='border-right:1px solid black;' title='{$datalist[k]->alt}'>{if $datalist[k]->alt}{$datalist[k]->alt|truncate:10:"..."}{else}&nbsp;{/if}</div>
+            <div class='w90'><a href='{$home}/data/editbox/id-{$id}/name-{$datalist[k]->datagroupname}/dataid-{$datalist[k]->id}?#TB_iframe=true&width=720&height=320&modal=true&title=编辑数据' class='thickbox'>编辑</a>｜<a href='{$home}/data/deletebox/id-{$id}/name-{$datalist[k]->datagroupname}/dataid-{$datalist[k]->id}?#TB_iframe=true&width=360&height=320&modal=true&title=编辑数据' class='thickbox'>删除</a></div>
+            {if $datalist[k]->d>0}<div class='w90' id='{$datalist[k]->id}' style="color:#FF0000">{$datalist[k]->date}</div>{else}<div class='w90' id='{$datalist[k]->id}'>{$datalist[k]->date}</div>{/if}
+			<div class='w90' style="border-left: 1px solid black; border-right:1px solid black; height:17px; text-align:center">{$datalist[k]->writer}</div>
+            <div class='w20' style='border-right:none;'><a class='handle' >&nbsp;<img src='{$home}{$themepath}/images/handle.gif'></a></div>
+			<span style='clear:both;'></span>
+			
+        </li>
+    {/section}
+    </ul>
+	<input type='button' value='添加' onclick='importdata()'><select id="se" onchange="Plugins()" class='thickbox'><option value="source">选择数据来源</option><option value="guide">在线攻略</option></select>
+<table width="1000px">
+
+<tr>
+	 <td class="page">
+		
+			 <a href="{$home}/project/page/d-{$t_date}/id-{$id}">{$today}</a>&nbsp;&nbsp;
+			 <a href="{$home}/project/page/d-{$y_date}/id-{$id}">{$yes}</a>&nbsp;&nbsp;
+			 <a href="{$home}/project/page/d-{$p_date}/id-{$id}">{$pre}</a>
+			
+	</td>
+	<td class='page'>
+	  {section name=a loop=$pp}
+	    <a href='{$home}/project/page_t/pt-{$pp[a]}/id-{$id}'>{$pp[a]}</a>
+	  {/section}
+	</td>
+	</tr>
+	<tr>
+	<td class='page'>
+
+	   <form name="form1" action="{$home}/project/page/p-0/id-{$id}" method="post">
+	         <input type="text" name="text_date" value="{$date_first}" />
+			 <input type="submit" value="输入日期查询"/>
+	   </form>
+	</td>
+
+	<td class='page'>
+	   <form name="form2" action="{$home}/project/page/id-{$id}" method="post">
+			<input type="text" name='key_word'>
+			<input type="submit" value="输入标题进行查询">
+	   </form>
+	</td>
+	<td class='page'>
+	   <form name="form3" action="{$home}/project/page/id-{$id}" method="post">
+	       <input type="text" name='writer_name'>
+	       <input type="submit" value="输入编辑名进行查询">
+	   </form>
+   </td>
+</tr>	
+</table>
+    <br/>
+    <span style='clear:both;'></span>
+    <br/><br/>
+    本页的作用是:
+    <ul>
+        <li>显示指定数据组的相关信息</li>
+        <li>编辑指定数据组的相关信息</li>
+        <li>显示导入/插入的数据</li>
+        <li>编辑已有的数据</li>
+        <li>删除，排序已有的数据</li>
+        <li>导入新的数据</li>
+    </ul>
+    <div id="info">拼版中的元素</div>
+    </div>
+    <div class="b">
+      	<div class="b">
+      		<div class="b"></div>
+      	</div>
+    </div>
+</div>
+<script type='text/javascript'>
+
+var baseurl = '{$home}';
+var param   = 'id-{$id}/name-{$dg->name}/dst-{$dg->type}';
+var sorturl = "/data/sortDatalist/id-{$id}/name-{$dg->name}/?";
+{literal}
+function toggleshow(id)
+{
+	var i = $('#'+id).css('display');
+	if(i=='none')
+		$('#'+id).css('display','');
+	else
+		$('#'+id).css('display','none');
+}
+
+function changeDatasource()
+{
+    var method  = '/data/jupdatedg/';
+    var url = prompt('输入数据源URL', '');
+    if(url) 
+    {
+        a = encodeURI(url);
+        var data = {'key':'datasource', 'value':a};
+        $.post(baseurl+method+param, data, function(ajax){
+            if(ajax.ret)
+            {
+                $('#datasource').text(ajax.value);
+                // TODO: check sourcetype
+            }
+        },
+        'json');
+    }
+}
+
+function changeSourcetype()
+{
+    var method  = '/data/jupdatedg/';
+    var type = prompt('输入数据源类型(rss,json,manual)','');
+    if(type!='rss' && type!='json' && type!='manual')
+    {
+        alert('输入的数据源类型无法处理');
+        return;
+    }
+    
+    if(type)
+    {
+        var data = {'key':'sourcetype', 'value':type};
+        $.post(baseurl+method+param, data, function(ajax){
+            if(ajax.ret)
+            {
+                $('#sourcetype').text(ajax.value);
+            }
+        },
+        'json');
+    }
+}
+
+function changeUpdatetype()
+{
+    var method  = '/data/jupdatedg/';
+    var type = prompt('输入数据更新方式(auto,manual)','');
+    if(type!='auto' && type!='manual')
+    {
+        alert('输入的数据更新方式无法处理');
+        return;
+    }
+    
+    if(type)
+    {
+        var data = {'key':'updatetype', 'value':type};
+        $.post(baseurl+method+param, data, function(ajax){
+            if(ajax.ret)
+            {
+                $('#updatetype').text(ajax.value);
+            }
+        },
+        'json');
+    }
+}
+
+function importdata()
+{
+    var ouptype = $('#updatetype').text();
+    if(ouptype=='auto')
+    {
+        alert('此项内容设定为自动更新，无须手工参与');
+        return;
+    }
+    
+    if($('#datasource').text()!='')
+    {
+        alert('call thick box');
+        return;
+    }
+
+    //http://topic.ubuntu.lvren.cn/templates/copyfrom#TB_iframe=true&width=720&height=420&modal=true&title=复制模板
+    tb_show('录入数据',baseurl+'/data/inputbox/'+param+'?#TB_iframe=true&width=720&height=320&modal=true&');
+}
+
+$(document).ready(function() {
+    $("#datalist").sortable({
+      handle : '.handle',
+      update : function () {
+		var order = $('#datalist').sortable('serialize');
+        $.post(baseurl+sorturl,order,function(data){
+    		$("#info").html(data);
+        },
+        'html');
+      }
+    });
+});
+function Plugins()
+{
+ 
+   var se = document.getElementById('se').value;
+   url=baseurl+'/data/get_json/typeid-'+se+'/'+param;
+   tb_show('录入数据',url+'?#TB_iframe=true&width=720&height=320&modal=true&');
+  
+}
+{/literal}    
+</script>
+
+

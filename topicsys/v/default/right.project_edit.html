@@ -1,0 +1,49 @@
+<table class='ajaxbox'>
+<tr>
+<td>项目名称:</td><td id='title'>{$title}</td><td>[<b onclick='domodi("title","项目名称")'>修改</b>]</td></tr>
+<tr>
+<td>项目描述:</td><td id='description'>{$description}</td><td>[<b onclick='domodi("description","项目描述")'>修改</b>]</td></tr>
+<tr>
+<td>技术负责人:</td><td id='author'>{$author}</td><td>[<b onclick='domodi("author","项目负责人")'>修改</b>]</td></tr>
+<tr>
+<tr>
+<td>编辑负责人:</td><td id='writer'>{$writer}</td><td>[<b onclick='domodi("writer","项目负责人")'>修改</b>]</td></tr>
+<tr>
+<td>项目发布目录:</td><td id='directory'>{$directory}</td><td>[<b onclick='domodi("directory","项目描述")'>修改</b>]</td></tr>
+<tr>
+<td>项目访问地址:</td><td id='url'>{$url}</td><td>[<b onclick='domodi("url","项目描述")'>修改</b>]</td></tr>
+<tr>
+<td>静态数据文件:</td><td id='staticdata'>{$staticdata}</td><td>[<b onclick='domodi("staticdata","项目描述")'>修改</b>]</td></tr>
+<tr>
+<td>动态数据文件:</td><td id='dynamicdata'>{$dynamicdata}</td><td>[<b onclick='domodi("dynamicdata","项目描述")'>修改</b>]</td></tr>
+</table>
+<hr>
+<a href='{$home}/prjmanage/listall'>返回</a>
+<script type='text/javascript'>
+var home = '{$home}';
+var prjid = '{$id}';
+{literal}
+function domodi(id,name)
+{
+	value = $('#'+id).text();
+	nvalue = prompt('修改'+name,value);
+	if(nvalue==null || nvalue==value)
+	{
+	}
+	else
+	{
+	var data = {'k':id, 'v':nvalue};
+	$.post(
+		home+'/project/jsetvalue/id-'+prjid, data, 
+		function(data){
+			if(data.ret)
+				$('#'+id).text(data.val)
+			else
+				alert(data.msg);
+		},
+		'json'
+	);
+	}
+}
+{/literal}
+</script>

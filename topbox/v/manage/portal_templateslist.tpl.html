@@ -1,0 +1,26 @@
+<div class='col-md-9' id="step">
+    <div class="t">
+      	<div class="t">
+      		<div class="t"></div>
+      	</div>
+    </div>
+    <div class="m">
+    	<div style='margin: 0pt; padding: 1px 1px 10px 10px;'>
+		<ul>
+		{foreach from=$templates key=k item=v}
+			<li>{$v->name} [<a href='{$home}/templates/edit/tid-{$v->templateid}'>编辑</a>]</li>
+		{/foreach}
+		</ul>
+		</div>
+    </div>
+    <div class="b">
+      	<div class="b">
+      		<div class="b"></div>
+      	</div>
+    </div>
+</div>
+
+		
+<div class='col-md-3'>
+  {$menu}
+</div>

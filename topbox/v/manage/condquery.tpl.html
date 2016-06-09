@@ -1,0 +1,87 @@
+
+<form class='form-horizontal' name='dd' action="/contents/conditionalQuery" method="POST">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">按条件筛选内容</h4>
+      </div>
+      <div class="modal-body">
+
+          <div class="form-group row">
+              <label for="inputURL" class="col-xs-2 control-label">URL:</label>
+              	<select id="inputURL" name="url" class="selectpicker col-md-9" >
+              		<option></option>
+               	    {foreach from=$url item=arry}
+              	    	{foreach from=$arry item=op}
+							<option>{$op}</option>
+						{/foreach}
+					{/foreach}
+				</select>
+          </div>
+
+          <div class="form-group row">
+              <label for="inputTitle" class="col-xs-2 control-label">内容标题:</label>
+              <select id="inputTitle" name="title" class="selectpicker col-md-9" >
+              	<option></option>
+              	    {foreach from=$title item=arry}
+              	    	{foreach from=$arry item=op}
+							<option>{$op}</option>
+						{/foreach}
+					{/foreach}
+              </select>
+          </div>
+
+          <div class="form-group row">
+              <label for="inputCover" class="col-xs-2 control-label">封面:</label>
+              	<select id="inputCover" name="cover" class="selectpicker col-md-9" >
+              		<option></option>
+              	    {foreach from=$cover item=arry}
+              	    	{foreach from=$arry item=op}
+							<option>{$op}</option>
+						{/foreach}
+					{/foreach}
+				</select>
+          </div>
+
+          <div class="form-group row">
+              <label for="inputShortname" class="col-xs-2 control-label">缩略名:</label>
+              	<select id="inputShortname" name="shortname" class="selectpicker col-md-9" >
+              		<option></option>
+              	    {foreach from=$shortname item=arry}
+              	    	{foreach from=$arry item=op}
+							<option>{$op}</option>
+						{/foreach}
+					{/foreach}
+				</select>
+          </div>
+
+          <div class="form-group row">
+              <label for="inputSubstract" class="col-xs-2 control-label">摘要:</label>
+              	<select id="inputSubstract" name="substract" class="selectpicker col-md-9" >
+              		<option></option>
+                	{foreach from=$substract item=arry}
+              	    	{foreach from=$arry item=op}
+							<option>{$op}</option>
+						{/foreach}
+					{/foreach}
+				</select>
+          </div>
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <button type="submit" class="btn btn-primary" >确认条件</button>
+      </div>
+    </div>
+  </div>
+</form>
+
+<script type='text/javascript'>
+$(document).ready(function(){
+  $('#boxurl').val($('#url').val());
+});
+
+</script>

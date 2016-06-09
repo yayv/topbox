@@ -1,0 +1,173 @@
+
+<div id="body" class='col-md-9'>
+  <div class='section'>
+  <h1>模板管理[<a href='#' onclick='toggleShow("tempaltemanage_content")'>x</a>]</h1>
+  <div id='tempaltemanage_content' style='display:;'>
+  <a href='/portal/addSiteTemplate/id-{$id}'>增加模板</a><br/>
+    <table class='manage table'><tr class='header'><th>模板</th><th>模板文件</th><th>模板样本</th><th></th></tr>
+    {foreach from=$templates item=v key=k}
+           <tr>
+        <td>{$v->templatename}</td>
+        <td>{$v->templatefile}</td>
+        <td>修改自:{$v->name}</td>
+        <td><a href='/portal/editSiteTemplate/id-{$id}/templateid-{$v->id}'>编辑</a></td>
+       </tr>
+    {/foreach}
+    </table>
+  </div>
+
+  </div>
+
+  <div class='section'>
+  <h1>页面管理[<a href='#' onclick='toggleShow("pagemanage_content")'>x</a>]</h1>
+  <div id='pagemanage_content' style='display:;'>
+  <a href='/portal/addpage/id-{$id}'>增加页面</a><br/>
+  <table class='manage table'>
+    <tr class='header'>
+      <th>页面名</th>
+      <th>文件名</th>
+      <th>模板</th>
+      <th>发布方式</th>
+      <th></th>
+    </tr>
+    {section loop=$pages name=k}
+    <tr>
+      <td>{$pages[k]->pagename}</td>
+      <td>{$pages[k]->filename}</td>
+      <td>{$pages[k]->templatename}</td>
+      <td>{if $pages[k]->publishtype=='dynamic'}动态发布{elseif $pages[k]->publishtype=='static'}静态发布{elseif $pages[k]->publishtype=='manual'}自定义内容{elseif $pages[k]->publishtype=='auto'}自动调取{/if}</td>
+      <td>
+        <a href="{$project->url}/{$pages[k]->filename}" target='publish' class='btn btn-default' >浏览</a>
+        <a href="/portal/editpage/id-{$id}/pageid-{$pages[k]->id}" class='btn btn-default'>编辑</a>
+        <a data-target="#infoModal" data-toggle="modal" class="btn btn-primary" data-url="/portal/delpage/id-{$id}/pageid-{$pages[k]->id}" href="#infoModal">删除</a>
+       </td>
+    </tr>
+    {/section}
+  </table>
+  </div>  
+  </div>
+
+  <div class='section'>
+  <h1>数据管理 [<a href='#' onclick='toggleShow("datamanage_content")'>x</a>]</h1>
+
+  <div id='datamanage_content' style='display:;'>
+      <table class='manage'>
+          <tr class='header'>
+              <th>数据组名称</th>
+              <th>类型</th>
+              <th>说明</th>
+              <th>成员变量</th>
+              <th>数据源</th>
+              <th>数据源类型</th>
+              <th>更新方式</th>
+              <th>使用状态</th>
+          </tr>
+          {section loop=$datagroup name=k}
+              <tr><td ><span id='dgun{$datagroup[k]->name}'>{$datagroup[k]->userdefinedname}</span></td>
+                  <td>{if $datagroup[k]->type=='single'}单条{else}列表{/if}</td>
+                  <td title='{$datagroup[k]->alt}'><a style='cursor:pointer;'>?</a></td>
+                  <td>x</td>
+                  <td><span class='datasource'></span></td>
+                  <td>{if $datagroup[k]->sourcetype=='manual'}录入{else}{$datagroup[k]->sourcetype}{/if}</td>
+                  <td></td>
+                  <td>
+                    {if $datagroup[k]->reference}
+                      使用中 <a href='/portal/editdatagroup/id-{$id}/name-{$datagroup[k]->name}'>编辑</a>
+                      &nbsp;<a onclick='renamedg("{$datagroup[k]->name}", "{$datagroup[k]->showname}","{$datagroup[k]->userdefinedname}")' style="color:#0B55C4; cursor:pointer;">改名</a>
+                    {else}
+                      未使用 <a href='#infoModal' data-url='/portal/deletedgbox/id-{$id}/name-{$datagroup[k]->name}' data-toggle='modal'>删除</a>　<a onclick='renamedg("{$datagroup[k]->name}", "{$datagroup[k]->showname}","{$datagroup[k]->userdefinedname}")' class='thickbox' style="color:#0B55C4; cursor:pointer;">改名</a>　<input type="checkbox" name="del" id="{$datagroup[k]->id}" value="{$datagroup[k]->name}">
+                    {/if}      
+                  </td>
+              </tr>
+          {/section}
+      </table>
+    <div style="width:100px; font-size:18px; padding-left:500px;"><a class='btn btn-primary' href='javascript:void(0)' onclick="del_more()" style="cursor:pointer;">多项删除</a></div>
+      <p>注: 名称为显示名，与模板内的变量名，说明，类型等信息都不可在这里更改，这些内容是从模板文件中自动分析出来的。</p>
+  </div>
+
+  </div>
+
+
+  <div class='section'>
+  <h1>资源管理</h1>
+    <form action="/portal/addimg/id-{$id}" method="post" enctype="multipart/form-data" id="form1" name="form1">
+    已上传资源：{$dir}<br />
+    上传资源:<input type="file" name="filename" />注：只能上传.zip压缩包,上传完之后要点击发布<br/>
+    <input type="submit" onclick="check()">
+    </form> 
+
+    <hr/>
+    <form action="/portal/downloadZip/id-{$id}" method="post" enctype="multipart/form-data" id="form1" name="form1">
+    下载已上传资源：<br/>
+    <input type="submit" value="下载">
+    </form> 
+
+  </div>
+
+
+  <div class='section'>
+  <h1>发布</h1>
+  <a target='publish' class='btn btn-primary' href='/portal/publish/id-{$id}'>发布</a>  <a class='btn btn-primary' target='publish' href='{$project->url}'>浏览</a>  <a class='btn btn-primary' target='publish' href='{$home}/portal/republish/id-{$id}'>重新发布(危险操作)</a> <br /><br />
+  </div>
+
+
+  <p>维护数据,预览项目,发布项目</p>
+
+</div>
+
+<div class='col-md-3' style='border-left:solid 1px #eeeeee;'>
+  {$menu}
+</div>
+
+<script type='text/javascript'>
+var pid = '{$id}';
+var baseurl  = '{$home}';
+{literal}
+function renamedg(name, showname, uname)
+{
+	var url = baseurl+'/portal/renamebox/id-'+pid+'/name-'+name+'/showname-'+encodeURI(showname)+'/uname-'+encodeURI(uname);
+    //tb_show('录入数据',url+'?#TB_iframe=true&width=360&height=120&modal=true&');
+    //$("#infoModal").load(baseurl+'/portal/inputbox/'+param).modal();
+    $('#infoModal').load(url).modal();
+    return ;
+}
+
+function toggleShow(id)
+{
+    var tag = document.getElementById(id);
+    var disp = tag.style.display;
+    if(disp!='none')
+        tag.style.display = 'none';
+    else
+        tag.style.display = '';
+}
+function del_more()
+{
+   var del_id=new Array();
+   var dname=new Array();
+   var dels=document.getElementsByName("del");
+   
+   for(i=0; i<dels.length; i++)
+   {
+      if(dels[i].checked)
+	  {
+      del_id[del_id.length]=dels[i].id;
+	  dname[dname.length]=dels[i].value;
+	  
+	  }
+   }
+   if(del_id.length==0)
+   {
+     alert("还没有选择要删除的数据");
+   }
+   else
+   {
+   url=baseurl+'/data/deletedgboxmore/id-'+del_id+'/pid-'+pid+'/dname-'+dname+'/l-'+del_id.length;
+   tb_show('删除数据',url+'?#TB_iframe=true&width=360&height=120&modal=true&');
+   //window.location=url;
+   return ;
+   }
+  
+}
+{/literal}
+</script>

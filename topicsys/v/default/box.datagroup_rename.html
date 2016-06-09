@@ -1,0 +1,39 @@
+<div id="step">
+    <div class="t">
+      	<div class="t">
+      		<div class="t"></div>
+      	</div>
+    </div>
+    <div class="m">
+
+    <form name='renameform' method='post' action='{$home}/data/jupdatedg/id-{$id}/name-{$dgname}' >
+        <input type='hidden' name='key' value='userdefinedname'>
+        <table>
+        <tr><th>数据组名:</th><td>{$dgname}</td></tr>
+        <tr><th>默认显示名:</th><td><span id='showname'>{$showname}</span></td></tr>
+        <tr><th>用户定义显示名:</th><td><input id='userdefinedname' name='value' value='{$userdefinedname}'></td></tr>
+        <tr><td></td><td><input type='button' value='恢复默认名' onclick='userdef()'><input type='button' value='提交' onclick='dopost()'></td></tr>
+        </table>
+    </form>
+	<script type='text/javascript'>
+	{literal}
+	function dopost()
+	{
+		document.forms['renameform'].submit();
+		window.parent.location.reload();
+	}
+	
+	function userdef()
+	{
+		document.getElementById('userdefinedname').value = document.getElementById('showname').innerHTML;
+	}
+	{/literal}
+	</script>
+    </div>
+    <div class="b">
+      	<div class="b">
+      		<div class="b"></div>
+      	</div>
+    </div>
+</div>
+		

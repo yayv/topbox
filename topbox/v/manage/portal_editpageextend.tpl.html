@@ -1,0 +1,11 @@
+<form method='POST' action='/portal/peditpagehook/id-{$projectid}/pageid-{$pageid}'>
+{* <input type='hidden' name='id' value='{$projectid}' ><input type='hidden' name='pageid' value='{$pageid}'> *}
+所在项目:<input value='{$projectname}' readonly='readonly'><br/>
+所在页面:<input value='{$pagename}' readonly='readonly'><br/>
+附加文件:<input name='user_hook_filename' value='{$user_hook_filename}' readonly='readonly'/><br/>
+附加内容:<textarea name='hookfile_content' rows="20" cols="100"  style="font-size:12px;line-height:18px;">
+{$hookfilecontent}
+</textarea><br/>
+<input type='submit' value='保存'>
+</form>
+</div>

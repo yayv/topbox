@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<HTML>
+
+<head>
+    <title>{$title}</title>
+    <meta name='viewport' content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <link rel="icon" href="/v/favicon.png" mce_href="/v/favicon.png" type="image/png">
+	<link rel="stylesheet" type="text/css" href="{$home}/v/bootstrap3/css/bootstrap.css" media='screen'/>
+	<link rel="stylesheet" type="text/css" href="{$home}/v/default/css/docs.css" media='screen'/>
+	<link rel="stylesheet" type="text/css" href="{$home}/v/default/css/install.css" media='screen'/>
+</head>
+
+<body>
+
+<div class='row'>
+    <br/><br/><br/><br/><br/>
+    <div class='col-xs-1'></div>
+    <div class='col-xs-3 text-right'><h3>网站登录</h3></div>
+    <br/><br/><br/><br/><br/>
+</div>
+
+<form action='/manage/dologin' method='POST'>
+<div class='row'>
+  <div class='col-xs-1'></div>
+  <div class='col-xs-2 text-right'>username:</div>
+  <div class='col-xs-2'><input type='text'></div>
+</div>
+<div class='row'><br/></div>
+<div class='row'>
+  <div class='col-xs-1'></div>
+  <div class='col-xs-2 text-right'>password:</div>
+  <div class='col-xs-2'><input type='password'></div>
+</div>
+<div class='row'>
+  <br/>
+  <div class='col-xs-1'></div>
+  <div class='col-xs-2 text-right'><button class='btn btn-primary'>登录</button></div>
+  <div class='col-xs-2'><button class='btn btn-default'>重置</button></div>
+</div>
+</form>
+
+<script type='text/javascript' src='{$home}/v/default/js/jquery.js'></script>
+<script type='text/javascript' src='{$home}/v/bootstrap3/js/bootstrap.js'></script>
+</body>
+
+  <script>
+  {literal}
+  function test(){}
+  $(document).ready(function(){
+    if('function'==typeof(head_ready)) head_ready();
+    if('function'==typeof(body_ready)) body_ready();
+    if('function'==typeof(foot_ready)) foot_ready();
+  });
+  {/literal}
+  </script>
+
+</HTML>
