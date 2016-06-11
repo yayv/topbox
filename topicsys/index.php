@@ -1,94 +1,63 @@
 <?php
-define('HOST', $_SERVER['HTTP_HOST']);
-include_once('config.php');
-$CONFIG =$config[HOST];
-$_      = $CONFIG['include_separator'];
+	error_reporting(E_ALL & ~E_NOTICE);
 
-// 设置全局包含路径
-#set_include_path('./'.$_.
-#                 $_SERVER['DOCUMENT_ROOT'].$CONFIG['basedir'].$_.
-#                 $_SERVER['DOCUMENT_ROOT'].$CONFIG['basedir'].'/lib/'.$_.get_include_path());
-$DS = PATH_SEPARATOR;
-set_include_path("./${DS}libraries/$DS../cake/develop$DS../cake/libraries");
+    $DS = PATH_SEPARATOR;
+	set_include_path("./${DS}libraries/$DS../../tinycake/cake/develop$DS../../tinycake/cake/libraries");
 
+	include_once('core.php');
+	include_once('controller.php');
+	include_once('model.php');
 
-include_once('lib/http_auth.php');
-include_once('lib/public_dbclass.php');
-include_once('lib/rebuild_url.php');
-include_once('smarty3/Smarty.class.php');
+	$core = Core::getInstance();
 
-// TODO: 恢复身份认证部分
-// doHttpAuth();
-
-$usr    ='';//$_SERVER['PHP_AUTH_USER'];
-$HOME   =$CONFIG['baseurl'];
-$THEME  =$CONFIG['theme'];
-
-define('ROOT_DIR',$_SERVER['DOCUMENT_ROOT'].$CONFIG['basedir']);
-define('CTL_DIR', ROOT_DIR.'/c/');
-
-//---------[ 调整php配置 ]--------------------
-// 调整报警级别
-error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE ); 
-
-header('Content-Type: text/html;charset=UTF-8');
-
-session_start();
-
-// 排除URL的目录问题
-$pos  = strpos('http://'.HOST.$_SERVER['REQUEST_URI'], $HOME);
-if($pos===0)
-    $rurl = substr('http://'.HOST.$_SERVER['REQUEST_URI'], strlen($CONFIG['baseurl']));
-else
-	die('配置文件错误');
-
-rebuildURL($rurl);
-
-$DB_Mailsys = new DB_Sql(
-    $CONFIG['dbserver'],
-    $CONFIG['database'],
-    $CONFIG['dbuser'],
-    $CONFIG['dbpass'],    
-    'DB_MAILSYS');
-
-$themepath = $CONFIG['smarty'].'/'.$CONFIG['theme'];
-
-$topicdir  = $CONFIG['topicdir'];
-$topicurl  = $CONFIG['topicurl'];
-$uploaddir = $CONFIG['uploaddir'];
-define('UPLOAD_DIR',$uploaddir);
-
-$strClassFileName = CTL_DIR.$_GET['class'].".php";
-
-if(is_file($strClassFileName))
-{
-    require_once($strClassFileName);
-
-    $objMain = new $_GET['class'];
-    if(method_exists($objMain,$_GET['method']))
-    {
-        $objMain->$_GET['method']();
-    }
-	else
+	// TODO： 1. 自动生成配置文件
+	$host = &$_SERVER['HTTP_HOST'];
+	$core->loadConfig($host);
+	$core->pushLog('URL:'.$_SERVER['REQUEST_URI']."\n");
+	$core->pushLog('METHOD:'.$_SERVER['REQUEST_METHOD']."\n");
+	if('POST'==$_SERVER['REQUEST_METHOD'])
 	{
-		echo 'The Controller ',$_GET['class'],' need the method:', $_GET['method'];
-		die();
+		// TODO: output post body
+		$contents = file_get_contents('php://input');
+		$core->pushLog('POST_BODY:'.$contents."\n");
 	}
-}
-else
-{
-  	//echo 'Class Not Found:'.$_SERVER['QUERY_STRING'];
-	header('Status: 404 Not found');
-    
-	if(is_file("/v/$THEME/error.html"))
+	$core->pushLog('start(url):'.microtime()."\n");
+
+    // NOTE: 需要先调用Session, 或许 controller 的初始化需要 session变量
+	// TODO: 可以根据配置文件，确认是否需要session
+	// TODO： 还是让具体的action自己来决定呢？ 根据配置文件，决定是否需要全局session开启
+	// 		对于不需要全局session开启的状态，让action自己去决定就好了，谁用谁知道
+	$core->loadSession();
+
+    // TODO： 2. 统一解析URL, 如果 $_GET['act'] 有设置，则外面的rewrite规则还在生效
+    // TODO: 3. in debug mode, this program will scan user's controller's directory 
+    list($controller, $action) = $core->rebuildUrl($_SERVER['REQUEST_URI']);
+    list($controller, $action) = $core->ControllerMap($controller, $action);
+
+	$c = $core->loadController($controller);
+
+	// 构造自定义日志
+	// TODO: 点入日志的记录路径应该在配置文件中写明
+	// TODO: 还需要考虑 控制器效率日志和模型的效率日志
+	if($core->getConfig('clicklog'))
+		$core->clickLog($core->getConfig['clicklog'].'/clicklog.'.date('Y-m-d'));
+	// 结束写入自定义日志
+	
+	$core->pushLog('start_controller('.$controller.'->'.$action.'):'.microtime()."\n");
+
+	if(method_exists($c, $action))
 	{
-		header("Location:/v/$THEME/error.html");
+		$core->RegisterShutdown("$controller"."->"."$action");
+		$c->$action();
+		$core->UnregisterShutdown("$controller"."->"."$action");
 	}
 	else
-		echo 'error 404<br/>and theme file: error.html not exists';
+	{
+		$core->RegisterShutdown("$controller"."->index");
+		$c->index();
+		$core->UnregisterShutdown("$controller"."->index");
+	}
+	$core->pushLog('end_controller('.$controller.'->'.$action."):".microtime()."\n");
+	$core->pushLog('end(url):'.microtime()."\n");
+	$core->writelog();
 
-	// TODO: this line for debug, remove this line before release
-	echo '<pre>';
-	print_r($_GET);
-	die();
-}

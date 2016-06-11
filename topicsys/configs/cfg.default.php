@@ -1,5 +1,21 @@
 <?php
 
+$CONFIG = array();
+$CONFIG['theme'] = 'v/default';
+$CONFIG['compiled_template'] = 'v/_run';
+
+$CONFIG['baseurl'] = 'http://topicsys.localhost';
+$CONFIG['sitename'] = '塔普播客';
+
+$CONFIG['database'] = array(
+	'host' 		=> '127.0.0.1',
+	'port' 		=> '3306',
+	'username' 	=> 'root',
+	'password' 	=> '1234',
+	'database' 	=> 'topbox',
+	);
+
+
 //---------[ 本段为服务器环境配置 ]---------------------------------------------
 // 正式服务器运行配置
 $config['active.local.lvren.cn'] = array(

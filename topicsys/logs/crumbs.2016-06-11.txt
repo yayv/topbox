@@ -1,0 +1,504 @@
+URL:/
+METHOD:GET
+start(url):0.67245500 1465637377
+start_controller(defaultcontroller->index):0.67245500 1465637377
+CallStack is NOT empty
+defaultcontroller->index
+URL:/
+METHOD:GET
+start(url):0.31760200 1465637470
+start_controller(defaultcontroller->index):0.32760200 1465637470
+CallStack is NOT empty
+defaultcontroller->index
+URL:/
+METHOD:GET
+start(url):0.24669000 1465637532
+start_controller(defaultcontroller->index):0.24669000 1465637532
+CallStack is NOT empty
+defaultcontroller->index
+URL:/
+METHOD:GET
+start(url):0.39674300 1465637569
+start_controller(defaultcontroller->index):0.39674300 1465637569
+CallStack is NOT empty
+defaultcontroller->index
+URL:/
+METHOD:GET
+start(url):0.21177300 1465637591
+start_controller(defaultcontroller->index):0.21177300 1465637591
+CallStack is NOT empty
+defaultcontroller->index
+URL:/
+METHOD:GET
+start(url):0.45985200 1465637646
+start_controller(defaultcontroller->index):0.45985200 1465637646
+CallStack is NOT empty
+defaultcontroller->index
+URL:/
+METHOD:GET
+start(url):0.65894100 1465637708
+start_controller(defaultcontroller->index):0.65894100 1465637708
+CallStack is NOT empty
+defaultcontroller->index
+URL:/
+METHOD:GET
+start(url):0.88896700 1465637726
+start_controller(defaultcontroller->index):0.88896700 1465637726
+CallStack is NOT empty
+defaultcontroller->index
+URL:/
+METHOD:GET
+start(url):0.54052400 1465637821
+start_controller(defaultcontroller->index):0.54352400 1465637821
+CallStack is NOT empty
+defaultcontroller->index
+URL:/
+METHOD:GET
+start(url):0.39936700 1465638799
+start_controller(defaultcontroller->index):0.39936700 1465638799
+CallStack is NOT empty
+defaultcontroller->index
+URL:/
+METHOD:GET
+start(url):0.34444400 1465638852
+start_controller(defaultcontroller->index):0.34444400 1465638852
+CallStack is NOT empty
+defaultcontroller->index
+URL:/
+METHOD:GET
+start(url):0.67247400 1465638873
+start_controller(defaultcontroller->index):0.67247400 1465638873
+CallStack is NOT empty
+defaultcontroller->index
+URL:/
+METHOD:GET
+start(url):0.13950100 1465638892
+start_controller(defaultcontroller->index):0.13950100 1465638892
+CallStack is NOT empty
+defaultcontroller->index
+URL:/
+METHOD:GET
+start(url):0.30950400 1465638894
+start_controller(defaultcontroller->index):0.30950400 1465638894
+CallStack is NOT empty
+defaultcontroller->index
+URL:/
+METHOD:GET
+start(url):0.70950500 1465638894
+start_controller(defaultcontroller->index):0.70950500 1465638894
+CallStack is NOT empty
+defaultcontroller->index
+URL:/
+METHOD:GET
+start(url):0.86950500 1465638894
+start_controller(defaultcontroller->index):0.86950500 1465638894
+CallStack is NOT empty
+defaultcontroller->index
+URL:/
+METHOD:GET
+start(url):0.02950500 1465638895
+start_controller(defaultcontroller->index):0.02950500 1465638895
+CallStack is NOT empty
+defaultcontroller->index
+URL:/
+METHOD:GET
+start(url):0.08253300 1465638914
+start_controller(defaultcontroller->index):0.08253300 1465638914
+CallStack is NOT empty
+defaultcontroller->index
+URL:/
+METHOD:GET
+start(url):0.45968200 1465639017
+start_controller(defaultcontroller->index):0.45968200 1465639017
+CallStack is NOT empty
+defaultcontroller->index
+URL:/
+METHOD:GET
+start(url):0.79784300 1465639823
+start_controller(defaultcontroller->index):0.80784300 1465639823
+CallStack is NOT empty
+defaultcontroller->index
+URL:/
+METHOD:GET
+start(url):0.45391400 1465639873
+start_controller(defaultcontroller->index):0.46391400 1465639873
+CallStack is NOT empty
+defaultcontroller->index
+URL:/
+METHOD:GET
+start(url):0.20392900 1465639884
+start_controller(defaultcontroller->index):0.22392900 1465639884
+CallStack is NOT empty
+defaultcontroller->index
+URL:/
+METHOD:GET
+start(url):0.83814300 1465640032
+start_controller(defaultcontroller->index):0.84814300 1465640032
+CallStack is NOT empty
+defaultcontroller->index
+URL:/
+METHOD:GET
+start(url):0.63625500 1465640109
+start_controller(defaultcontroller->index):0.64625500 1465640109
+CallStack is NOT empty
+defaultcontroller->index
+URL:/
+METHOD:GET
+start(url):0.58127700 1465640125
+start_controller(defaultcontroller->index):0.59127800 1465640125
+CallStack is NOT empty
+defaultcontroller->index
+URL:/
+METHOD:GET
+start(url):0.85573500 1465640171
+start_controller(defaultcontroller->index):0.86573500 1465640171
+CallStack is NOT empty
+defaultcontroller->index
+URL:/
+METHOD:GET
+start(url):0.58284300 1465640180
+start_controller(defaultcontroller->index):0.59284300 1465640180
+CallStack is NOT empty
+defaultcontroller->index
+URL:/
+METHOD:GET
+start(url):0.62485300 1465640187
+start_controller(defaultcontroller->index):0.63485300 1465640187
+CallStack is NOT empty
+defaultcontroller->index
+URL:/
+METHOD:GET
+start(url):0.04486300 1465640195
+start_controller(defaultcontroller->index):0.06486300 1465640195
+CallStack is NOT empty
+defaultcontroller->index
+URL:/
+METHOD:GET
+start(url):0.67252800 1465640275
+start_controller(defaultcontroller->index):0.69252800 1465640275
+end_controller(defaultcontroller->index):0.75252800 1465640275
+end(url):0.75252800 1465640275
+URL:/main.css
+METHOD:GET
+start(url):0.80252800 1465640275
+start_controller(main.css->index):0.81252800 1465640275
+end_controller(main.css->index):0.81252800 1465640275
+end(url):0.81252800 1465640275
+URL:/js/thickbox.css
+METHOD:GET
+start(url):0.81252800 1465640275
+start_controller(js->thickbox.css):0.82252800 1465640275
+end_controller(js->thickbox.css):0.82252800 1465640275
+end(url):0.82252800 1465640275
+URL:/js/thickbox.js
+METHOD:GET
+start(url):0.82252800 1465640275
+start_controller(js->thickbox.js):0.83252800 1465640275
+end_controller(js->thickbox.js):0.83252800 1465640275
+end(url):0.83252800 1465640275
+URL:/js/jquery-1.2.6.js
+METHOD:GET
+start(url):0.83252800 1465640275
+start_controller(js->1.2.6.js):0.84252800 1465640275
+end_controller(js->1.2.6.js):0.84252800 1465640275
+end(url):0.84252800 1465640275
+URL:/js/jquery-ui-personalized-1.6rc4.min.js
+METHOD:GET
+start(url):0.84252800 1465640275
+start_controller(js->ui-personalized-1.6rc4.min.js):0.85252800 1465640275
+end_controller(js->ui-personalized-1.6rc4.min.js):0.85252800 1465640275
+end(url):0.85252800 1465640275
+URL:/images/favicon.ico
+METHOD:GET
+start(url):0.85252800 1465640275
+start_controller(images->favicon.ico):0.86252800 1465640275
+end_controller(images->favicon.ico):0.86252800 1465640275
+end(url):0.86252800 1465640275
+URL:/images/favicon.ico
+METHOD:GET
+start(url):0.86252800 1465640275
+start_controller(images->favicon.ico):0.87252800 1465640275
+end_controller(images->favicon.ico):0.87252800 1465640275
+end(url):0.87252800 1465640275
+URL:/
+METHOD:GET
+start(url):0.68253900 1465640283
+start_controller(defaultcontroller->index):0.70253900 1465640283
+end_controller(defaultcontroller->index):0.70253900 1465640283
+end(url):0.70253900 1465640283
+URL:/main.css
+METHOD:GET
+start(url):0.74253900 1465640283
+start_controller(main.css->index):0.75253900 1465640283
+end_controller(main.css->index):0.75253900 1465640283
+end(url):0.75253900 1465640283
+URL:/js/thickbox.css
+METHOD:GET
+start(url):0.75253900 1465640283
+start_controller(js->thickbox.css):0.76253900 1465640283
+end_controller(js->thickbox.css):0.76253900 1465640283
+end(url):0.76253900 1465640283
+URL:/js/jquery-1.2.6.js
+METHOD:GET
+start(url):0.76253900 1465640283
+start_controller(js->1.2.6.js):0.77253900 1465640283
+end_controller(js->1.2.6.js):0.77253900 1465640283
+end(url):0.77253900 1465640283
+URL:/js/thickbox.js
+METHOD:GET
+start(url):0.77253900 1465640283
+start_controller(js->thickbox.js):0.78253900 1465640283
+end_controller(js->thickbox.js):0.78253900 1465640283
+end(url):0.78253900 1465640283
+URL:/js/jquery-ui-personalized-1.6rc4.min.js
+METHOD:GET
+start(url):0.78253900 1465640283
+start_controller(js->ui-personalized-1.6rc4.min.js):0.79253900 1465640283
+end_controller(js->ui-personalized-1.6rc4.min.js):0.79253900 1465640283
+end(url):0.79253900 1465640283
+URL:/
+METHOD:GET
+start(url):0.80160500 1465640329
+start_controller(defaultcontroller->index):0.81160500 1465640329
+end_controller(defaultcontroller->index):0.81160500 1465640329
+end(url):0.81160500 1465640329
+URL:/main.css
+METHOD:GET
+start(url):0.86160500 1465640329
+start_controller(main.css->index):0.87160500 1465640329
+end_controller(main.css->index):0.87160500 1465640329
+end(url):0.87160500 1465640329
+URL:/js/thickbox.js
+METHOD:GET
+start(url):0.87160500 1465640329
+start_controller(js->thickbox.js):0.88160500 1465640329
+end_controller(js->thickbox.js):0.88160500 1465640329
+end(url):0.88160500 1465640329
+URL:/js/jquery-1.2.6.js
+METHOD:GET
+start(url):0.89160500 1465640329
+start_controller(js->1.2.6.js):0.89160500 1465640329
+end_controller(js->1.2.6.js):0.89160500 1465640329
+end(url):0.89160500 1465640329
+URL:/js/thickbox.css
+METHOD:GET
+start(url):0.90160500 1465640329
+start_controller(js->thickbox.css):0.91160500 1465640329
+end_controller(js->thickbox.css):0.91160500 1465640329
+end(url):0.91160500 1465640329
+URL:/js/jquery-ui-personalized-1.6rc4.min.js
+METHOD:GET
+start(url):0.91160500 1465640329
+start_controller(js->ui-personalized-1.6rc4.min.js):0.92160500 1465640329
+end_controller(js->ui-personalized-1.6rc4.min.js):0.92160500 1465640329
+end(url):0.92160500 1465640329
+URL:/
+METHOD:GET
+start(url):0.49774600 1465640427
+start_controller(defaultcontroller->index):0.50774600 1465640427
+end_controller(defaultcontroller->index):0.51774600 1465640427
+end(url):0.51774600 1465640427
+URL:/js/thickbox.css
+METHOD:GET
+start(url):0.53774600 1465640427
+start_controller(js->thickbox.css):0.53774600 1465640427
+end_controller(js->thickbox.css):0.53774600 1465640427
+end(url):0.53774600 1465640427
+URL:/js/jquery-1.2.6.js
+METHOD:GET
+start(url):0.53774600 1465640427
+start_controller(js->1.2.6.js):0.54774600 1465640427
+end_controller(js->1.2.6.js):0.54774600 1465640427
+end(url):0.54774600 1465640427
+URL:/js/thickbox.js
+METHOD:GET
+start(url):0.54774600 1465640427
+start_controller(js->thickbox.js):0.55774600 1465640427
+end_controller(js->thickbox.js):0.55774600 1465640427
+end(url):0.55774600 1465640427
+URL:/js/jquery-ui-personalized-1.6rc4.min.js
+METHOD:GET
+start(url):0.55774600 1465640427
+start_controller(js->ui-personalized-1.6rc4.min.js):0.56774600 1465640427
+end_controller(js->ui-personalized-1.6rc4.min.js):0.56774600 1465640427
+end(url):0.56774600 1465640427
+URL:/
+METHOD:GET
+start(url):0.70774900 1465640429
+start_controller(defaultcontroller->index):0.71774900 1465640429
+end_controller(defaultcontroller->index):0.71774900 1465640429
+end(url):0.71774900 1465640429
+URL:/js/thickbox.css
+METHOD:GET
+start(url):0.76774900 1465640429
+start_controller(js->thickbox.css):0.76774900 1465640429
+end_controller(js->thickbox.css):0.76774900 1465640429
+end(url):0.76774900 1465640429
+URL:/js/jquery-1.2.6.js
+METHOD:GET
+start(url):0.77774900 1465640429
+start_controller(js->1.2.6.js):0.78774900 1465640429
+end_controller(js->1.2.6.js):0.78774900 1465640429
+end(url):0.78774900 1465640429
+URL:/js/thickbox.js
+METHOD:GET
+start(url):0.78774900 1465640429
+start_controller(js->thickbox.js):0.79774900 1465640429
+end_controller(js->thickbox.js):0.79774900 1465640429
+end(url):0.79774900 1465640429
+URL:/js/jquery-ui-personalized-1.6rc4.min.js
+METHOD:GET
+start(url):0.79774900 1465640429
+start_controller(js->ui-personalized-1.6rc4.min.js):0.80774900 1465640429
+end_controller(js->ui-personalized-1.6rc4.min.js):0.80774900 1465640429
+end(url):0.80774900 1465640429
+URL:/
+METHOD:GET
+start(url):0.48775600 1465640434
+start_controller(defaultcontroller->index):0.50775600 1465640434
+end_controller(defaultcontroller->index):0.50775600 1465640434
+end(url):0.50775600 1465640434
+URL:/js/thickbox.css
+METHOD:GET
+start(url):0.54775600 1465640434
+start_controller(js->thickbox.css):0.55775600 1465640434
+end_controller(js->thickbox.css):0.56775600 1465640434
+end(url):0.56775600 1465640434
+URL:/js/jquery-1.2.6.js
+METHOD:GET
+start(url):0.56775600 1465640434
+start_controller(js->1.2.6.js):0.57775600 1465640434
+end_controller(js->1.2.6.js):0.57775600 1465640434
+end(url):0.57775600 1465640434
+URL:/js/thickbox.js
+METHOD:GET
+start(url):0.57775600 1465640434
+start_controller(js->thickbox.js):0.58775600 1465640434
+end_controller(js->thickbox.js):0.58775600 1465640434
+end(url):0.58775600 1465640434
+URL:/js/jquery-ui-personalized-1.6rc4.min.js
+METHOD:GET
+start(url):0.58775600 1465640434
+start_controller(js->ui-personalized-1.6rc4.min.js):0.59775600 1465640434
+end_controller(js->ui-personalized-1.6rc4.min.js):0.59775600 1465640434
+end(url):0.59775600 1465640434
+URL:/
+METHOD:GET
+start(url):0.12457200 1465640492
+start_controller(defaultcontroller->index):0.14857300 1465640492
+end_controller(defaultcontroller->index):0.15257300 1465640492
+end(url):0.15257300 1465640492
+URL:/js/thickbox.css
+METHOD:GET
+start(url):0.20257600 1465640492
+start_controller(js->thickbox.css):0.21657700 1465640492
+end_controller(js->thickbox.css):0.21757700 1465640492
+end(url):0.21757700 1465640492
+URL:/js/jquery-ui-personalized-1.6rc4.min.js
+METHOD:GET
+start(url):0.22057700 1465640492
+start_controller(js->ui-personalized-1.6rc4.min.js):0.22557800 1465640492
+end_controller(js->ui-personalized-1.6rc4.min.js):0.22757800 1465640492
+end(url):0.22757800 1465640492
+URL:/js/thickbox.js
+METHOD:GET
+start(url):0.24257900 1465640492
+start_controller(js->thickbox.js):0.25657900 1465640492
+end_controller(js->thickbox.js):0.25757900 1465640492
+end(url):0.25757900 1465640492
+URL:/js/jquery-1.2.6.js
+METHOD:GET
+start(url):0.26058000 1465640492
+start_controller(js->1.2.6.js):0.27358000 1465640492
+end_controller(js->1.2.6.js):0.27458000 1465640492
+end(url):0.27458000 1465640492
+URL:/
+METHOD:GET
+start(url):0.74789300 1465640497
+start_controller(defaultcontroller->index):0.76389400 1465640497
+end_controller(defaultcontroller->index):0.76589500 1465640497
+end(url):0.76589500 1465640497
+URL:/js/thickbox.css
+METHOD:GET
+start(url):0.79989600 1465640497
+start_controller(js->thickbox.css):0.81389700 1465640497
+end_controller(js->thickbox.css):0.81489700 1465640497
+end(url):0.81489700 1465640497
+URL:/js/jquery-1.2.6.js
+METHOD:GET
+start(url):0.81689700 1465640497
+start_controller(js->1.2.6.js):0.82189800 1465640497
+end_controller(js->1.2.6.js):0.82289800 1465640497
+end(url):0.82289800 1465640497
+URL:/js/thickbox.js
+METHOD:GET
+start(url):0.82489800 1465640497
+start_controller(js->thickbox.js):0.83889900 1465640497
+end_controller(js->thickbox.js):0.83989900 1465640497
+end(url):0.83989900 1465640497
+URL:/js/jquery-ui-personalized-1.6rc4.min.js
+METHOD:GET
+start(url):0.84189900 1465640497
+start_controller(js->ui-personalized-1.6rc4.min.js):0.85690000 1465640497
+end_controller(js->ui-personalized-1.6rc4.min.js):0.85790000 1465640497
+end(url):0.85790000 1465640497
+URL:/
+METHOD:GET
+start(url):0.29518300 1465640520
+start_controller(defaultcontroller->index):0.30418400 1465640520
+end_controller(defaultcontroller->index):0.30618400 1465640520
+end(url):0.30618400 1465640520
+URL:/js/thickbox.css
+METHOD:GET
+start(url):0.34318600 1465640520
+start_controller(js->thickbox.css):0.35718700 1465640520
+end_controller(js->thickbox.css):0.35818700 1465640520
+end(url):0.35818700 1465640520
+URL:/js/jquery-ui-personalized-1.6rc4.min.js
+METHOD:GET
+start(url):0.36118700 1465640520
+start_controller(js->ui-personalized-1.6rc4.min.js):0.37518800 1465640520
+end_controller(js->ui-personalized-1.6rc4.min.js):0.37618800 1465640520
+end(url):0.37618800 1465640520
+URL:/js/thickbox.js
+METHOD:GET
+start(url):0.38918800 1465640520
+start_controller(js->thickbox.js):0.39418900 1465640520
+end_controller(js->thickbox.js):0.39518900 1465640520
+end(url):0.39518900 1465640520
+URL:/js/jquery-1.2.6.js
+METHOD:GET
+start(url):0.40719000 1465640520
+start_controller(js->1.2.6.js):0.41219000 1465640520
+end_controller(js->1.2.6.js):0.41419000 1465640520
+end(url):0.41419000 1465640520
+URL:/
+METHOD:GET
+start(url):0.59742900 1465640524
+start_controller(defaultcontroller->index):0.62143100 1465640524
+end_controller(defaultcontroller->index):0.62543100 1465640524
+end(url):0.62543100 1465640524
+URL:/js/thickbox.css
+METHOD:GET
+start(url):0.65543300 1465640524
+start_controller(js->thickbox.css):0.65943300 1465640524
+end_controller(js->thickbox.css):0.66143300 1465640524
+end(url):0.66143300 1465640524
+URL:/js/jquery-1.2.6.js
+METHOD:GET
+start(url):0.66643300 1465640524
+start_controller(js->1.2.6.js):0.68143400 1465640524
+end_controller(js->1.2.6.js):0.68243400 1465640524
+end(url):0.68243400 1465640524
+URL:/js/thickbox.js
+METHOD:GET
+start(url):0.68543400 1465640524
+start_controller(js->thickbox.js):0.69943500 1465640524
+end_controller(js->thickbox.js):0.70043500 1465640524
+end(url):0.70043500 1465640524
+URL:/js/jquery-ui-personalized-1.6rc4.min.js
+METHOD:GET
+start(url):0.70343500 1465640524
+start_controller(js->ui-personalized-1.6rc4.min.js):0.71743600 1465640524
+end_controller(js->ui-personalized-1.6rc4.min.js):0.71843600 1465640524
+end(url):0.71843600 1465640524
