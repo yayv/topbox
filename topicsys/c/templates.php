@@ -3,9 +3,9 @@
  * 公共模板管理
  * 
  */
-include('c/common.php');
+include('c/commoncontroller.php');
 
-class templates extends common
+class templates extends CommonController
 {
 	public $smarty;
 	public $theme;
@@ -50,7 +50,7 @@ class templates extends common
 		$this->smarty->display('main.html');
 	}
 
-	function main()
+	function index()
 	{
 		$this->listall();
 	}

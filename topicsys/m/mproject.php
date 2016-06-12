@@ -1,25 +1,19 @@
 <?php
 
-class mproject
+class mproject extends model
 {
-	private $db;
-	private $config;
 	private $home;
 
     public  $error_stack;
 
-	public function __construct($db, $config, $home)
+	public function __construct()
 	{
-		$this->db = &$db;
-		$this->config = &$config;
-		$this->home = $home;
-
         $this->error_stack = array();
 	}
 
 	public function getAllProjectInfo($projectid)
     {        
-        $ret = $this->db->get_results("select * from projects where id=$projectid",'O');
+        $ret = $this->_db->get_results("select * from projects where id=$projectid",'O');
         
         $row=$ret[0];
         
@@ -36,7 +30,7 @@ class mproject
 		if(in_array($key, $keys))
 		{
 			$sql = "select $key from   projects where id=$projectid";
-			$ret = $this->db->get_results($sql,'O');
+			$ret = $this->_db->fetch_all_array($sql);
 
 			if($ret)
 			{
@@ -69,7 +63,7 @@ class mproject
 		if(in_array($key, $keys))
 		{
 			$sql = "update  projects set $key='$value' where id=$projectid";
-			$ret = $this->db->query($sql,'O');
+			$ret = $this->_db->query($sql,'O');
            
 			if($ret)
 				return $value;
@@ -91,7 +85,7 @@ class mproject
                     templates_inproject
                 where 
                     templates_inproject.projectid=$projectid ";
-        $rows = $this->db->get_results($sql,'O');
+        $rows = $this->_db->fetch_all_array($sql);
 		return $rows;
 	}
 
@@ -107,7 +101,7 @@ class mproject
 		        templates_inproject.projectid=$projectid and
 		        templates_inproject.id=pages_inproject.templateid";
 
-        $rows = $this->db->get_results($sql,'O');
+        $rows = $this->_db->fetch_all_array($sql);
 		
 		return $rows;
 	}
@@ -119,7 +113,7 @@ class mproject
                     set user_hook_filename='$user_hook_filename', 
                          hookfile_content='$hookfile_content'
                     where id=$pageid and projectid=$projectid";
-        $ret = $this->db->query($sql);
+        $ret = $this->_db->query($sql);
          
         return true;
     }
@@ -150,7 +144,7 @@ class mproject
 	public function getDatasource($projectid)
 	{
 		$sql = "select * from datasource_inproject where projectid=$projectid";
-		$rows = $this->db->get_results($sql,'O');
+		$rows = $this->_db->fetch_all_array($sql);
 
 		return $rows;
 	}
@@ -192,7 +186,7 @@ class mproject
             ";
 
             // insert db data
-            $ret = $this->db->query($sql);
+            $ret = $this->_db->query($sql);
             if(!$ret)
             {
                 $this->error_stack[] = array(
@@ -202,7 +196,7 @@ class mproject
                 return false;
             }
             
-            $projectid = $this->db->last_insert_id();
+            $projectid = $this->_db->last_insert_id();
 
 			// create directory
 			$ret = mkdir($homedir.'/'.$directory, 0777);
@@ -213,7 +207,7 @@ class mproject
             if(!$ret)
             {
                 $sql = "delete from projects where id=$projectid";
-                $this->db->query($sql);
+                $this->_db->query($sql);
                 $this->error_stack[] = array(
                     'message' => 'mkdir failed',
                     'data' => $homedir.'/'.$directory,
@@ -236,7 +230,7 @@ class mproject
 	                templates_inproject(projectid, templatename, from_templateid, templatefile,
 	                content) 
 	            values($projectid, '$name', $from_tmplid, '$filename', '$content')";
-	    $ret = $this->db->query($sql);
+	    $ret = $this->_db->query($sql);
 	    if(!$ret)
 	    {
 	        $this->error_stack[] = array(
@@ -269,7 +263,7 @@ class mproject
 	            	content='$content'
 	            where id=$id";
 
-	    $ret = $this->db->query($sql);
+	    $ret = $this->_db->query($sql);
 	    if(!$ret)
 	    {
 	        $this->error_stack[] = array(
@@ -286,7 +280,7 @@ class mproject
 	{
 	    $sql = "select * from templates_inproject
 	            where id=$templateid";
-	    $rows = $this->db->get_results($sql,'O');
+	    $rows = $this->_db->fetch_all_array($sql,'O');
 	    return $rows[0];
 	}
 	
@@ -294,7 +288,7 @@ class mproject
 	{
 	    $sql = "select templatefile from templates_inproject
 	            where id=$templateid";
-	    return $this->db->get_var($sql);
+	    return $this->_db->get_var($sql);
 	}
 	
 	public function addPage($projectid, $templateid, $pagename, $filename, $publishtype, $hookfile)
@@ -302,7 +296,7 @@ class mproject
 	    $sql = "insert into 
 	                pages_inproject(projectid, templateid, pagename, filename, publishtype, user_hook_filename) 
 	            values ($projectid, $templateid, '$pagename', '$filename', '$publishtype', '$hookfile')";
-	    $ret = $this->db->query($sql);
+	    $ret = $this->_db->query($sql);
 	    
 	    if(!$ret)
 	    {
@@ -320,7 +314,7 @@ class mproject
         $sql = "select user_hook_filename, hookfile_content
                     from pages_inproject
                     where projectid=$projectid and id=$pageid";
-        $ret = $this->db->get_results($sql, 'O');
+        $ret = $this->_db->fetch_all_array($sql, 'O');
 
         if(!$ret)
         {
@@ -341,7 +335,7 @@ class mproject
 	            set templateid=$templateid, pagename='$pagename',
 	                filename='$filename',publishtype='$publishtype', user_hook_filename='$hookfile'
 	            where projectid=$projectid and id=$pageid";
-	    $ret = $this->db->query($sql);
+	    $ret = $this->_db->query($sql);
 	    
 	    if(!$ret)
 	    {
@@ -358,7 +352,7 @@ class mproject
     public function getPage($pageid)
     {
         $sql = "select * from pages_inproject where id=$pageid";
-        $row = $this->db->get_results($sql, 'O');       
+        $row = $this->_db->fetch_all_array($sql, 'O');       
 
         return $row[0];
     }
@@ -366,7 +360,7 @@ class mproject
     public function delPage($projectid, $pageid)
     {
         $sql = "delete from pages_inproject where id=$pageid";
-        $ret = $this->db->query($sql);
+        $ret = $this->_db->query($sql);
 
         return $ret;
     }
@@ -375,7 +369,7 @@ class mproject
 	{
 	   
 	   $sql="update projects set `zipname`='$name' where `id`=$projectid";
-	   $ret=$this->db->query($sql);
+	   $ret=$this->_db->query($sql);
 	   return $ret;
 	}
 	public function publishZippedResource($dir,$zipname)
@@ -445,7 +439,7 @@ class mproject
 	{
 		
 		$sql="select filename from pages_inproject where projectid=$id and publishtype='auto'";
-		$row = $this->db->get_results($sql, 'O');    
+		$row = $this->_db->fetch_all_array($sql, 'O');    
 		
 		return $row;
 	}

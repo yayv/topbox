@@ -3,9 +3,9 @@
  * the basic class
  * 
  */
-include('c/common.php');
+include('c/commoncontroller.php');
 
-class index extends common
+class index extends CommonController
 {
 	public $smarty;
 	public $theme;

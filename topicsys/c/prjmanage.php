@@ -3,9 +3,9 @@
  * the basic class
  * 
  */
-include('c/common.php');
+include('c/commoncontroller.php');
 
-class prjmanage extends common
+class prjmanage extends CommonController
 {
 	public $smarty;
 	public $theme;
@@ -16,18 +16,11 @@ class prjmanage extends common
 
 	function __construct()
 	{
-		parent::initConfig($this);
+		parent::init();
 
 		// load db class
 		require_once('lib/public_dbclass.php');
-		$this->db = new DB_Sql(
-			$this->config['dbserver'],
-			$this->config['database'],
-			$this->config['dbuser'],
-			$this->config['dbpass'],
-			'DB_MAILSYS'
-		);
-
+		$this->db = $this->_db;
 		// load menu module
 		require_once('m/mmenu.php');
 		$this->mmenu = new mmenu($this->home);
@@ -37,7 +30,7 @@ class prjmanage extends common
 		$this->mprjmanage = new mprjmanage($this->db, $this->config, $this->home);
 	}
 
-	function main()
+	function index()
 	{
 		$this->listall();
 	}
@@ -45,22 +38,22 @@ class prjmanage extends common
     function listall()
     {
 		// get Menu View
-		parent::initSmartyAssign($this);
-		$this->smarty->assign('menulist', $this->mmenu->getMenu());
-		$menulist = $this->smarty->fetch('menu.html');
+		parent::initAssign($this);
+		$this->tpl->assign('menulist', $this->mmenu->getMenu());
+		$menulist = $this->tpl->fetch('menu.html');
 
 		// get Index main view
-		parent::initSmartyAssign($this);
-		$this->smarty->assign('msg', 
+		parent::initAssign($this);
+		$this->tpl->assign('msg', 
 			$this->mprjmanage->getProjectList());
-		$right = $this->smarty->fetch('right.prjmanage_list.html');
+		$right = $this->tpl->fetch('right.prjmanage_list.html');
 
 		// show all
 		parent::initSmartyAssign($this);
-		$this->smarty->assign('title','专题项目管理');
-		$this->smarty->assign('menulist',$menulist);
-		$this->smarty->assign('rightpad',$right);
-		$this->smarty->display('main.html');
+		$this->tpl->assign('title','专题项目管理');
+		$this->tpl->assign('menulist',$menulist);
+		$this->tpl->assign('rightpad',$right);
+		$this->tpl->display('main.html');
     }
 };
 

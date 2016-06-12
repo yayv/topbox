@@ -28,8 +28,10 @@ class defaultcontroller extends CommonController
 		$body .= file_get_contents('data/history.txt');
 		$body = strtr($body,array("\n"=>'<br/>',' '=>'&nbsp;'));
 		
-		
-		$this->tpl->assign('body', '<p>'.$body.'</p>');
+		$nav  = $this->tpl->fetch('navigatebar.tpl.html');
+        $this->tpl->assign('navigatebar',$nav);
+        $this->tpl->assign('body',"<br/><br/><br/>");
 		$this->tpl->display('index.tpl.html');
+		return ;		
 	}
 }

@@ -3,11 +3,10 @@
  * the basic class
  * 
  */
-include('c/common.php');
+include('c/commoncontroller.php');
 
-class project extends common
+class project extends CommonController
 {
-	public $smarty;
 	public $theme;
 	public $config;
 	public $db;
@@ -16,7 +15,7 @@ class project extends common
 
 	function __construct()
 	{
-		parent::initConfig($this);
+		parent::init();
 
 		// load db class
 		require_once('lib/public_dbclass.php');
@@ -29,14 +28,14 @@ class project extends common
 		);
 
 		// load project manage module
+		/*
 		require_once('m/mproject.php');
 		$this->mproject = new mproject($this->db, $this->config, $this->home);
+		*/
 
 		// load menu module
-		require_once('m/mmenu.php');
-		$this->mmenu = new mmenu($this->home);
-		$name = $this->mproject->getProjectInfo($_GET['id'],'title');
-        $this->mmenu->setProjectName($name);
+		$name = $this->getModel('mproject')->getProjectInfo($_GET['id'],'title');
+        $this->getModel('mmenu')->setProjectName($name);
 
 	   // $this->mmenu->appendUserMenu($this->mproject->getChannelList());
          
@@ -77,38 +76,38 @@ class project extends common
 
 		// get Menu View
 		parent::initSmartyAssign($this);
-		$this->smarty->assign('menulist', $this->mmenu->getMenu($projectid, $projectname));
-		$menulist = $this->smarty->fetch('menu.html');
+		$this->tpl->assign('menulist', $this->mmenu->getMenu($projectid, $projectname));
+		$menulist = $this->tpl->fetch('menu.html');
 
 		
 		// show all
 		parent::initSmartyAssign($this);
 		
-		$this->smarty->assign('home',$this->home);
-		$this->smarty->assign('title','专题项目管理');
-		$this->smarty->assign('menulist',$menulist);
-		$this->smarty->assign('rightpad',$c);
-		$this->smarty->display('main.html');	
+		$this->tpl->assign('home',$this->home);
+		$this->tpl->assign('title','专题项目管理');
+		$this->tpl->assign('menulist',$menulist);
+		$this->tpl->assign('rightpad',$c);
+		$this->tpl->display('main.html');	
 	}	
 
 	function create($msg='')
 	{
-		parent::initSmartyAssign($this);
+		parent::initAssign($this);
 		$dynamicdata = isset($_POST['dynamicdata'])?$_POST['dynamicdata']:$this->config['defaultdynamicdata'];
-		$staticdata = isset($_POST['staticdata'])?$_POST['staticdata']:$this->config['defaultdynamicdata'];
+		$staticdata  = isset($_POST['staticdata'])?$_POST['staticdata']:$this->config['defaultdynamicdata'];
         
 		
-        $this->smarty->assign('author',$_SERVER['PHP_AUTH_USER']);
-		$this->smarty->assign('home', $this->home);
-		$this->smarty->assign('message', $msg);
-		$this->smarty->assign('projectname', $_POST['projectname']);
-		$this->smarty->assign('description', $_POST['description']);
-		//$this->smarty->assign('author', $_POST['author']);
-		$this->smarty->assign('directory', $_POST['directory']);
-		$this->smarty->assign('url', $_POST['url']);
-		$this->smarty->assign('staticdata', $_POST['staticdata']?$_POST['staticdata']:'s.dump');
-		$this->smarty->assign('dynamicdata', $_POST['dynamicdata']?$_POST['dynamicdata']:'d.dump');
-		$c = $this->smarty->fetch('right.project_create.html');
+        $this->tpl->assign('author',$_SERVER['PHP_AUTH_USER']);
+		$this->tpl->assign('home', $this->home);
+		$this->tpl->assign('message', $msg);
+		$this->tpl->assign('projectname', $_POST['projectname']);
+		$this->tpl->assign('description', $_POST['description']);
+		//$this->tpl->assign('author', $_POST['author']);
+		$this->tpl->assign('directory', $_POST['directory']);
+		$this->tpl->assign('url', $_POST['url']);
+		$this->tpl->assign('staticdata', $_POST['staticdata']?$_POST['staticdata']:'s.dump');
+		$this->tpl->assign('dynamicdata', $_POST['dynamicdata']?$_POST['dynamicdata']:'d.dump');
+		$c = $this->tpl->fetch('right.project_create.html');
 		
 		$this->showFrame($c);
 	}
@@ -116,18 +115,18 @@ class project extends common
 	function edit()
 	{
 		// get Project info
-		$info = $this->mproject->getAllProjectInfo($_GET['id']);
-		$this->smarty->assign('writer',$info->writer);
-		$this->smarty->assign('home', $this->home);
-		$this->smarty->assign('id', $_GET['id']);
-		$this->smarty->assign('title',$info->title);
-		$this->smarty->assign('description',$info->description);
-		$this->smarty->assign('author',$info->author);
-		$this->smarty->assign('directory',$info->directory);
-		$this->smarty->assign('url',$info->url);
-		$this->smarty->assign('staticdata',$info->staticdata);
-		$this->smarty->assign('dynamicdata',$info->dynamicdata);
-		$c = $this->smarty->fetch('right.project_edit.html');
+		$info = $this->getModel('mproject')->getAllProjectInfo($_GET['id']);
+		$this->tpl->assign('writer',$info->writer);
+		$this->tpl->assign('home', $this->home);
+		$this->tpl->assign('id', $_GET['id']);
+		$this->tpl->assign('title',$info->title);
+		$this->tpl->assign('description',$info->description);
+		$this->tpl->assign('author',$info->author);
+		$this->tpl->assign('directory',$info->directory);
+		$this->tpl->assign('url',$info->url);
+		$this->tpl->assign('staticdata',$info->staticdata);
+		$this->tpl->assign('dynamicdata',$info->dynamicdata);
+		$c = $this->tpl->fetch('right.project_edit.html');
 
 		$this->showFrame($c);
 	}
@@ -136,14 +135,15 @@ class project extends common
     {
 		$projectid = $_GET['id'];
 
-		include_once('m/mtemplates.php');
-		$this->mtemplates = new mtemplates($this->db, $this->config, $this->config['baseurl']);
+		/*
+		$this->getModel('mtemplates') = new mtemplates($this->db, $this->config, $this->config['baseurl']);
+		*/
 		
 		// 获得基础模板的名称
-		$templatesname = $this->mtemplates->getTemplatesNames();
+		$templatesname = $this->$this->getModel('mtemplates')->getTemplatesNames();
 		
 		// 获得项目模板列表
-		$templates = $this->mproject->getTemplates($projectid);
+		$templates = $this->getModel('mproject')->getTemplates($projectid);
 		if($templates)
 		foreach($templates as $k=>$v)
 		{
@@ -156,51 +156,53 @@ class project extends common
 		}
 
 		// 获得项目页面列表
-		$pages = $this->mproject->getPages($projectid);
+		$pages = $this->getModel('mproject')->getPages($projectid);
       
         // 获得项目数据组列表
+        /*
         if(!$this->mdatagroup)
         {
-            include_once('m/mdatagroup.php');
-            $this->mdatagroup = new mdatagroup($this->db, $this->conf, $this->home);
+
+            $this->getModel('mdatagroup') = new mdatagroup($this->db, $this->conf, $this->home);
             
         }
-        $datagroup = $this->mdatagroup->getDatagroups($projectid);
+        */
+        $datagroup = $this->getModel('mdatagroup')->getDatagroups($projectid);
     
-        $project = $this->mproject->getAllProjectInfo($projectid);
+        $project = $this->getModel('mproject')->getAllProjectInfo($projectid);
 
-		parent::initSmartyAssign($this);
+		parent::initAssign($this);
 
-        $checkname=$this->mproject->checkfile($project->zipname);
+        $checkname=$this->getModel('mproject')->checkfile($project->zipname);
 	
 		if($checkname)
 		{
 			
-		$this->smarty->assign('dir', $project->zipname); 
+		$this->tpl->assign('dir', $project->zipname); 
 		}
 		else
 		{
-			$this->smarty->assign('dir', '还没有上传资源');
+			$this->tpl->assign('dir', '还没有上传资源');
 		}
 		if($project->zipname=='')
 		{
-          $this->smarty->assign('dir', '还没有上传资源');
+          $this->tpl->assign('dir', '还没有上传资源');
 		}
       
-		$this->smarty->assign('home',$this->home);		
-		$this->smarty->assign('id',$projectid);		
+		$this->tpl->assign('home',$this->home);		
+		$this->tpl->assign('id',$projectid);		
 		if($templates)
-		    $this->smarty->assign('templates',$templates);		
-		$this->smarty->assign('project', $project);
-		$this->smarty->assign('pages',$pages);		
-		$this->smarty->assign('datagroup', $datagroup);
-		$this->smarty->assign('datasource',$datasource);		
-		$c = $this->smarty->fetch('right.project_manage.html');
+		    $this->tpl->assign('templates',$templates);		
+		$this->tpl->assign('project', $project);
+		$this->tpl->assign('pages',$pages);		
+		$this->tpl->assign('datagroup', $datagroup);
+		$this->tpl->assign('datasource',$datasource);		
+		$c = $this->tpl->fetch('right.project_manage.html');
 
 		$this->showFrame($c);
     }
 
-    function main()
+    function index()
     {
 		if($_GET['id'])
 			$this->manage();
@@ -231,18 +233,18 @@ class project extends common
         $projectid   = $_GET['id'];
         $projectname = $this->mproject->getProjectInfo($projectid,'title');
 
-        $this->smarty->assign('home', $this->home);
-        $this->smarty->assign('projectid', $projectid);
-        $this->smarty->assign('projectname', $projectname);
-        $this->smarty->assign('id', -1);
-		$this->smarty->assign('from_tmplid', $from_tmplid);
-		$this->smarty->assign('name', $name);
-        $this->smarty->assign('filename', $filename);
-        $this->smarty->assign('content', $content);
-        $this->smarty->assign('type', $type);
-        $this->smarty->assign('message', $message);
+        $this->tpl->assign('home', $this->home);
+        $this->tpl->assign('projectid', $projectid);
+        $this->tpl->assign('projectname', $projectname);
+        $this->tpl->assign('id', -1);
+		$this->tpl->assign('from_tmplid', $from_tmplid);
+		$this->tpl->assign('name', $name);
+        $this->tpl->assign('filename', $filename);
+        $this->tpl->assign('content', $content);
+        $this->tpl->assign('type', $type);
+        $this->tpl->assign('message', $message);
 
-        $c = $this->smarty->fetch('right.project_addtemplate.html');
+        $c = $this->tpl->fetch('right.project_addtemplate.html');
         
 		$this->showFrame($c);
     }
@@ -254,18 +256,18 @@ class project extends common
         $projectinfo = $this->mproject->getAllProjectInfo($projectid, 'name');
         $templateinfo= $this->mproject->getTemplate($templateid);
 
-        $this->smarty->assign('home', $this->home);
-        $this->smarty->assign('projectid', $projectid);
-        $this->smarty->assign('projectname', $projectinfo->title);
-        $this->smarty->assign('id', $templateinfo->id);
-		$this->smarty->assign('from_tmplid', $templateinfo->from_templateid);
-		$this->smarty->assign('name', $templateinfo->templatename);
-        $this->smarty->assign('filename', $templateinfo->templatefile);
-        $this->smarty->assign('content', $templateinfo->content);
-        $this->smarty->assign('type', $templateinfo->type);
-        $this->smarty->assign('message', $message);
+        $this->tpl->assign('home', $this->home);
+        $this->tpl->assign('projectid', $projectid);
+        $this->tpl->assign('projectname', $projectinfo->title);
+        $this->tpl->assign('id', $templateinfo->id);
+		$this->tpl->assign('from_tmplid', $templateinfo->from_templateid);
+		$this->tpl->assign('name', $templateinfo->templatename);
+        $this->tpl->assign('filename', $templateinfo->templatefile);
+        $this->tpl->assign('content', $templateinfo->content);
+        $this->tpl->assign('type', $templateinfo->type);
+        $this->tpl->assign('message', $message);
 
-        $c = $this->smarty->fetch('right.project_addtemplate.html');
+        $c = $this->tpl->fetch('right.project_addtemplate.html');
         
 		$this->showFrame($c);        
     }
@@ -278,17 +280,17 @@ class project extends common
 	    $templates   = $this->mproject->getTemplates($projectid);  
         $pageid = -1;
         
-		$this->smarty->assign('home', $this->home);
-        $this->smarty->assign('pageid', $pageid);
-	    $this->smarty->assign('projectid', $projectid);
-	    $this->smarty->assign('projectname', $projectname);
-	    $this->smarty->assign('publishtype', $publishtype);
-	    $this->smarty->assign('pagename', $publishtype);
-	    $this->smarty->assign('filename', $publishtype);
-	    $this->smarty->assign('publishtype', $publishtype);
-	    $this->smarty->assign('templates', $templates);
-	    $this->smarty->assign('message', $msg);
-		$c = $this->smarty->fetch('right.project_addpage.html');
+		$this->tpl->assign('home', $this->home);
+        $this->tpl->assign('pageid', $pageid);
+	    $this->tpl->assign('projectid', $projectid);
+	    $this->tpl->assign('projectname', $projectname);
+	    $this->tpl->assign('publishtype', $publishtype);
+	    $this->tpl->assign('pagename', $publishtype);
+	    $this->tpl->assign('filename', $publishtype);
+	    $this->tpl->assign('publishtype', $publishtype);
+	    $this->tpl->assign('templates', $templates);
+	    $this->tpl->assign('message', $msg);
+		$c = $this->tpl->fetch('right.project_addpage.html');
 		
 		$this->showFrame($c);
 	}
@@ -398,18 +400,18 @@ class project extends common
 	    $templates = $this->mproject->getTemplates($projectid);
         $page      = $this->mproject->getPage($pageid);
 
-        $this->smarty->assign('home',  $this->home);
-        $this->smarty->assign('templates',  $templates);
-        $this->smarty->assign('projectid',  $projectid);
-        $this->smarty->assign('projectname',$projectname);
-        $this->smarty->assign('pageid',     $pageid);
-        $this->smarty->assign('templateid', $page->templateid);
-        $this->smarty->assign('pagename',   $page->pagename);
-        $this->smarty->assign('filename',   $page->filename);
-        $this->smarty->assign('publishtype',$page->publishtype);
-        $this->smarty->assign('hookfile',   $page->user_hook_filename);
-        $this->smarty->assign('default_hookfile', 'hook_'.$page->filename);
-        $c = $this->smarty->fetch('right.project_addpage.html');
+        $this->tpl->assign('home',  $this->home);
+        $this->tpl->assign('templates',  $templates);
+        $this->tpl->assign('projectid',  $projectid);
+        $this->tpl->assign('projectname',$projectname);
+        $this->tpl->assign('pageid',     $pageid);
+        $this->tpl->assign('templateid', $page->templateid);
+        $this->tpl->assign('pagename',   $page->pagename);
+        $this->tpl->assign('filename',   $page->filename);
+        $this->tpl->assign('publishtype',$page->publishtype);
+        $this->tpl->assign('hookfile',   $page->user_hook_filename);
+        $this->tpl->assign('default_hookfile', 'hook_'.$page->filename);
+        $c = $this->tpl->fetch('right.project_addpage.html');
         
         $this->showFrame($c);
 	}
@@ -422,18 +424,18 @@ class project extends common
         $projectname=$this->mproject->getProjectInfo($projectid, 'title');
         $page =$this->mproject->getPage( $pageid);
 
-        $this->smarty->assign('home',  $this->home);
+        $this->tpl->assign('home',  $this->home);
 
-        $this->smarty->assign('projectid',  $page->projectid);        
-        $this->smarty->assign('projectname',$projectname);
-        $this->smarty->assign('pageid',     $page->id);
-        $this->smarty->assign('pagename',   $page->pagename);
+        $this->tpl->assign('projectid',  $page->projectid);        
+        $this->tpl->assign('projectname',$projectname);
+        $this->tpl->assign('pageid',     $page->id);
+        $this->tpl->assign('pagename',   $page->pagename);
 
-        $this->smarty->assign('publishtype',   $page->publishtype);        
-        $this->smarty->assign('user_hook_filename',   $page->user_hook_filename);
-        $this->smarty->assign('hookfilecontent', $page->hookfile_content);
+        $this->tpl->assign('publishtype',   $page->publishtype);        
+        $this->tpl->assign('user_hook_filename',   $page->user_hook_filename);
+        $this->tpl->assign('hookfilecontent', $page->hookfile_content);
 
-        $c = $this->smarty->fetch('right.project_editpageextend.html');
+        $c = $this->tpl->fetch('right.project_editpageextend.html');
         
         $this->showFrame($c);
 	}
@@ -499,11 +501,11 @@ class project extends common
 	    $pageid    = $_GET['pageid'];
 		
 		$page      = $this->mproject->getPage($pageid);
-		$this->smarty->assign('filename',   $page->filename);
-		$this->smarty->assign('home',  $this->home);
-		$this->smarty->assign('id',$projectid);
-		$this->smarty->assign('pageid',$pageid);
-		$this->smarty->display('page_del.html');
+		$this->tpl->assign('filename',   $page->filename);
+		$this->tpl->assign('home',  $this->home);
+		$this->tpl->assign('id',$projectid);
+		$this->tpl->assign('pageid',$pageid);
+		$this->tpl->display('page_del.html');
    }
    public function editdatagroup()
     {
@@ -551,28 +553,28 @@ class project extends common
                $datalist[$k]->d=$datalist[$k]->dateline-time(); 
         }
 		//header("Content-type:image/jpg");
-		$this->smarty->assign('pp',$pp);
-        $this->smarty->assign('dg', $dginfo);
-        $this->smarty->assign('datalist', $datalist);
-        $this->smarty->assign('home', $this->home);
-        $this->smarty->assign('id', $projectid);
-        $this->smarty->assign('nums', $nums);
-		$this->smarty->assign('date_first',$date_first);
+		$this->tpl->assign('pp',$pp);
+        $this->tpl->assign('dg', $dginfo);
+        $this->tpl->assign('datalist', $datalist);
+        $this->tpl->assign('home', $this->home);
+        $this->tpl->assign('id', $projectid);
+        $this->tpl->assign('nums', $nums);
+		$this->tpl->assign('date_first',$date_first);
        
-		$this->smarty->assign('url',$this->config['uploaddir']);
+		$this->tpl->assign('url',$this->config['uploaddir']);
 
-        //$this->smarty->assign('url',file_get_contents("c:/upload/images/31_test_1.jpg"));
-        $this->smarty->assign('t_date', $t_date);
-		$this->smarty->assign('y_date',$y_date);
-		$this->smarty->assign('p_date',$p_date);
+        //$this->tpl->assign('url',file_get_contents("c:/upload/images/31_test_1.jpg"));
+        $this->tpl->assign('t_date', $t_date);
+		$this->tpl->assign('y_date',$y_date);
+		$this->tpl->assign('p_date',$p_date);
 
 		if($nums>20)
 		{
-		$this->smarty->assign('today','今天');
-		$this->smarty->assign('yes','昨天');
-		$this->smarty->assign('pre','前天');
+		$this->tpl->assign('today','今天');
+		$this->tpl->assign('yes','昨天');
+		$this->tpl->assign('pre','前天');
         }
-        $c = $this->smarty->fetch('right.project_editdatagroup.html');
+        $c = $this->tpl->fetch('right.project_editdatagroup.html');
 
         $this->showFrame($c);
     }	
@@ -648,28 +650,28 @@ class project extends common
             $datalist[$k]->date = date('md H:i', $datalist[$k]->dateline);
         }
 
-		$this->smarty->assign('pp',$pp);
-        $this->smarty->assign('dg', $dginfo);
-        $this->smarty->assign('datalist', $datalist);
-        $this->smarty->assign('home', $this->home);
-        $this->smarty->assign('id', $projectid);
-		$this->smarty->assign('dgname',$dgname);
-		$this->smarty->assign('dateline_first',$dateline_first);
-		$this->smarty->assign('date_first',$date_first);
+		$this->tpl->assign('pp',$pp);
+        $this->tpl->assign('dg', $dginfo);
+        $this->tpl->assign('datalist', $datalist);
+        $this->tpl->assign('home', $this->home);
+        $this->tpl->assign('id', $projectid);
+		$this->tpl->assign('dgname',$dgname);
+		$this->tpl->assign('dateline_first',$dateline_first);
+		$this->tpl->assign('date_first',$date_first);
 
-		  $this->smarty->assign('t_date', $t_date);
-		$this->smarty->assign('y_date',$y_date);
-		$this->smarty->assign('p_date',$p_date);
+		  $this->tpl->assign('t_date', $t_date);
+		$this->tpl->assign('y_date',$y_date);
+		$this->tpl->assign('p_date',$p_date);
 		
          
 		 	if($nums>20)
 		{
-		$this->smarty->assign('today','今天');
-		$this->smarty->assign('yes','昨天');
-		$this->smarty->assign('pre','前天');
+		$this->tpl->assign('today','今天');
+		$this->tpl->assign('yes','昨天');
+		$this->tpl->assign('pre','前天');
         }
 
-        $c = $this->smarty->fetch('right.project_editdatagroup.html');
+        $c = $this->tpl->fetch('right.project_editdatagroup.html');
 
         $this->showFrame($c);
 }
@@ -726,28 +728,28 @@ class project extends common
         {
             $datalist[$k]->date = date('md H:i', $datalist[$k]->dateline);
         }
-		$this->smarty->assign('pp',$pp);
-        $this->smarty->assign('dg', $dginfo);
-        $this->smarty->assign('datalist', $datalist);
-        $this->smarty->assign('home', $this->home);
-        $this->smarty->assign('id', $projectid);
-		$this->smarty->assign('dgname',$dgname);
-		$this->smarty->assign('dateline_first',$dateline_first);
-		$this->smarty->assign('date_first',$date_first);
+		$this->tpl->assign('pp',$pp);
+        $this->tpl->assign('dg', $dginfo);
+        $this->tpl->assign('datalist', $datalist);
+        $this->tpl->assign('home', $this->home);
+        $this->tpl->assign('id', $projectid);
+		$this->tpl->assign('dgname',$dgname);
+		$this->tpl->assign('dateline_first',$dateline_first);
+		$this->tpl->assign('date_first',$date_first);
 
-		  $this->smarty->assign('t_date', $t_date);
-		$this->smarty->assign('y_date',$y_date);
-		$this->smarty->assign('p_date',$p_date);
+		  $this->tpl->assign('t_date', $t_date);
+		$this->tpl->assign('y_date',$y_date);
+		$this->tpl->assign('p_date',$p_date);
 		
          
 		 	if($nums>20)
 		{
-		$this->smarty->assign('today','今天');
-		$this->smarty->assign('yes','昨天');
-		$this->smarty->assign('pre','前天');
+		$this->tpl->assign('today','今天');
+		$this->tpl->assign('yes','昨天');
+		$this->tpl->assign('pre','前天');
         }
 
-        $c = $this->smarty->fetch('right.project_editdatagroup.html');
+        $c = $this->tpl->fetch('right.project_editdatagroup.html');
 
         $this->showFrame($c);
 }

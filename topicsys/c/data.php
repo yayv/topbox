@@ -3,11 +3,10 @@
  * 公共模板管理
  * 
  */
-include('c/common.php');
+include('c/commoncontroller.php');
 
-class data extends common
+class data extends CommonController
 {
-	public $smarty;
 	public $theme;
 	public $config;
 
@@ -69,12 +68,12 @@ class data extends common
 	    $type      = $_GET['dst'];
 		$date      = date("Y-m-d H:i:s",time()); 
 	    
-		$this->smarty->assign('edittime',$date);
-	    $this->smarty->assign('dgname',$dgname);
-	    $this->smarty->assign('id', $projectid);
-	    $this->smarty->assign('type', $type);
-	    $this->smarty->assign('home',$this->home);
-	    $this->smarty->display('box.data_input.html');
+		$this->tpl->assign('edittime',$date);
+	    $this->tpl->assign('dgname',$dgname);
+	    $this->tpl->assign('id', $projectid);
+	    $this->tpl->assign('type', $type);
+	    $this->tpl->assign('home',$this->home);
+	    $this->tpl->display('box.data_input.html');
 	}
 	
 	function editbox()
@@ -97,13 +96,13 @@ class data extends common
 		$edittime=$selectone[0]->dateline;
 
         $edittime=date("Y-m-d H:i:s",$edittime);
-        $this->smarty->assign('edittime',$edittime);
-	    $this->smarty->assign('dgname',$dgname);
-	    $this->smarty->assign('id', $projectid);
-	    $this->smarty->assign('dataid', $dataid);
-		$this->smarty->assign('data', $row);
-	    $this->smarty->assign('home',$this->home);
-	    $this->smarty->display('box.data_edit.html');
+        $this->tpl->assign('edittime',$edittime);
+	    $this->tpl->assign('dgname',$dgname);
+	    $this->tpl->assign('id', $projectid);
+	    $this->tpl->assign('dataid', $dataid);
+		$this->tpl->assign('data', $row);
+	    $this->tpl->assign('home',$this->home);
+	    $this->tpl->display('box.data_edit.html');
 	}
 	
 	function deletebox()
@@ -119,13 +118,13 @@ class data extends common
 	    }
 		$row = $this->mdatalist->getDataDetail($projectid, $dgname, $dataid);
 
-	    $this->smarty->assign('dgname',$dgname);
-	    $this->smarty->assign('id', $projectid);
-	    $this->smarty->assign('dataid', $dataid);
-		$this->smarty->assign('data', $row);
-		$this->smarty->assign('url',$this->config['topicurl']);
-	    $this->smarty->assign('home',$this->home);
-	    $this->smarty->display('box.data_delete.html');
+	    $this->tpl->assign('dgname',$dgname);
+	    $this->tpl->assign('id', $projectid);
+	    $this->tpl->assign('dataid', $dataid);
+		$this->tpl->assign('data', $row);
+		$this->tpl->assign('url',$this->config['topicurl']);
+	    $this->tpl->assign('home',$this->home);
+	    $this->tpl->display('box.data_delete.html');
 	}
      //删除数据对话框
 	 	function deletedgbox()
@@ -147,12 +146,12 @@ class data extends common
 	    $dginfo = $this->mdatagroup->getDatagroupInfo($projectid, $dgname);
 		$count=$this->mdatalist->getDatalist_count($projectid,$dgname);
         
-	    $this->smarty->assign('dgname',$dgname);
-	    $this->smarty->assign('id', $projectid);
-	    $this->smarty->assign('count',$count[0]);
-		$this->smarty->assign('data', $dginfo);
-	    $this->smarty->assign('home',$this->home);
-	    $this->smarty->display('box.datagroup_delete.html');
+	    $this->tpl->assign('dgname',$dgname);
+	    $this->tpl->assign('id', $projectid);
+	    $this->tpl->assign('count',$count[0]);
+		$this->tpl->assign('data', $dginfo);
+	    $this->tpl->assign('home',$this->home);
+	    $this->tpl->display('box.datagroup_delete.html');
 	}
 
     //多项数据删除对话框
@@ -164,12 +163,12 @@ class data extends common
         $length    = $_GET['l'];
      
 		
-	    $this->smarty->assign('dgname',$dgname);
-	    $this->smarty->assign('pid', $projectid);
-	    $this->smarty->assign('count',$length);
-		$this->smarty->assign('id', $id);
-	    $this->smarty->assign('home',$this->home);
-	    $this->smarty->display('box.datagroupmore_delete.html');
+	    $this->tpl->assign('dgname',$dgname);
+	    $this->tpl->assign('pid', $projectid);
+	    $this->tpl->assign('count',$length);
+		$this->tpl->assign('id', $id);
+	    $this->tpl->assign('home',$this->home);
+	    $this->tpl->display('box.datagroupmore_delete.html');
 		
 	}
 
@@ -379,12 +378,12 @@ class data extends common
 		$showname  = urldecode($_GET['showname']);
 		$udfname   = urldecode($_GET['uname']);
 
-        $this->smarty->assign('home', $this->home);
-        $this->smarty->assign('id', $projectid);
-        $this->smarty->assign('dgname', $dgname);
-        $this->smarty->assign('showname', $showname);
-        $this->smarty->assign('userdefinedname', $udfname);
-        $this->smarty->display('box.datagroup_rename.html');
+        $this->tpl->assign('home', $this->home);
+        $this->tpl->assign('id', $projectid);
+        $this->tpl->assign('dgname', $dgname);
+        $this->tpl->assign('showname', $showname);
+        $this->tpl->assign('userdefinedname', $udfname);
+        $this->tpl->display('box.datagroup_rename.html');
     }
 
 	function jupdatedg()
@@ -529,13 +528,13 @@ class data extends common
 	   
        
 
-		$this->smarty->assign('dgtype',$dgtype);
-		$this->smarty->assign('typeid',$typeid);
-		$this->smarty->assign('projcetid',$projectid);
-		$this->smarty->assign('name',$dgname);
-	    $this->smarty->assign('home',$this->home);
-		$this->smarty->assign('datalist', $datalist);
-	    $this->smarty->display('box.data_plugins.html');
+		$this->tpl->assign('dgtype',$dgtype);
+		$this->tpl->assign('typeid',$typeid);
+		$this->tpl->assign('projcetid',$projectid);
+		$this->tpl->assign('name',$dgname);
+	    $this->tpl->assign('home',$this->home);
+		$this->tpl->assign('datalist', $datalist);
+	    $this->tpl->display('box.data_plugins.html');
 
 	}
 

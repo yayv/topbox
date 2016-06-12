@@ -5,7 +5,7 @@
  */
 include('c/commoncontroller.php');
 
-class defaultcontroller extends commoncontroller
+class defaultcontroller extends CommonController
 {
 	public $smarty;
 	public $theme;
