@@ -1,7 +1,7 @@
 <?php
 
 $CONFIG = array();
-$CONFIG['theme'] = 'v/default';
+$CONFIG['theme'] = 'v/manage';
 $CONFIG['compiled_template'] = 'v/_run';
 
 $CONFIG['baseurl'] = 'http://topbox.localhost';

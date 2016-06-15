@@ -1,5 +1,6 @@
 <div class="form-group">
   <a href='#infoModal' data-url='/contents/editCondition' class='btn btn-primary' data-toggle="modal" data-target="#infoModal">按条件筛选</a>
+  <a href='#infoModal' data-url='/contents/editCondition' class='btn btn-primary' data-toggle="modal" data-target="#infoModal">新建</a>
 </div>
 
 
@@ -12,13 +13,7 @@
         <th> cover          </th>
         <th> shortname      </th>
         <th> substract      </th>
-        <th> content        </th>
         <th> contenttype    </th>
-        <th> file           </th>
-        <th> width * height </th>
-        <th> resolution     </th>
-        <th> size           </th>
-        <th> length         </th>
         <th> source         </th>
         <th> sourcetype     </th>
         <th> author         </th>
@@ -39,21 +34,17 @@
         <td> {$rec['cover']}       </td>
         <td> {$rec['shortname']}   </td>
         <td> {$rec['substract']}   </td>
-        <td> {$rec['content']}     </td>   {*内容可能会过长，可根据长度增加查看详细内容链接，弹出界面来展示全部内容*}
+        {* <td> {$rec['content']}     </td>   {*内容可能会过长，可根据长度增加查看详细内容链接，弹出界面来展示全部内容*}
         <td> {$rec['contenttype']} </td>
-        <td> {$rec['file']}        </td>
-        <td> {$rec['width']} x {$rec['height']}   </td>
-        <td> {$rec['resolution']}  </td>
-        <td> {$rec['size']}        </td>
-        <td> {$rec['length']}      </td>
-        <td> {$rec['source']}      </td>
-        <td> {$rec['sourcetype']}  </td>
+        <td>       </td>
+        <td> {if $rec['source']}<a href='{$rec['source']}'>{/if}{$rec['sourcetype']}{if $rec['source']}</a>{/if}  </td>
         <td> {$rec['author']}      </td>
         <td> {$rec['editor']}      </td>
 
         <td >
           {$content_id=$rec['id']}
           <a href="#infoModal" data-url="/contents/editTags?content_id={$content_id}" class="btn btn-default" data-toggle="modal" data-target="#infoModal">标签</a>
+          <a href="#infoModal" data-url="/contents/showEditContentView?content_id={$content_id}" class="btn btn-default" data-toggle="modal" data-target="#infoModal">属性</a>
           <a href="#infoModal" data-url="/contents/showEditContentView?content_id={$content_id}" class="btn btn-default" data-toggle="modal" data-target="#infoModal">编辑</a>
         </td>
       </tr>
