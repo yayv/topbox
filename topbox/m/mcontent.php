@@ -77,10 +77,10 @@ class mcontent extends model
 			$sql = substr($sql, 0, -2);
 		}
 
-		$sql .= "where id=".$id;
-
-
+		$sql .= " where id=".$id;
+echo '<pre>';
 		$ret = $this->_db->fetch_all_assoc($sql);
+		print_r($ret);die();
 		return $ret;
 	}
 

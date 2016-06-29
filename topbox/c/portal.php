@@ -26,7 +26,7 @@ class portal extends CommonController
 
 		$projectid   = isset($_GET['id'])?$_GET['id']:false;
 		if($projectid)
-        	$projectname = $this->getModel('mproject')->getProjectInfo($projectid,'title');
+        	$projectname = $this->getModel('mtopic')->getProjectInfo($projectid,'title');
         else
         	$projectname = '';
 
@@ -98,7 +98,7 @@ class portal extends CommonController
 		$homedir     = core::getInstance()->getConfig('topicdir');
 
 
-		if($ret=$this->getModel('mproject')->addProject($projectname, $author, $directory,
+		if($ret=$this->getModel('mtopic')->addProject($projectname, $author, $directory,
 										$url, $staticdata,$dynamicdata,
 										$descriptoin,
                                         $homedir,$writer))            
@@ -108,7 +108,7 @@ class portal extends CommonController
 		}
         else
         {
-			$msg = array_pop($this->getModel('mproject')->error_stack);
+			$msg = array_pop($this->getModel('mtopic')->error_stack);
             $this->create($msg['message'].':'.$msg['data']);
         }
 	}
@@ -120,16 +120,15 @@ class portal extends CommonController
 		$this->createMenu();
 		
 		// get Index main view
-		$c = $this->getModel('mproject')->getProjectList();
+		$c = $this->getModel('mtopic')->getProjectList();
 
-		$this->tpl->assign('sites', 
-						$c);
+		$this->tpl->assign('sites', $c);
 		$right = $this->tpl->fetch('portal_sitelist.tpl.html');
 
 		// show all
-		$this->tpl->assign('title','专题项目管理');
-		$this->tpl->assign('menulist',$menulist);
-		$this->tpl->assign('body',$right);
+		#$this->tpl->assign('title','专题项目管理');
+		#$this->tpl->assign('menulist',$menulist);
+		#$this->tpl->assign('body',$right);
 		$this->tpl->display('index.tpl.html');
     }
 
@@ -144,7 +143,7 @@ class portal extends CommonController
 		$templatesname = $this->getModel('mtemplates')->getTemplatesNames();
 
 		// 获得项目模板列表
-		$templates = $this->getModel('mproject')->getTemplates($projectid);
+		$templates = $this->getModel('mtopic')->getTemplates($projectid);
 
 		if($templates)
 		foreach($templates as $k=>$v)
@@ -160,14 +159,14 @@ class portal extends CommonController
 		}
 
 		// 获得项目页面列表
-		$pages = $this->getModel('mproject')->getPages($projectid);
+		$pages = $this->getModel('mtopic')->getPages($projectid);
 
         // 获得项目数据组列表
         $datagroup = $this->getModel('mdatagroup')->getDatagroups($projectid);
 
-        $project = $this->getModel('mproject')->getAllProjectInfo($projectid);
+        $project = $this->getModel('mtopic')->getAllProjectInfo($projectid);
 
-        $checkname=$this->getModel('mproject')->checkfile($project->zipname);
+        $checkname=$this->getModel('mtopic')->checkfile($project->zipname);
 
 		if($checkname)
 		{
@@ -212,8 +211,8 @@ class portal extends CommonController
         $type     = $_POST['type'];
     
         $projectid   = $_GET['id'];
-        $projectinfo = $this->getModel('mproject')->getAllProjectInfo($projectid);
-		$templateinfo= $this->getModel('mproject')->getTemplateById(-1);
+        $projectinfo = $this->getModel('mtopic')->getAllProjectInfo($projectid);
+		$templateinfo= $this->getModel('mtopic')->getTemplateById(-1);
 
 		$templateinfo->from_tmplid = $from_tmplid;
 		$templateinfo->name = $name;
@@ -239,9 +238,9 @@ class portal extends CommonController
 		parent::init();
 
 	    $projectid 	= $_GET['id'];
-	    $projectname= $this->getModel('mproject')->getProjectInfo($projectid, 'title');
+	    $projectname= $this->getModel('mtopic')->getProjectInfo($projectid, 'title');
 
-	    $templates  = $this->getModel('mproject')->getTemplates($projectid);  
+	    $templates  = $this->getModel('mtopic')->getTemplates($projectid);  
         $pageid 	= -1;
         
         $this->createMenu();
@@ -271,9 +270,9 @@ class portal extends CommonController
         $projectid = $_GET['id'];
         $pageid    = $_GET['pageid'];
 
-        $projectname=$this->getModel('mproject')->getProjectInfo($projectid, 'title');
-        $templates = $this->getModel('mproject')->getTemplates($projectid);
-        $page      = $this->getModel('mproject')->getPage($pageid);
+        $projectname=$this->getModel('mtopic')->getProjectInfo($projectid, 'title');
+        $templates = $this->getModel('mtopic')->getTemplates($projectid);
+        $page      = $this->getModel('mtopic')->getPage($pageid);
 
         #$this->smarty->assign('home',  $this->home);
         $this->tpl->assign('templates',  $templates);
@@ -302,7 +301,7 @@ class portal extends CommonController
         $projectid = $_GET['id'];
         $pageid    = $_GET['pageid'];
 
-	    $page      = $this->getModel('mproject')->getPage($pageid);
+	    $page      = $this->getModel('mtopic')->getPage($pageid);
 	    $this->tpl->assign('filename',   $page->filename);
 	    $this->tpl->assign('home',  $this->home);
 	    $this->tpl->assign('id',$projectid);
@@ -316,7 +315,7 @@ class portal extends CommonController
         $projectid = $_GET['id'];
         $pageid    = $_GET['pageid'];
         
-        $this->getModel('mproject')-> delPage($projectid, $pageid);
+        $this->getModel('mtopic')-> delPage($projectid, $pageid);
 
         header("location:/portal/manage/id-$projectid");
     }
@@ -334,7 +333,7 @@ class portal extends CommonController
         parent::init();
 
         $projectid = $_GET['id'];
-        $project      = $this->getModel('mproject')->getProject($projectid);
+        $project      = $this->getModel('mtopic')->getProject($projectid);
 
         $this->tpl->assign('filename', $project['0']['title']);
         $this->tpl->assign('home',  $this->home);
@@ -347,7 +346,7 @@ class portal extends CommonController
 
         $projectid = $_GET['id'];
         
-        $this->getModel('mproject')->delProject($projectid);
+        $this->getModel('mtopic')->delProject($projectid);
         header("location:/portal/listall");
     }
 
@@ -436,8 +435,8 @@ class portal extends CommonController
         $pageid    = $_GET['pageid'];
 
 
-        $projectname=$this->getModel('mproject')->getProjectInfo($projectid, 'title');
-        $page =$this->getModel('mproject')->getPage($pageid);
+        $projectname=$this->getModel('mtopic')->getProjectInfo($projectid, 'title');
+        $page =$this->getModel('mtopic')->getPage($pageid);
         // print_r($page->projectid); echo "--";
         // print_r($page->id); die();
 
@@ -475,7 +474,7 @@ class portal extends CommonController
         // print_r($pageid."dingdong");
         // return;
 
-        $this->getModel('mproject')->updatePageExtInfo($id, $pageid, $_POST['user_hook_filename'], $content );
+        $this->getModel('mtopic')->updatePageExtInfo($id, $pageid, $_POST['user_hook_filename'], $content );
 
         #echo "<meta http-equiv='refresh' content='0;url=/portal/manage/id-$id'>";
         header("location:/portal/manage/id-$id");
@@ -599,10 +598,10 @@ class portal extends CommonController
 
 
         if($pageid==-1)
-            $ret = $this->getModel('mproject')->addPage(
+            $ret = $this->getModel('mtopic')->addPage(
             		$projectid, $templateid, $pagename, $filename, $publishtype, $hookfile);
         else
-            $ret = $this->getModel('mproject')->editPage(
+            $ret = $this->getModel('mtopic')->editPage(
             		$projectid, $pageid, $templateid, $pagename, $filename, $publishtype,$hookfile);
 
         if($ret)
@@ -615,7 +614,7 @@ class portal extends CommonController
         }
         else
         {
-            $msg = array_shift($this->getModel('mproject')->error_stack);
+            $msg = array_shift($this->getModel('mtopic')->error_stack);
             $this->addpage($msg['data']);
         }
     }
@@ -631,10 +630,10 @@ class portal extends CommonController
 		$name=$_FILES['filename']['name'];
 		$tmp_name=$_FILES["filename"]["tmp_name"];
 
-		$project = $this->getModel('mproject')->getAllProjectInfo($projectid);	
+		$project = $this->getModel('mtopic')->getAllProjectInfo($projectid);	
 
 
-		$ret = $this->getModel('mproject')->addResources($projectid,$name,$tmp_name);
+		$ret = $this->getModel('mtopic')->addResources($projectid,$name,$tmp_name);
 
         header('Content-Type:text/html;charset=UTF8');
         if($ret===true)
@@ -650,7 +649,7 @@ class portal extends CommonController
 	    $projectid = $_GET['id'];
 
         // 准备专题信息	    
-        $project = $this->getModel('mproject')->getAllProjectInfo($projectid);
+        $project = $this->getModel('mtopic')->getAllProjectInfo($projectid);
 
         $basedir = $project->directory;
         $this->getModel('mpublish')->setBasedir($basedir);
@@ -658,7 +657,7 @@ class portal extends CommonController
         if($project->zipname)
         {
             //解压资源
-            $this->getModel('mproject')->publishZippedResource($project->directory, $project->zipname);
+            $this->getModel('mtopic')->publishZippedResource($project->directory, $project->zipname);
         }
 
 
@@ -672,22 +671,22 @@ class portal extends CommonController
         $this->getModel('mpublish')->publishFileContent($staticFilePath, serialize($dump));
 
         //发布动态数据
-        $dynamic_content = $this->getModel('mproject')->getProjectInfo($project->id, 'dynamic_content');
+        $dynamic_content = $this->getModel('mtopic')->getProjectInfo($project->id, 'dynamic_content');
         $staticFilePath = $basedir."/templates_c/".$project->dynamicdata;
         $this->getModel('mpublish')->publishFileContent($staticFilePath, $dynamic_content);
 
 
         // 遍历所有页面，进行内容发布
 		// 获得项目页面列表
-		$pages = $this->getModel('mproject')->getPages($projectid);
+		$pages = $this->getModel('mtopic')->getPages($projectid);
 
 		if($pages)
         foreach($pages as $k=>$v)
         {
 			
         	// 发布模板文件
-        	$templatecontent = $this->getModel('mproject')->getTemplateById($v->templateid);
-            // $basedir = $this->getModel('mproject')->getProjectInfo($projectid, 'directory');
+        	$templatecontent = $this->getModel('mtopic')->getTemplateById($v->templateid);
+            // $basedir = $this->getModel('mtopic')->getProjectInfo($projectid, 'directory');
 
             $templateFileName = $targetdir = $basedir."/templates/".$templatecontent->templatefile;
         	$this->getModel('mpublish')->publishFileContent($templateFileName , $templatecontent->content);
@@ -695,7 +694,7 @@ class portal extends CommonController
             if($v->publishtype=='static')
             {
             	// echo $v->filename,'<br/>';
-                $templatefilename = $this->getModel('mproject')->getTemplateFilename($v->templateid);
+                $templatefilename = $this->getModel('mtopic')->getTemplateFilename($v->templateid);
                 $mpublish = $this->getModel('mpublish');
                 
                 $this->tpl->template_dir = $basedir."/templates";
@@ -715,7 +714,7 @@ class portal extends CommonController
             }
             elseif($v->publishtype=='dynamic')
             {
-                $templatefilename = $this->getModel('mproject')->getTemplateFilename($v->templateid);
+                $templatefilename = $this->getModel('mtopic')->getTemplateFilename($v->templateid);
 
                 echo $v->filename,' from ', $templatefilename,'<br/>';
                 $this->getModel('mpublish')->publishDynamic($this->tpl,$v->filename, $templatefilename, $project);
@@ -744,7 +743,7 @@ class portal extends CommonController
 		$dataids = $this->getModel('mdatalist')->dumpImageNames($projectid);
 		$this->getModel('mpublish')->publishImages($dataids);
 
-        $project = $this->getModel('mproject')->getAllProjectInfo($projectid);
+        $project = $this->getModel('mtopic')->getAllProjectInfo($projectid);
 
 		echo "<meta http-equiv='refresh' content='1;url=$project->url'>";
 
@@ -761,7 +760,7 @@ class portal extends CommonController
 
 
         // 准备专题信息
-        $project = $this->getModel('mproject')->getAllProjectInfo($projectid);
+        $project = $this->getModel('mtopic')->getAllProjectInfo($projectid);
 
         // 删除已经拷贝和发布的文件
         $this->getModel('mpublish')->cleanTargetPath($project->directory);
@@ -772,7 +771,7 @@ class portal extends CommonController
         // 拷贝资源文件
         // 遍历所有页面，进行内容发布
         // 获得项目页面列表
-        // $templates = $this->getModel('mproject')->getTemplates($projectid);
+        // $templates = $this->getModel('mtopic')->getTemplates($projectid);
         // if($templates)
         //     foreach($templates as $k=>$v)
         //     {
@@ -802,8 +801,8 @@ class portal extends CommonController
 
         $projectid   = $_GET['id'];
         $templateid  = $_GET['templateid'];
-        $projectinfo = $this->getModel('mproject')->getAllProjectInfo($projectid, 'name');
-        $templateinfo= $this->getModel('mproject')->getTemplateById($templateid);
+        $projectinfo = $this->getModel('mtopic')->getAllProjectInfo($projectid, 'name');
+        $templateinfo= $this->getModel('mtopic')->getTemplateById($templateid);
 
         $this->tpl->assign('home', $this->home);
         $this->tpl->assign('project',$projectinfo);
@@ -831,7 +830,7 @@ class portal extends CommonController
         $projectid= $_GET['id'];
         if($id!=-1)
         {
-            $ret = $this->getModel('mproject')->editTemplate(
+            $ret = $this->getModel('mtopic')->editTemplate(
                         $projectid, $id, $name, $type, 
                         $filename, $from_tmplid, $content);
                         // ,ROOT_DIR.$this->config['template_upload']);
@@ -839,7 +838,7 @@ class portal extends CommonController
         }
         else
         {
-            $ret = $this->getModel('mproject')->addTemplate(
+            $ret = $this->getModel('mtopic')->addTemplate(
                         $projectid, $id, $name, $type, 
                         $filename, $from_tmplid, $content);
             // ,ROOT_DIR.$this->config['template_upload']);
@@ -855,8 +854,8 @@ class portal extends CommonController
 		}
         else
         {
-            if($this->getModel('mproject')->error_stack){
-                $msg = array_pop($this->getModel('mproject')->error_stack);
+            if($this->getModel('mtopic')->error_stack){
+                $msg = array_pop($this->getModel('mtopic')->error_stack);
             }else{
                 echo "Add template failed! Check doAddSiteTemplate method in portal.php";
             }
@@ -891,9 +890,9 @@ class portal extends CommonController
 	public function refreshdata()
 	{
         parent::init();
-s
+
 	    $projectid = $_GET['id'];
-        $varlist = $this->getModel('mproject')->refreshDatalist($projectid);
+        $varlist = $this->getModel('mtopic')->refreshDatalist($projectid);
 
         // 这个是什么？ 上面是重新解些了模板的变量列表，这个是更新数据库的记录
         $ret = $this->getModel('mdatagroup')->updateDatagroup($projectid, $varlist);
@@ -975,7 +974,7 @@ s
         
 	    $this->tpl->assign('dgname',$dgname);
 	    $this->tpl->assign('id', $projectid);
-	    $this->tpl->assign('count',$count[0]);f
+	    $this->tpl->assign('count',$count[0]);
 		$this->tpl->assign('data', $dginfo);
 	    $this->tpl->assign('home',$this->home);
 	    $this->tpl->display('portal_deletedatagroup.tpl.html');

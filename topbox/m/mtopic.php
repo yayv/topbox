@@ -1,6 +1,6 @@
 <?php
 
-class mproject extends model
+class mtopic extends model
 {
 	private $db;
 	private $config;

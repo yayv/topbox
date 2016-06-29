@@ -205,30 +205,31 @@ class contents extends CommonController
 		parent::init();
 		$mcontent = $this->getModel('mcontent');
 
+		// TODO: 如果这里可以用脚本或者插件自动生成,就太棒了
 		$id             = $_POST['id'];
-		$url			= $_POST['url'];
-		$title			= $_POST['title'];
+		#$title			= $_POST['title'];		// 这个应该在内容编辑页进行更改
+		#$subtitle		= $_POST['subtitle'];   // 这个应该在内容编辑页进行更改
 		$cover 			= $_POST['cover'];
+		$uri 			= $_POST['uri'];
+		$keywords 		= $_POST['keywords'];
 		$shortname 		= $_POST['shortname'];
 		$substract		= $_POST['substract'];
-		$content        = $_POST['content'];
+		#$content        = $_POST['content'];    // 这个应该在内容编辑页进行更改
 		$contenttype	= $_POST['contenttype'];
-		$file			= $_POST['file'];
-		$width 			= $_POST['width'];
-		$height 		= $_POST['height'];
-		$resolution		= $_POST['resolution'];
-		$size           = $_POST['size'];
 		$length			= $_POST['length'];
 		$source			= $_POST['source'];
 		$sourcetype 	= $_POST['sourcetype'];
 		$author 		= $_POST['author'];
 		$editor		    = $_POST['editor'];
+		$posttime		= $_POST['posttime'];
+		$verifytime		= $_POST['verifytime'];
+		$publishtime	= $_POST['publishtime'];
 
-		$conds = array('id'=>$id, 'url'=>$url, 'title'=>$title, 'cover'=>$cover, 'shortname'=>$shortname, 'substract'=>$substract,
-			'content'=>$content, 'contenttype'=>$contenttype, 'file'=>$file, 'width'=>$width, 'height'=>$height, 'resolution'=>$resolution, 
-			'size'=>$size, 'length'=>$length, 'source'=>$source, 'sourcetype'=>$sourcetype, 'author'=>$author, 'editor'=>$editor);
+
+		$conds = array('id'=>$id, 'cover'=>$cover, 'uri'=>$uri, 'keywords'=>$keywords, 'shortname'=>$shortname, 'substract'=>$substract,
+			'contenttype'=>$contenttype, 'length'=>$length, 'source'=>$source, 'sourcetype'=>$sourcetype, 
+			'author'=>$author, 'editor'=>$editor, 'posttime'=>$posttime, 'verifytime'=>$verifytime, 'publishtime'=>$publishtime );
 		
-
 
 		$success = $mcontent->saveContent($conds);
 		if($success){
