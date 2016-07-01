@@ -3,11 +3,6 @@ include_once('commoncontroller.php');
 
 class portal extends CommonController
 {
-	public function __construct()
-	{
-		$this->getModel('mmenu')->setHome(core::getInstance()->getConfig('baseurl'));
-	}
-	
 	private function createMenu()
 	{
         $this->tpl->assign('currentItems',
@@ -53,7 +48,7 @@ class portal extends CommonController
 		return ;
 	}
 
-	function create()
+	function createTopic()
 	{
 		parent::init();
 
@@ -73,35 +68,34 @@ class portal extends CommonController
 		$this->tpl->assign('staticdata', $_POST['staticdata']?$_POST['staticdata']:'s.dump');
 		$this->tpl->assign('dynamicdata', $_POST['dynamicdata']?$_POST['dynamicdata']:'d.dump');
 
-		$this->createMenu();
+		#$this->createMenu();
 		
-		$c = $this->tpl->fetch('portal_createsite.tpl.html');
-		$this->tpl->assign('body',$c);
-		$this->tpl->display('index.tpl.html');
-
+		$c = $this->tpl->fetch('portal_boxcreatetopic.tpl.html');
+		#$this->tpl->assign('body',$c);
+		#$this->tpl->display('index.tpl.html');
+        echo $c;
 		return ;
 	}
 
-    public function project_add()
+    public function doCreateTopic()
     {
     	parent::init();
 
-        $projectname = $_POST['projectname'];
+        $topicname   = $_POST['topicname'];
         $description = $_POST['description'];
-        $author      = $_POST['author']?$_POST['author']:'admin';
-        $directory   = $_POST['directory'];
         $url         = $_POST['url'];
+        $directory   = $_POST['directory'];
+        $programmer  = $_POST['programmer']?$_POST['programmer']:'admin';
+        $editor      = $_POST['editor'];
         $staticdata  = $_POST['staticdata'];
         $dynamicdata = $_POST['dynamicdata'];
-        $writer      = $_POST['writer'];
 
 		$homedir     = core::getInstance()->getConfig('topicdir');
 
-
-		if($ret=$this->getModel('mtopic')->addProject($projectname, $author, $directory,
+		if($ret=$this->getModel('mtopic')->addProject($topicname, $programmer, $directory,
 										$url, $staticdata,$dynamicdata,
-										$descriptoin,
-                                        $homedir,$writer))            
+										$description,
+                                        $homedir,$editor))            
 		{
 			header("Location:/portal/manage/id-$ret");
 			return ;
@@ -122,8 +116,11 @@ class portal extends CommonController
 		// get Index main view
 		$c = $this->getModel('mtopic')->getProjectList();
 
-		$this->tpl->assign('sites', $c);
-		$right = $this->tpl->fetch('portal_sitelist.tpl.html');
+		$this->tpl->assign('topics', $c);
+		#$right = $this->tpl->fetch('portal_sitelist.tpl.html');
+
+        $c = $this->tpl->fetch('portal.tpl.html');
+        $this->tpl->assign('body', $c);
 
 		// show all
 		#$this->tpl->assign('title','专题项目管理');
@@ -135,7 +132,6 @@ class portal extends CommonController
     public function manage()
     {
     	parent::init();
-
 
 		$projectid = $_GET['id'];
 

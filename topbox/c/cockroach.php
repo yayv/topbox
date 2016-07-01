@@ -435,7 +435,7 @@ class cockroach extends CommonController
 	public function boxAddUrl()
 	{
 		parent::init();
-		$this->tpl->display('boxAddUrl.tpl.html');
+		$this->tpl->display('cockroach_boxAddUrl.tpl.html');
 	}
 
 }

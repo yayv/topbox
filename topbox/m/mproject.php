@@ -1,6 +1,6 @@
 <?php
 
-class mtopic extends model
+class mproject extends model
 {
 	private $db;
 	private $config;
@@ -31,7 +31,7 @@ class mtopic extends model
 
 	public function getProjectList()
     {       
-		$sql='select * from portal_topics';
+		$sql='select * from portal_projects';
 		$rows=$this->_db->fetch_all_assoc($sql);
 
 		return $rows;
@@ -39,7 +39,7 @@ class mtopic extends model
 
 	public function getAllProjectInfo($projectid)
     {        
-        $ret = $this->_db->fetch_all_object("select * from portal_topics where id=$projectid");
+        $ret = $this->_db->fetch_all_object("select * from portal_projects where id=$projectid");
 
         $row=$ret[0];
         
@@ -55,7 +55,7 @@ class mtopic extends model
 		
 		if(in_array($key, $keys))
 		{
-			$sql = "select $key from  portal_topics where id=$projectid";
+			$sql = "select $key from  portal_projects where id=$projectid";
 			$ret = $this->_db->fetch_all_object($sql);
 
 			if($ret)
@@ -87,7 +87,7 @@ class mtopic extends model
          
 		if(in_array($key, $keys))
 		{
-			$sql = "update  portal_topics set $key='$value' where id=$projectid";
+			$sql = "update  portal_projects set $key='$value' where id=$projectid";
 			$ret = $this->_db->query($sql);
            
 			if($ret)
@@ -207,7 +207,7 @@ class mtopic extends model
         	$dir = $homedir .$directory;
             $sql = "
                 insert into 
-                    portal_topics(
+                    portal_projects(
                         title,
                         description,
                         author,
@@ -254,7 +254,7 @@ class mtopic extends model
 			$ret = $this->createDirectory($homedir, $directory);
             if(!$ret)
             {
-                $sql = "delete from portal_topics where id=$projectid";
+                $sql = "delete from portal_projects where id=$projectid";
                 $this->_db->query($sql);
                 $this->error_stack[] = array(
                     'message' => 'mkdir failed',
@@ -449,7 +449,7 @@ class mtopic extends model
 	public function updateProjectzipname($name,$projectid)
 	{
 	   
-	   $sql="update portal_topics set `zipname`='$name' where `id`=$projectid";
+	   $sql="update portal_projects set `zipname`='$name' where `id`=$projectid";
 	   $ret=$this->_db->query($sql);
 	   return $ret;
 	}
@@ -509,14 +509,14 @@ class mtopic extends model
 	}
 
 	public function getProject($projectid){
-		$sql = "select * from `portal_topics` WHERE id=".$projectid;
+		$sql = "select * from `portal_projects` WHERE id=".$projectid;
 		$ret = $this->_db->fetch_all_assoc($sql);
 		return $ret;
 	}
 
 	public function delProject($projectid){
 		$sql = array(
-			"DELETE FROM `portal_topics` WHERE id=".$projectid, 
+			"DELETE FROM `portal_projects` WHERE id=".$projectid, 
 			"DELETE FROM `portal_datagroup_inproject` WHERE `projectid`=".$projectid,
 			"DELETE FROM `portal_data_inproject` WHERE `projectid`=".$projectid, 
 			"DELETE FROM `portal_imageupload_inproject` WHERE `projectid`=".$projectid,

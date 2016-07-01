@@ -45,7 +45,7 @@ class prjmanage extends CommonController
 		// get Index main view
 		parent::initAssign($this);
 		$this->tpl->assign('msg', 
-			$this->mprjmanage->getProjectList());
+		$this->mprjmanage->getProjectList());
 		$right = $this->tpl->fetch('right.prjmanage_list.html');
 
 		// show all
