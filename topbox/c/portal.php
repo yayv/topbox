@@ -187,7 +187,7 @@ class portal extends CommonController
 		$this->tpl->assign('pages',$pages);		
 		$this->tpl->assign('datagroup', $datagroup);
 		$this->tpl->assign('datasource',$datasource);		
-		$c = $this->tpl->fetch('portal_sitemanage.tpl.html');
+		$c = $this->tpl->fetch('portal_topicmanage.tpl.html');
 		$this->tpl->assign('body',$c);
 		$this->tpl->display('index.tpl.html');
     }

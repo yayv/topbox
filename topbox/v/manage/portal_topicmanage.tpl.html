@@ -1,4 +1,75 @@
 
+<div class='row col-md-9' role='main'>
+
+<div class='col-md-12'> &nbsp; </div>
+
+<div class='col-md-1'><h4>内容管理</h4> </div>
+<div class='list-group col-md-10'>
+    <div class='list-group-item row'>页面列表</div>
+    {section loop=$topics name=i}
+    <div class='list-group-item row'>
+      <a class="badge btn btn-primary" href='/portal/manage/{$topics[i].id}'>编辑</a>
+      {$topics[i].id} : <a target='_blank' href='{$topics[i].url}'>{$topics[i].title}</a> | {$topics[i].author} | {$topics[i].writer} 
+    </div>
+    {/section}
+</div>
+<div class='col-md-1'> </div>
+
+<ul class="pagination">
+{if $pages}
+  <li><a href="#">&laquo;</a></li>
+{section loop=$pages name=j}
+  <li><a href="/cockroach/?start={$pages[j]}">{($pages[j]-$pages[j]%20)/20+1}</a></li>
+{/section}
+  <li><a href="#">&raquo;</a></li>
+{/if}
+</ul>
+
+</div>
+
+<div class="col-md-3" style="margin-left:30px">
+          <div role="complementary" class="bs-docs-sidebar hidden-print hidden-xs hidden-sm">
+            <ul class="nav bs-docs-sidenav">
+
+        <li>
+          <a href="/cockroach/extractors">提取器</a>
+          <ul class="nav">
+            <li><a href="#overview-doctype">HTML5 doctype</a></li>
+            <li><a href="#overview-mobile">Mobile first</a></li>
+            <li><a href="#overview-container">Containers</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#responsive-utilities">Responsive utilities</a>
+          <ul class="nav">
+            <li><a href="#responsive-utilities-classes">Available classes</a></li>
+            <li><a href="#responsive-utilities-print">Print classes</a></li>
+            <li><a href="#responsive-utilities-tests">Test cases</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#sass">Using Sass</a>
+          <ul class="nav">
+            <li><a href="#sass-contents">What's included</a></li>
+            <li><a href="#sass-installation">Rails install</a></li>
+          </ul>
+        </li>
+
+
+            </ul>
+            <a href="#top" class="back-to-top">
+              Back to top
+            </a>
+
+            <a class="bs-docs-theme-toggle" href="#">
+              Preview theme
+            </a>
+
+          </div>
+        </div>
+
+<!-------->
+
 <div id="body" class='col-md-9'>
   <div class='section'>
   <h1>模板管理[<a href='#' onclick='toggleShow("tempaltemanage_content")'>x</a>]</h1>

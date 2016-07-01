@@ -221,7 +221,7 @@ class contents extends CommonController
 		$sourcetype 	= $_POST['sourcetype'];
 		$author 		= $_POST['author'];
 		$editor		    = $_POST['editor'];
-		$posttime		= $_POST['posttime']?date();
+		#$posttime		= $_POST['posttime']?date();
 		$verifytime		= $_POST['verifytime'];
 		$publishtime	= $_POST['publishtime'];
 
