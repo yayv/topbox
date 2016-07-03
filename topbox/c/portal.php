@@ -135,8 +135,8 @@ class portal extends CommonController
 
 		$projectid = $_GET['id'];
 
-		// 获得基础模板的名称
-		$templatesname = $this->getModel('mtemplates')->getTemplatesNames();
+		// TODO: 获得公共模板的名称， 这个功能需要重新考虑，或许叫做内置模板什么的
+		// $templatesname = $this->getModel('mtemplates')->getTemplatesNames();
 
 		// 获得项目模板列表
 		$templates = $this->getModel('mtopic')->getTemplates($projectid);

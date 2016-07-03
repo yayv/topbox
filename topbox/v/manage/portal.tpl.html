@@ -18,7 +18,7 @@
 <div class='list-group col-md-10'>
 		{section loop=$topics name=i}
 		<div class='list-group-item row'>
-			<a class="badge btn btn-primary" href='/portal/manage/{$topics[i].id}'>编辑</a>
+			<a class="badge btn btn-primary" href='/portal/manage/id-{$topics[i].id}'>编辑</a>
 			{$topics[i].id} : <a target='_blank' href='{$topics[i].url}'>{$topics[i].title}</a> | {$topics[i].author} | {$topics[i].writer} 
 		</div>
 		{/section}
@@ -79,3 +79,15 @@
           </div>
         </div>
 
+{*
+以前的专题列表，包括了 管理 ， 参数， 删除 三个菜单入口
+<div class='list-group col-md-10'>
+    { section loop=$sites name=i }
+    <div class='list-group-item row'>
+      { * <span class="badge">{$sites[i].title}</span> * }
+      <span class="badge"><a target='_blank' style='color:white;' href='/portal/manage/id-{$sites[i].id}'>管理</a></span><span class="badge"><a style='color:white;'>参数</a></span><span class="badge"><a style='color:white;' data-target="#infoModal" data-toggle="modal" data-url='/portal/delProject/id-{$sites[i].id}' href="#infoModal">删除</a></span>
+      {$sites[i].id} : <a target='_blank' href='/portal/manage/id-{$sites[i].id}'>{$sites[i].title}</a>
+    </div>
+    { /section }
+</div>
+*}
