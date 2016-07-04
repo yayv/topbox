@@ -223,9 +223,9 @@ class portal extends CommonController
         $this->tpl->assign('type', $type);
         $this->tpl->assign('message', $message);
 
-        $c = $this->tpl->fetch('portal_addsitetemplate.tpl.html');
-        $this->tpl->assign('body',$c);
-		$this->tpl->display('index.tpl.html');
+        $this->tpl->display('portal_addsitetemplate.tpl.html');
+        #$this->tpl->assign('body',$c);
+		#$this->tpl->display('index.tpl.html');
     }
 
     // 增加一个页面

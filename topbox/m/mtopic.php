@@ -204,7 +204,8 @@ class mtopic extends model
         // 表单检查
         if($projectname && $author && $directory && $url)
         {
-        	$dir = $homedir .$directory;
+        	rtrim($homedir," /\\");
+        	$dir = $homedir . '/' . $directory;
             $sql = "
                 insert into 
                     portal_topics(

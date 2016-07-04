@@ -2,8 +2,8 @@
 <div class='row form-horizontal col-md-12' role='topline'>
 	<div class="form-group">
 		<label for="inputURL" class="col-md-1 control-label">输入:</label>
-		<div class="col-md-9">
-			<input id='url' name='url' type="url" class="form-control col-md-10" id="inputURL" placeholder="标题或关键字">
+		<div class="col-md-6">
+			<input id='url' name='url' type="url" class="form-control" id="inputURL" placeholder="标题或关键字">
 		</div>
 		<a href='#infoModal' data-url='/cockroach/boxAddUrl' class='btn btn-primary' data-toggle="modal" data-target="#infoModal">搜索</a>
 		<a href='#infoModal' data-url='/portal/createTopic' class='btn btn-primary' data-toggle="modal" data-target="#infoModal">添加</a>
@@ -85,7 +85,11 @@
     { section loop=$sites name=i }
     <div class='list-group-item row'>
       { * <span class="badge">{$sites[i].title}</span> * }
-      <span class="badge"><a target='_blank' style='color:white;' href='/portal/manage/id-{$sites[i].id}'>管理</a></span><span class="badge"><a style='color:white;'>参数</a></span><span class="badge"><a style='color:white;' data-target="#infoModal" data-toggle="modal" data-url='/portal/delProject/id-{$sites[i].id}' href="#infoModal">删除</a></span>
+      	<span class="badge"><a target='_blank' style='color:white;' href='/portal/manage/id-{$sites[i].id}'>管理</a></span>
+      	<span class="badge"><a style='color:white;'>参数</a></span>
+      	<span class="badge">
+      		<a style='color:white;' data-target="#infoModal" data-toggle="modal" data-url='/portal/delProject/id-{$sites[i].id}' href="#infoModal">删除</a>
+      	</span>
       {$sites[i].id} : <a target='_blank' href='/portal/manage/id-{$sites[i].id}'>{$sites[i].title}</a>
     </div>
     { /section }

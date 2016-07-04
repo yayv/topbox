@@ -18,8 +18,7 @@ class contents extends CommonController
 	public function index()
 	{
 
-
-  //       //点击"解析内容"
+	    //点击"解析内容"
 		// $id = $_GET['action'] ;
 
 		// $content   = false;
