@@ -216,6 +216,7 @@ class portal extends CommonController
 		$templateinfo->content = $content;
 
 		$this->createMenu();
+        $this->tpl->assign('title', '增加专题模板');
         $this->tpl->assign('home', $this->home);
         $this->tpl->assign('project', $projectinfo);
         $this->tpl->assign('template', $templateinfo);
@@ -801,14 +802,15 @@ class portal extends CommonController
         $templateinfo= $this->getModel('mtopic')->getTemplateById($templateid);
 
         $this->tpl->assign('home', $this->home);
+        $this->tpl->assign('title', '编辑专题模板');
         $this->tpl->assign('project',$projectinfo);
         $this->tpl->assign('template',$templateinfo);
 
         $c = $this->tpl->fetch('portal_addsitetemplate.tpl.html');
-        
-		$this->createMenu();
-		$this->tpl->assign('body',$c);
-		$this->tpl->display('index.tpl.html');
+        echo $c;
+		#$this->createMenu();
+		#$this->tpl->assign('body',$c);
+		#$this->tpl->display('index.tpl.html');
     }
 
     public function doAddSiteTemplate()

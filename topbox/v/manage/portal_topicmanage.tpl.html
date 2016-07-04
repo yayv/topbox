@@ -6,7 +6,7 @@
 <div class="list-group">
 
   <a href='#' class="list-group-item">
-    <h3 class='list-group-item-heading' style='display:inline-block;'> 内容编辑 </h3>
+    <h3 class='list-group-item-heading' style='display:inline-block;'> 专题内容编辑 </h3>
     正在编辑: {$project->title}
   </a>
 
@@ -105,13 +105,12 @@
                 <td>{$v->templatename}</td>
                 <td>{$v->templatefile}</td>
                 <td>修改自:{$v->name}</td>
-                <td><a href='/portal/editSiteTemplate/id-{$id}/templateid-{$v->id}'>编辑</a></td>
+                <td><a href='#infoModal' data-url='/portal/editSiteTemplate/id-{$id}/templateid-{$v->id}' data-toggle='modal' data-target='#infoModal'>编辑</a></td>
                 </tr>
             {/foreach}
             <tr>
               <td colspan="4" class='text-right'>
-                <a href="#infoModal" data-url="/contents/showEditContentView?content_id={$content_id}" class="btn btn-default" data-toggle="modal" data-target="#infoModal">属性</a>
-                <a href='#infoModal' class='btn btn-primary' data-url='/portal/addSiteTemplate/id-{$id}' class='btn btn-primary' data-toggle="modal" data-target='#infoModal'>增加模板</a> 
+                <a href='#infoModal' data-url='/portal/addSiteTemplate/id-{$id}' class='btn btn-primary' data-toggle="modal" data-target='#infoModal'>增加模板</a> 
               </td>
             </tr>
         </table>
@@ -126,7 +125,7 @@
         <form action="/portal/addimg/id-{$id}" method="post" enctype="multipart/form-data" 
               id="form1" name="form1">
         上传资源:<input type="file" name="filename" />
-          <input type="submit" value='上传' onclick="check()">
+          <input class='btn btn-primary' type="submit" value='上传' onclick="check()">
           <div>注：只能上传.zip压缩包,上传完之后要点击发布</div>
         </form> 
         </div>
