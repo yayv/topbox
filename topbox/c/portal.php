@@ -368,11 +368,13 @@ class portal extends CommonController
 
         $_SESSION['dgname']=$dgname;
 
+        $datagroup  = $this->getModel('mdatagroup')->getDatagroups($projectid);
+
         $dginfo 	= $this->getModel('mdatagroup')->getDatagroupInfo($projectid, $dgname);
         $datalist 	= $this->getModel('mdatalist')->getDatalist($projectid, $dgname);
         $datacount 	= $this->getModel('mdatalist')->getDatalist_count($projectid, $dgname);
         $data_first = $this->getModel('mdatalist')->getDatalist_first($projectid,$dgname);
-
+#echo '<pre>';print_r($datagroup);die();
         $dateline_first=$data_first[0]->dateline;
         $date_first=date("Y-m-d",$dateline_first);
 
@@ -397,6 +399,7 @@ class portal extends CommonController
         }
 
 		$this->createMenu();
+        $this->tpl->assign('datagroup',$datagroup);
         $this->tpl->assign('pp',$pp);
         $this->tpl->assign('dg', $dginfo);
         $this->tpl->assign('datalist', $datalist);

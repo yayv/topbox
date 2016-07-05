@@ -43,10 +43,9 @@
       <div class='panel-heading'><h4>条目编辑</h4> </div>
       <table class='table panel-body'>
           <tr class='header'>
-              <th>数据组名称</th>
+              <th>条目名称</th>
               <th>类型</th>
               <th>说明</th>
-              <th>成员变量</th>
               <th>数据源</th>
               <th>数据源类型</th>
               <th>更新方式</th>
@@ -56,7 +55,6 @@
               <tr><td ><span id='dgun{$datagroup[k]->name}'>{$datagroup[k]->userdefinedname}</span></td>
                   <td>{if $datagroup[k]->type=='single'}单条{else}列表{/if}</td>
                   <td title='{$datagroup[k]->alt}'><a style='cursor:pointer;'>?</a></td>
-                  <td>x</td>
                   <td><span class='datasource'></span></td>
                   <td>{if $datagroup[k]->sourcetype=='manual'}录入{else}{$datagroup[k]->sourcetype}{/if}</td>
                   <td></td>

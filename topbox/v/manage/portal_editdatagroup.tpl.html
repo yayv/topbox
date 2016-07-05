@@ -150,7 +150,19 @@
 </div>
 
 <div class='col-md-3' style='border-left:solid 1px #eeeeee;'>
-  {$menu}
+    <div role="complementary" class="bs-docs-sidebar hidden-print hidden-xs hidden-sm">
+
+        <ul class='nav bs-docs-sidenav'>
+        <li><a href="/portal/manage/id-{$id}" class="back-to-top">返回专题编辑</a></li>
+        {section loop=$datagroup name=i}
+        <li>
+            <a href="/portal/editdatagroup/id-{$id}/name-{$datagroup[i]->name}" class="back-to-top">{$datagroup[i]->showname}</a>
+        </li>
+        {/section}
+        <li><a href="/portal/manage/id-{$id}" class="back-to-top">返回专题编辑</a></li>
+        </ul>
+
+    </div>  
 </div>
 
 <script type='text/javascript'>
