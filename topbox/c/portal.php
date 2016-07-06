@@ -253,10 +253,10 @@ class portal extends CommonController
 
 	    $this->tpl->assign('type', "add");
 
-		$c = $this->tpl->fetch('portal_addsitepage.tpl.html');
+		$c = $this->tpl->display('portal_addsitepage.tpl.html');
 		
-		$this->tpl->assign('body',$c);
-		$this->tpl->display('index.tpl.html');
+		#$this->tpl->assign('body',$c);
+		#$this->tpl->display('index.tpl.html');
 	}
 
     public function editpage()
@@ -807,11 +807,11 @@ class portal extends CommonController
         $this->tpl->assign('project',$projectinfo);
         $this->tpl->assign('template',$templateinfo);
 
-        $c = $this->tpl->fetch('portal_addsitetemplate.tpl.html');
+        $c = $this->tpl->display('portal_addsitetemplate.tpl.html');
         
-		$this->createMenu();
-		$this->tpl->assign('body',$c);
-		$this->tpl->display('index.tpl.html');
+		#$this->createMenu();
+		#$this->tpl->assign('body',$c);
+		#$this->tpl->display('index.tpl.html');
     }
 
     public function doAddSiteTemplate()

@@ -34,7 +34,9 @@
         </tr>
         {/section}
         <tr class='footer text-right'>
-          <td colspan="5"><a class='btn btn-primary' href='/portal/addpage/id-{$id}'>增加页面</a> </td>
+          <td colspan="5">
+              <a href='#infoModal' class='btn btn-primary' data-url='/portal/addpage/id-{$id}' class='btn btn-primary' data-toggle="modal" data-target='#infoModal'>增加页面</a> 
+          </td>
         </tr>
       </table>
   </a>
@@ -103,12 +105,11 @@
                 <td>{$v->templatename}</td>
                 <td>{$v->templatefile}</td>
                 <td>修改自:{$v->name}</td>
-                <td><a href='/portal/editSiteTemplate/id-{$id}/templateid-{$v->id}'>编辑</a></td>
+                <td><a href='#infoModal' data-url='/portal/editSiteTemplate/id-{$id}/templateid-{$v->id}' data-toggle='modal' data-target='#infoModal'>编辑</a></td>
                 </tr>
             {/foreach}
             <tr>
               <td colspan="4" class='text-right'>
-                <a href="#infoModal" data-url="/contents/showEditContentView?content_id={$content_id}" class="btn btn-default" data-toggle="modal" data-target="#infoModal">属性</a>
                 <a href='#infoModal' class='btn btn-primary' data-url='/portal/addSiteTemplate/id-{$id}' class='btn btn-primary' data-toggle="modal" data-target='#infoModal'>增加模板</a> 
               </td>
             </tr>
