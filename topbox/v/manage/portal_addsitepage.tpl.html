@@ -1,66 +1,90 @@
-<div id="step">
-    <div class="t">
-      	<div class="t">
-      		<div class="t"></div>
-      	</div>
-    </div>
-    <div class="m">
+<!-- Modal -->
+<form class='form-horizontal' name='dd' action="/portal/doAddSitePage/id-{$projectid}" method="POST">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">增加专题页面</h4>
+      </div>
+      <div class="modal-body">
 
-        <div style='padding:15px;'>
-        <div style='margin:5px;width:400px;float:left;'>
-        {if $message}
-        <div style='border:solid 1px red;background-color:yellow;color:green'>
-        {$message}
-        </div>
-        {/if}
-        <form action="/portal/doAddSitePage/id-{$projectid}" method="post">
-          <fieldset>
-            <legend><strong>基本参数</strong></legend>
-            项目　名:{$projectname}<input type='hidden' name='pageid' value='{$pageid}'><br/>
-            页面名称:<input name='pagename' value='{$pagename}' ><br/>
-            页面文件:<input name='filename' value='{$filename}' ><br/>
-            模板文件:<select name='templateid' id='templateid'>
+          <div class="form-group row">
+            <input type='hidden' name='pageid' value='{$pageid}'>
+              <label for="inputTopic" class="col-xs-2 control-label">专题　名:</label>
+              <div class="col-xs-9">
+              <span>{$projectname}</span>
+              </div>
+          </div>
+
+          <div class="form-group row">
+              <label for="inputPagename" class="col-xs-2 control-label">页面名称:</label>
+              <div class="col-xs-9">
+              <input name='pagename' type="text" class="form-control" id='inputPagename' placeholder="页面名称" value='{$pagename}'>
+              </div>
+          </div>
+
+          <div class="form-group row">
+              <label for="inputFilename" class="col-xs-2 control-label">页面文件:</label>
+              <div class="col-xs-9">
+              <input type="filaname" class="form-control" id='inputFilename' name='filename'  placeholder="相对目录" value='{$filename}'>
+              </div>
+          </div>
+
+          <div class="form-group row">
+              <label for="inputDirectory" class="col-xs-2 control-label">模板文件:</label>
+              <div class="col-xs-9">
+                  <select name='templateid' id='templateid' class="form-control" >
                         {foreach from=$templates key=k item=v}
                             <option value='{$v->id}'>{$v->templatename}</option>
                         {/foreach}
-                     </select><br/>
-            发布类型:<select name='publishtype' id='publishtype'>
+                  </select>
+              </div>
+          </div>
+
+          <div class="form-group row">
+              <label for="inputProgrammer" class="col-xs-2 control-label">发布类型:</label>
+              <div class="col-xs-9">
+                    <select name='publishtype' id='publishtype' class='form-control'>
                             <option value='dynamic'>动态发布(页面为php文件)</option>
                             <option value='static'>静态发布(页面为html文件)</option>
                             <option value='manual'>自定义内容(扩展名自定)</option>
-							
-                     </select><br/>
-            </fieldset>
-            
-            {if $type=='edit' and $publishtype=='dynamic'}
-                <fieldset style='margin-top:50px'>
-                  <legend><strong>高级参数</strong></legend>
-                  <div>动态扩展文件:{$default_hookfile}</div>
-                  {if $default_hookfile}
-                      <div><a href='/portal/editpagehook/id-{$projectid}/pageid-{$pageid}' class='btn btn-default'>编辑文件内容</a></div>
-                  {else}
-                      <div><a href='/portal/createHookPage/id-{$projectid}/pageid-{$pageid}' class='btn btn-default'>创建扩展文件</a></div>
-                  {/if}
-                </fieldset>
-            {/if}
-            <input class='btn btn-primary' type="submit" style='margin-top:20px'>
-        </form>
-        </div>
+                    </select>
+              </div>
+          </div>
 
-         <div style='clear:both;'></div>
-         </div>   
-		 
-		 </div>
-    <div class="b">
-      	<div class="b">
-      		<div class="b"></div>
-      	</div>
+          {if $type=='edit' and $publishtype=='dynamic'}
+          <div class="form-group row">
+              <label for="inputEditor" class="col-xs-2 control-label">高级参数:</label>
+              <div class="col-xs-9">
+              动态扩展文件:{$default_hookfile}
+              {if $default_hookfile}
+                  <div><a href='/portal/editpagehook/id-{$projectid}/pageid-{$pageid}' class='btn btn-default'>编辑文件内容</a></div>
+              {else}
+                  <div><a href='/portal/createHookPage/id-{$projectid}/pageid-{$pageid}' class='btn btn-default'>创建扩展文件</a></div>
+              {/if}
+              </div>
+          </div>
+          {/if}
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <button type="reset" class="btn btn-warning" >重填</button>
+        <button type="submit" class="btn btn-primary" >创建</button>
+      </div>
     </div>
-</div>
+  </div>
+</form>
+
 <script type='text/javascript'>
+$(document).ready(function(){
+  $('#boxurl').val($('#url').val());
+});
+
 var hookfile = '{$default_hookfile}';
 // var hookfile     = '{$hookfile}';
 document.getElementById('publishtype').value = "{$publishtype}";
 document.getElementById('templateid').value = '{$templateid}';
 </script>
+
 
