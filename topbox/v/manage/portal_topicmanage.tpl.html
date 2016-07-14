@@ -28,7 +28,7 @@
           <td>{if $pages[k]->publishtype=='dynamic'}动态发布{elseif $pages[k]->publishtype=='static'}静态发布{elseif $pages[k]->publishtype=='manual'}自定义内容{elseif $pages[k]->publishtype=='auto'}自动调取{/if}</td>
           <td class='text-right'>
             <a href="{$project->url}/{$pages[k]->filename}" target='publish' class='btn btn-default' >浏览</a>
-            <a href="/portal/editpage/id-{$id}/pageid-{$pages[k]->id}" class='btn btn-default'>编辑</a>
+            <a href='#infoModal' data-url="/portal/editpage/id-{$id}/pageid-{$pages[k]->id}" data-toggle="modal" data-target='#infoModal' class='btn btn-default'>编辑</a>
             <a data-target="#infoModal" data-toggle="modal" class="btn btn-primary" data-url="/portal/delpage/id-{$id}/pageid-{$pages[k]->id}" href="#infoModal">删除</a>
            </td>
         </tr>

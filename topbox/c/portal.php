@@ -283,11 +283,7 @@ class portal extends CommonController
         $this->tpl->assign('default_hookfile', 'hook_'.$page->filename);
 
         $this->tpl->assign('type', "edit");
-        $c = $this->tpl->fetch('portal_addsitepage.tpl.html');
-
-        $this->createMenu();
-        $this->tpl->assign('body',$c);
-        $this->tpl->display('index.tpl.html');
+        $this->tpl->display('portal_addsitepage.tpl.html');
     }
 
 	public function delpage()
