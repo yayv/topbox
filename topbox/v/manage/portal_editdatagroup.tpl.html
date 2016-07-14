@@ -114,12 +114,12 @@
                 {/if}
 
                 {if $datalist[k]->d>0}
-                    <div class='col-md-3' id='{$datalist[k]->id}' style="color:#FF0000">
-                    {$datalist[k]->date}
+                    <div class='col-md-4' id='{$datalist[k]->id}' style="color:#FF0000">
+                    发布时间： {$datalist[k]->date}
                     </div>
                 {else}
-                    <div class='col-md-3' id='{$datalist[k]->id}'>
-                        {$datalist[k]->date}
+                    <div class='col-md-4' id='{$datalist[k]->id}'>
+                        发布时间：{$datalist[k]->date}
                     </div>
                 {/if}
                 
@@ -142,6 +142,7 @@
     <ul class="pagination">
       {section name=a loop=$pp}
         <li><a href='{$home}/project/page_t/pt-{$pp[a]}/id-{$id}'>{$pp[a]}</a></li>
+        <li><a href='{$home}/portal/editdatagroup/id-26/name-testloop／pt-{$pp[a]}'>{$pp[a]}</a></li>
       {/section}
     </ul>
 </div>
@@ -170,12 +171,12 @@
 var id = {$id};
 var baseurl = '{$home}';
 var param   = 'id-{$id}/name-{$dg->name}/dst-{$dg->type}';
-var sorturl = "/data/sortDatalist/id-{$id}/name-{$dg->name}/?";
+var sorturl = "/portal/data/sortDatalist/id-{$id}/name-{$dg->name}/?";
 {literal}
 function search(t)
 {
     s = $('#search_input').val();
-    $.post('/project/page/p-0/id-'+id,{'key':t,'val':s},function(){
+    $.post('/portal/page/p-0/id-'+id,{'key':t,'val':s},function(){
 
     },
     'json');

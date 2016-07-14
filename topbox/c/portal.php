@@ -216,6 +216,7 @@ class portal extends CommonController
 		$templateinfo->content = $content;
 
 		$this->createMenu();
+        $this->tpl->assign('title', '增加专题模板');
         $this->tpl->assign('home', $this->home);
         $this->tpl->assign('project', $projectinfo);
         $this->tpl->assign('template', $templateinfo);
@@ -253,10 +254,10 @@ class portal extends CommonController
 
 	    $this->tpl->assign('type', "add");
 
-		$c = $this->tpl->display('portal_addsitepage.tpl.html');
+		$c = $this->tpl->fetch('portal_addsitepage.tpl.html');
 		
-		#$this->tpl->assign('body',$c);
-		#$this->tpl->display('index.tpl.html');
+		$this->tpl->assign('body',$c);
+		$this->tpl->display('index.tpl.html');
 	}
 
     public function editpage()
@@ -364,13 +365,11 @@ class portal extends CommonController
 
         $_SESSION['dgname']=$dgname;
 
-        $datagroup  = $this->getModel('mdatagroup')->getDatagroups($projectid);
-
         $dginfo 	= $this->getModel('mdatagroup')->getDatagroupInfo($projectid, $dgname);
         $datalist 	= $this->getModel('mdatalist')->getDatalist($projectid, $dgname);
         $datacount 	= $this->getModel('mdatalist')->getDatalist_count($projectid, $dgname);
         $data_first = $this->getModel('mdatalist')->getDatalist_first($projectid,$dgname);
-#echo '<pre>';print_r($datagroup);die();
+
         $dateline_first=$data_first[0]->dateline;
         $date_first=date("Y-m-d",$dateline_first);
 
@@ -395,7 +394,6 @@ class portal extends CommonController
         }
 
 		$this->createMenu();
-        $this->tpl->assign('datagroup',$datagroup);
         $this->tpl->assign('pp',$pp);
         $this->tpl->assign('dg', $dginfo);
         $this->tpl->assign('datalist', $datalist);
@@ -800,11 +798,12 @@ class portal extends CommonController
         $templateinfo= $this->getModel('mtopic')->getTemplateById($templateid);
 
         $this->tpl->assign('home', $this->home);
+        $this->tpl->assign('title', '编辑专题模板');
         $this->tpl->assign('project',$projectinfo);
         $this->tpl->assign('template',$templateinfo);
 
-        $c = $this->tpl->display('portal_addsitetemplate.tpl.html');
-        
+        $c = $this->tpl->fetch('portal_addsitetemplate.tpl.html');
+        echo $c;
 		#$this->createMenu();
 		#$this->tpl->assign('body',$c);
 		#$this->tpl->display('index.tpl.html');

@@ -6,7 +6,7 @@
 <div class="list-group">
 
   <a href='#' class="list-group-item">
-    <h3 class='list-group-item-heading' style='display:inline-block;'> 内容编辑 </h3>
+    <h3 class='list-group-item-heading' style='display:inline-block;'> 专题内容编辑 </h3>
     正在编辑: {$project->title}
   </a>
 
@@ -34,9 +34,7 @@
         </tr>
         {/section}
         <tr class='footer text-right'>
-          <td colspan="5">
-              <a href='#infoModal' class='btn btn-primary' data-url='/portal/addpage/id-{$id}' class='btn btn-primary' data-toggle="modal" data-target='#infoModal'>增加页面</a> 
-          </td>
+          <td colspan="5"><a class='btn btn-primary' href='/portal/addpage/id-{$id}'>增加页面</a> </td>
         </tr>
       </table>
   </a>
@@ -45,9 +43,10 @@
       <div class='panel-heading'><h4>条目编辑</h4> </div>
       <table class='table panel-body'>
           <tr class='header'>
-              <th>条目名称</th>
+              <th>数据组名称</th>
               <th>类型</th>
               <th>说明</th>
+              <th>成员变量</th>
               <th>数据源</th>
               <th>数据源类型</th>
               <th>更新方式</th>
@@ -57,6 +56,7 @@
               <tr><td ><span id='dgun{$datagroup[k]->name}'>{$datagroup[k]->userdefinedname}</span></td>
                   <td>{if $datagroup[k]->type=='single'}单条{else}列表{/if}</td>
                   <td title='{$datagroup[k]->alt}'><a style='cursor:pointer;'>?</a></td>
+                  <td>x</td>
                   <td><span class='datasource'></span></td>
                   <td>{if $datagroup[k]->sourcetype=='manual'}录入{else}{$datagroup[k]->sourcetype}{/if}</td>
                   <td></td>
@@ -110,7 +110,7 @@
             {/foreach}
             <tr>
               <td colspan="4" class='text-right'>
-                <a href='#infoModal' class='btn btn-primary' data-url='/portal/addSiteTemplate/id-{$id}' class='btn btn-primary' data-toggle="modal" data-target='#infoModal'>增加模板</a> 
+                <a href='#infoModal' data-url='/portal/addSiteTemplate/id-{$id}' class='btn btn-primary' data-toggle="modal" data-target='#infoModal'>增加模板</a> 
               </td>
             </tr>
         </table>
@@ -125,7 +125,7 @@
         <form action="/portal/addimg/id-{$id}" method="post" enctype="multipart/form-data" 
               id="form1" name="form1">
         上传资源:<input type="file" name="filename" />
-          <input type="submit" value='上传' onclick="check()">
+          <input class='btn btn-primary' type="submit" value='上传' onclick="check()">
           <div>注：只能上传.zip压缩包,上传完之后要点击发布</div>
         </form> 
         </div>
