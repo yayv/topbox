@@ -237,6 +237,32 @@ class contents extends CommonController
 
 	}
 
+	public function editContent(){
+		parent::init();
+		#$mcontent = $this->getModel('mcontent');
+
+		// TODO: 如果这里可以用脚本或者插件自动生成,就太棒了
+		$id             = $_GET['content_id'];
+
+		/*
+		$conds = array('id'=>$id, 'cover'=>$cover, 'uri'=>$uri, 'keywords'=>$keywords, 'shortname'=>$shortname, 'substract'=>$substract,
+			'contenttype'=>$contenttype, 'length'=>$length, 'source'=>$source, 'sourcetype'=>$sourcetype, 
+			'author'=>$author, 'editor'=>$editor, 'posttime'=>$posttime, 'verifytime'=>$verifytime, 'publishtime'=>$publishtime );
+		
+
+		$success = $mcontent->saveContent($conds);
+		if($success){
+			header("location:contents");
+		}
+		*/
+        $nav  = $this->tpl->fetch('navigatebar.tpl.html');
+        $this->tpl->assign('navigatebar',$nav);
+
+		$c = $this->tpl->fetch('contents_editor.tpl.html');
+
+		$this->tpl->assign('body',$c);
+		$this->tpl->display('index.tpl.html');
+	}
 
 }
 
