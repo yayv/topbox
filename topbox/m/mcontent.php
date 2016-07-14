@@ -22,7 +22,15 @@ class mcontent extends model
 
 	public function getContentById($id)
 	{
-
+		$sql = "select * from cake_contents where id=$id";
+		$ret = $this->_db->query($sql);
+		if($ret)
+		{
+			$rec = $this->_db->fetch_one_assoc($sql);	
+			return $rec;
+		}
+		else
+			return false;
 	}
 
 	public function getContentByShortname()
@@ -47,7 +55,7 @@ class mcontent extends model
 			return false;
 
 		// select by content->url
-		$sql = "select * from cake_content where $content->url";
+		$sql = "select * from cake_contents where $content->url";
 		$rec = $this->_db->fetch_one_assoc($sql);
 		if($rec)
 		{
@@ -56,14 +64,14 @@ class mcontent extends model
 		}
 		else
 		{
-			$sql = "insert into cake_content() values()";
+			$sql = "insert into cake_contents() values()";
 			$ret = $this->_db->query($sql);
 			return $ret;
 		}
 	}
 
 	public function saveContent($conds){
-		$sql = "update cake_content set ";
+		$sql = "update cake_contents set ";
 
 		foreach ($conds as $key => $value) {
 			if($key == "id"){
@@ -86,7 +94,7 @@ echo '<pre>';
 
 
 	public function getDataById($id){
-		$sql = "select * from cake_content where id='".$id."'";
+		$sql = "select * from cake_contents where id='".$id."'";
 		$ret = $this->_db->fetch_all_assoc($sql);
 		return $ret;
 	}
@@ -101,7 +109,7 @@ echo '<pre>';
 
 
 	public function queryByCondition($condArr, $start=0,$count=20){
-		$sql = "select * from cake_content where ";
+		$sql = "select * from cake_contents where ";
 
 		foreach ($condArr as $key => $value) {
 			$sql .= $key."='".$value."' and ";
@@ -118,14 +126,14 @@ echo '<pre>';
 	}
 
 	public function getColumn($columnName){
-		$sql = "select ".$columnName." from cake_content";
+		$sql = "select ".$columnName." from cake_contents";
 		$ret = $this->_db->fetch_all_assoc($sql);
 
 		return $ret;
 	}
 
 	public function getTableHeader(){
-		$sql = "select COLUMN_NAME from information_schema.columns where table_name='cake_content'";
+		$sql = "select COLUMN_NAME from information_schema.columns where table_name='cake_contents'";
 		$ret = $this->_db->fetch_all_assoc($sql);
 
 		return $ret;
@@ -133,7 +141,7 @@ echo '<pre>';
 
 	public function getAllData($start=0,$count=20)
 	{
-		$sql = "select * from cake_content limit $start,$count";
+		$sql = "select * from cake_contents limit $start,$count";
 
 		$ret = $this->_db->fetch_all_assoc($sql);
 
@@ -142,7 +150,7 @@ echo '<pre>';
 
 	public function countAllData()
 	{
-		$sql = "select count(*) cc from cake_content ";		
+		$sql = "select count(*) cc from cake_contents ";		
 
 		$ret = $this->_db->fetch_one_assoc($sql);
 

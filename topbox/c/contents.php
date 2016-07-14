@@ -255,6 +255,18 @@ class contents extends CommonController
 			header("location:contents");
 		}
 		*/
+		$content = $this->getModel('mcontent')->getContentById($id);
+		$this->tpl->assign('id',$id);
+		$this->tpl->assign('subtitle',$content['subtitle']);
+		$this->tpl->assign('title',$content['title']);
+		$this->tpl->assign('cover',$content['cover']);
+		$this->tpl->assign('shortname',$content['shortname']);
+		$this->tpl->assign('URI',$content['URI']);
+		$this->tpl->assign('keywords',$content['keywords']);
+		$this->tpl->assign('substract',$content['substract']);
+		$this->tpl->assign('content',$content['content']);
+
+		#print_r($content);die();
         $nav  = $this->tpl->fetch('navigatebar.tpl.html');
         $this->tpl->assign('navigatebar',$nav);
 
