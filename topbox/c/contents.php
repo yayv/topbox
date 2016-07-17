@@ -70,7 +70,7 @@ class contents extends CommonController
 
 	public function beforeShowContent(){
 		parent::init();
-
+#echo '<pre>';print_r($this->_db);die();
 		if(!$this->isLogined())
 		{
 			// TODO:
