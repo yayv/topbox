@@ -200,16 +200,15 @@ class contents extends CommonController
 		$this->tpl->display('contentEdit.tpl.html');
 	}
 
-	public function saveContent(){
+	public function saveProperties(){
 		parent::init();
-		$mcontent = $this->getModel('mcontent');
 
 		// TODO: 如果这里可以用脚本或者插件自动生成,就太棒了
 		$id             = $_POST['id'];
 		#$title			= $_POST['title'];		// 这个应该在内容编辑页进行更改
 		#$subtitle		= $_POST['subtitle'];   // 这个应该在内容编辑页进行更改
 		$cover 			= $_POST['cover'];
-		$uri 			= $_POST['uri'];
+		$uri 			= $_POST['url'];
 		$keywords 		= $_POST['keywords'];
 		$shortname 		= $_POST['shortname'];
 		$substract		= $_POST['substract'];
@@ -220,19 +219,20 @@ class contents extends CommonController
 		$sourcetype 	= $_POST['sourcetype'];
 		$author 		= $_POST['author'];
 		$editor		    = $_POST['editor'];
-		#$posttime		= $_POST['posttime']?date();
+		
+		$posttime		= $_POST['posttime']?date();
 		$verifytime		= $_POST['verifytime'];
 		$publishtime	= $_POST['publishtime'];
 
-
+echo '<pre>';print_r($_POST);die();
 		$conds = array('id'=>$id, 'cover'=>$cover, 'uri'=>$uri, 'keywords'=>$keywords, 'shortname'=>$shortname, 'substract'=>$substract,
 			'contenttype'=>$contenttype, 'length'=>$length, 'source'=>$source, 'sourcetype'=>$sourcetype, 
 			'author'=>$author, 'editor'=>$editor, 'posttime'=>$posttime, 'verifytime'=>$verifytime, 'publishtime'=>$publishtime );
 		
 
-		$success = $mcontent->saveContent($conds);
+		$success = $this->getModel('mcontent')->saveProperties($conds);
 		if($success){
-			header("location:contents");
+			header("location:/contents");
 		}
 
 	}

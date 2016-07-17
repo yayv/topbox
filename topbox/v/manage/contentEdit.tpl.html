@@ -1,4 +1,4 @@
-<form class='form-horizontal' name='condEdit' action="/contents/saveContent" method="POST">
+<form class='form-horizontal' name='condEdit' action="/contents/saveProperties" method="POST">
 <div class="modal-dialog">
 	<div class="modal-content">
 		<div class="modal-header">
@@ -22,6 +22,11 @@
 			</div>
 
 			<div class="input-group col-md-12">
+		        <span class="input-group-addon" style="width:100px"> subtitle </span>
+		        <input type="text" name="subtitle" class="form-control" value="{$records['subtitle']}"></input>
+			</div>
+
+			<div class="input-group col-md-12">
 		        <span class="input-group-addon" style="width:100px"> cover </span>
 		        <input type="text" name="cover" class="form-control" value="{$records['cover']}"></input>
 			</div>
@@ -37,28 +42,8 @@
 			</div>
 
 			<div class="input-group col-md-12">
-		        <span class="input-group-addon" style="width:100px"> content </span>
-		        <input type="text" name="content" class="form-control" value="{$records['content']}"></input>
-			</div>
-
-			<div class="input-group col-md-12">
 		        <span class="input-group-addon" style="width:100px"> contenttype </span>
 		        <input type="text" name="contenttype" class="form-control" value="{$records['contenttype']}"></input>
-			</div>
-
-			<div class="input-group col-md-12">
-		        <span class="input-group-addon" style="width:100px"> file </span>
-		        <input type="text" name="file" class="form-control" value="{$records['file']}"></input>
-			</div>
-
-			<div class="input-group col-md-12">
-		        <span class="input-group-addon" style="width:100px"> width </span>
-		        <input type="text" name="width" class="form-control" value="{$records['width']}"></input>
-			</div>
-
-			<div class="input-group col-md-12">
-		        <span class="input-group-addon" style="width:100px"> height </span>
-		        <input type="text" name="height" class="form-control" value="{$records['height']}"></input>
 			</div>
 
 			<div class="input-group col-md-12">

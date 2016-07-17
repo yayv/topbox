@@ -8,18 +8,6 @@ class mcontent extends model
 	// TODO: 不同的资源还代表着不同分类方式，而这种分类方式往往就会因为资源类型的不同而产生完全不同分类目录树
 	// TODO: 不知道之前的CMS系统支持多种不同的分类混合编排不，还是说，在顶级之下就分成不同的资源分类？
 
-
-
-	public function __construct()
-	{
-
-	}
-
-	public function __destruct()
-	{
-
-	}
-
 	public function getContentById($id)
 	{
 		$sql = "select * from cake_contents where id=$id";
@@ -70,7 +58,7 @@ class mcontent extends model
 		}
 	}
 
-	public function saveContent($conds){
+	public function saveProperties($conds){
 		$sql = "update cake_contents set ";
 
 		foreach ($conds as $key => $value) {
@@ -86,7 +74,6 @@ class mcontent extends model
 		}
 
 		$sql .= " where id=".$id;
-echo '<pre>';
 		$ret = $this->_db->fetch_all_assoc($sql);
 		print_r($ret);die();
 		return $ret;
