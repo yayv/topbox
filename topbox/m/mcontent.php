@@ -36,26 +36,13 @@ class mcontent extends model
 
 	}
 
-	public function updateContent($content)
+	public function updateContent($id, $title, $content)
 	{
-		// no url? must be wrong
-		if(!isset($content->url))
-			return false;
-
 		// select by content->url
-		$sql = "select * from cake_contents where $content->url";
-		$rec = $this->_db->fetch_one_assoc($sql);
-		if($rec)
-		{
-		// update object by record
-		// update record by object
-		}
-		else
-		{
-			$sql = "insert into cake_contents() values()";
-			$ret = $this->_db->query($sql);
-			return $ret;
-		}
+		$sql = "update cake_contents set title='$title', content='$content' where id='$id'";
+
+		$rec = $this->_db->query($sql);
+		return $rec;
 	}
 
 	public function saveProperties($conds){

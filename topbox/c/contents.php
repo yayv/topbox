@@ -17,25 +17,6 @@ class contents extends CommonController
 
 	public function index()
 	{
-
-	    //点击"解析内容"
-		// $id = $_GET['action'] ;
-
-		// $content   = false;
-		// if($id && ($content = $this->getModel('mcontent')->parseAndStoreDataIntoDB($id)))
-		// {
-		// 	return ;
-		// }
-		// else
-		// {
-		// 	header('HTTP/1.0 404 Not Found');
-		// 	$this->tpl->display('error_pages/404.html');
-
-		// 	return ;
-		// }
-
-
-
 		$this->beforeShowContent();
 
 		$start= isset($_GET['start'])?$_GET['start']:0;
@@ -70,7 +51,7 @@ class contents extends CommonController
 
 	public function beforeShowContent(){
 		parent::init();
-#echo '<pre>';print_r($this->_db);die();
+
 		if(!$this->isLogined())
 		{
 			// TODO:
@@ -95,9 +76,7 @@ class contents extends CommonController
 
         $nav  = $this->tpl->fetch('navigatebar.tpl.html');
         $this->tpl->assign('navigatebar',$nav);
-
 	}
-
 
 	public function editCondition(){
 		parent::init();
@@ -152,7 +131,6 @@ class contents extends CommonController
 
 	}
 
-
 	public function getConditionValues(){
         
 		// TODO 查询数据库，拿到所有字段值，并assign进模板, 稍后可能增加
@@ -200,6 +178,19 @@ class contents extends CommonController
 		$this->tpl->display('contentEdit.tpl.html');
 	}
 
+	public function updateContent(){
+		parent::init();
+
+		$id 	= $_POST['id'];
+		$title 	= $_POST['title'];
+		$content= $_POST['content'];
+
+		$err = $this->getModel('mcontent')->updateContent($id, $title, $content);
+
+		header("location:/contents/editContent/content_id-$id");
+		return ;
+	}
+
 	public function saveProperties(){
 		parent::init();
 
@@ -220,7 +211,7 @@ class contents extends CommonController
 		$author 		= $_POST['author'];
 		$editor		    = $_POST['editor'];
 		
-		$posttime		= $_POST['posttime']?$_POST['posttime']:date();
+		$posttime		= $_POST['posttime']?$_POST['posttime']:date('Y-m-d');
 		$verifytime		= $_POST['verifytime'];
 		$publishtime	= $_POST['publishtime'];
 
@@ -228,7 +219,6 @@ class contents extends CommonController
 			'contenttype'=>$contenttype, 'length'=>$length, 'source'=>$source, 'sourcetype'=>$sourcetype, 
 			'author'=>$author, 'editor'=>$editor, 'posttime'=>$posttime, 'verifytime'=>$verifytime, 'publishtime'=>$publishtime );
 		
-
 		$success = $this->getModel('mcontent')->saveProperties($conds);
 		if($success){
 			header("location:/contents");
@@ -265,7 +255,6 @@ class contents extends CommonController
 		$this->tpl->assign('substract',$content['substract']);
 		$this->tpl->assign('content',$content['content']);
 
-		#print_r($content);die();
         $nav  = $this->tpl->fetch('navigatebar.tpl.html');
         $this->tpl->assign('navigatebar',$nav);
 
