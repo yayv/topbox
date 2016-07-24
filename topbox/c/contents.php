@@ -220,11 +220,10 @@ class contents extends CommonController
 		$author 		= $_POST['author'];
 		$editor		    = $_POST['editor'];
 		
-		$posttime		= $_POST['posttime']?date();
+		$posttime		= $_POST['posttime']?$_POST['posttime']:date();
 		$verifytime		= $_POST['verifytime'];
 		$publishtime	= $_POST['publishtime'];
 
-echo '<pre>';print_r($_POST);die();
 		$conds = array('id'=>$id, 'cover'=>$cover, 'uri'=>$uri, 'keywords'=>$keywords, 'shortname'=>$shortname, 'substract'=>$substract,
 			'contenttype'=>$contenttype, 'length'=>$length, 'source'=>$source, 'sourcetype'=>$sourcetype, 
 			'author'=>$author, 'editor'=>$editor, 'posttime'=>$posttime, 'verifytime'=>$verifytime, 'publishtime'=>$publishtime );

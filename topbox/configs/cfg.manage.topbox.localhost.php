@@ -16,7 +16,7 @@ $CONFIG['QQAPPKEY']		= '48f5eef826f688780920b7346591d4cd';
 
 $CONFIG['database'] = array(
 	'host' 		=> '127.0.0.1',
-	'port' 		=> '3306',
+	'port' 		=> '3307',
 	'username' 	=> 'office',
 	'password' 	=> 'officedb',
 	'database' 	=> 'topbox',
