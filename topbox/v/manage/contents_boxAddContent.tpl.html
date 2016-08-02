@@ -1,0 +1,80 @@
+
+<!-- Modal -->
+<form class='form-horizontal' name='dd' action="/contents/createContent" method="POST">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">创建内容</h4>
+      </div>
+      <div class="modal-body">
+
+          <div class="form-group row">
+              <label for="inputTopicname" class="col-xs-2 control-label">主标题:</label>
+              <div class="col-xs-9">
+              <input name='title' type="text" class="form-control" id="inputContentTitle" placeholder="文章标题" value='{$title}'>
+              </div>
+          </div>
+
+          <div class="form-group row">
+              <label for="inputURL" class="col-xs-2 control-label">副标题:</label>
+              <div class="col-xs-9">
+              <input name='subtitle' type="text" class="form-control" id='inputSubtitle' placeholder="(可选)文章副标题" value='{$subtitle}'>
+              </div>
+          </div>
+
+          <div class="form-group row">
+              <label for="inputDirectory" class="col-xs-2 control-label">简名:</label>
+              <div class="col-xs-9">
+              <input type="path" class="form-control" id='inputShortname' name='shortname'  placeholder="(可选)url上出现的名字" value='{$shortname}'>
+              </div>
+          </div>
+
+          <div class="form-group row">
+              <label for="inputSubstract" class="col-xs-2 control-label">内容摘要:</label>
+              <div class="col-xs-9">
+              <textarea name='substract' type="text" class="form-control" id="inputSubstract" placeholder="(可选)内容摘要">{$description}</textarea>
+              </div>
+          </div>
+
+
+          <div class="form-group row">
+              <label for="inputAuthor" class="col-xs-2 control-label">原作者:</label>
+              <div class="col-xs-9">
+              <input type="text" class="form-control" id='inputAuthor' name='author' value='{$author}'  placeholder="如果是转载文章，尽量注明原文作者。">
+              </div>
+          </div>
+
+          <div class="form-group row">
+              <label for="inputSource" class="col-xs-2 control-label">原文链接:</label>
+              <div class="col-xs-9">
+              <input type="text" class="form-control" id='inputSource' name='source' value='{$source}'  placeholder="所转载文章的原文链接">
+              </div>
+          </div>
+
+          <div class="form-group row">
+              <label for="inputEditor" class="col-xs-2 control-label">编辑:</label>
+              <div class="col-xs-9">
+              <input type="text" class="form-control" id='inputEditor' name='editor' value='{$editor}'  placeholder="编辑" value='{$editor}'>
+              </div>
+          </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <button type="reset" class="btn btn-warning" >重填</button>
+        <button type="submit" class="btn btn-primary" >创建</button>
+      </div>
+    </div>
+  </div>
+</form>
+
+{*
+</div>
+*}
+<script type='text/javascript'>
+$(document).ready(function(){
+  $('#boxurl').val($('#url').val());
+});
+
+</script>

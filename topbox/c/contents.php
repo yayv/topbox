@@ -199,7 +199,6 @@ class contents extends CommonController
 		#$title			= $_POST['title'];		// 这个应该在内容编辑页进行更改
 		#$subtitle		= $_POST['subtitle'];   // 这个应该在内容编辑页进行更改
 		$cover 			= $_POST['cover'];
-		$uri 			= $_POST['url'];
 		$keywords 		= $_POST['keywords'];
 		$shortname 		= $_POST['shortname'];
 		$substract		= $_POST['substract'];
@@ -215,15 +214,46 @@ class contents extends CommonController
 		$verifytime		= $_POST['verifytime'];
 		$publishtime	= $_POST['publishtime'];
 
-		$conds = array('id'=>$id, 'cover'=>$cover, 'uri'=>$uri, 'keywords'=>$keywords, 'shortname'=>$shortname, 'substract'=>$substract,
+		$conds = array('id'=>$id, 'cover'=>$cover, 'keywords'=>$keywords, 'shortname'=>$shortname, 'substract'=>$substract,
 			'contenttype'=>$contenttype, 'length'=>$length, 'source'=>$source, 'sourcetype'=>$sourcetype, 
 			'author'=>$author, 'editor'=>$editor, 'posttime'=>$posttime, 'verifytime'=>$verifytime, 'publishtime'=>$publishtime );
-		
+
 		$success = $this->getModel('mcontent')->saveProperties($conds);
 		if($success){
 			header("location:/contents");
 		}
 
+	}
+
+	public function createContent(){
+		parent::init();
+
+		$title 			= $_POST['title'];
+		$subtitle 		= $_POST['subtitle'];
+		$shortname 		= $_POST['shortname'];
+		$substract	 	= $_POST['substract'];
+		$author 		= $_POST['author'];
+		$source 		= $_POST['source'];
+		$editor 		= $_POST['editor'];
+
+		$id = $this->getModel('mcontent')->createContent($title, $subtitle, $shortname, $substract, $author, $source, $editor);
+
+		if($id)
+		{
+			header("location:/contents/editContent/content_id-$id");
+		}
+		else
+		{
+			echo "Error!<pre>";
+			print_r($this->_db);
+			die();
+		}
+	}
+
+	public function addContent(){
+		parent::init();
+
+		$this->tpl->display('contents_boxAddContent.tpl.html');
 	}
 
 	public function editContent(){
@@ -245,9 +275,10 @@ class contents extends CommonController
 		}
 		*/
 		$content = $this->getModel('mcontent')->getContentById($id);
+
 		$this->tpl->assign('id',$id);
-		$this->tpl->assign('subtitle',$content['subtitle']);
 		$this->tpl->assign('title',$content['title']);
+		$this->tpl->assign('subtitle',$content['subtitle']);
 		$this->tpl->assign('cover',$content['cover']);
 		$this->tpl->assign('shortname',$content['shortname']);
 		$this->tpl->assign('URI',$content['URI']);

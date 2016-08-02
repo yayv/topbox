@@ -24,9 +24,16 @@ class defaultcontroller extends CommonController
 		}
 
 		// TODO: 请在下面实现您的默认action
+		/*
 		$body = file_get_contents('data/todo.txt');
 		$body .= file_get_contents('data/history.txt');
 		$body = strtr($body,array("\n"=>'<br/>',' '=>'&nbsp;'));
+		*/
+
+		// TODO: 在下面实现对标签与分类的判断，并进行实现
+		if($_GET['controller'])
+			echo $_GET['controller'];
+		die();
 		
 		$nav  = $this->tpl->fetch('navigatebar.tpl.html');
         $this->tpl->assign('navigatebar',$nav);

@@ -12,4 +12,3 @@ public function processData($static, $dynamic){
 }
 }
 
-?>

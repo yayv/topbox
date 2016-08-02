@@ -36,6 +36,21 @@ class mcontent extends model
 
 	}
 
+	public function createContent($title, $subtitle, $shortname, $description, $author, $source, $editor)
+	{
+		$sql = "insert into cake_contents(`title`,`subtitle`,`shortname`,`substract`,`author`,`source`,`editor`) 
+					values('$title', '$subtitle', '$shortname', '$description', '$author','$source','$editor')";
+
+		$rec = $this->_db->query($sql);
+
+		if($rec)
+		{
+			return $this->_db->insert_id();
+		}
+		else
+			return false;
+	}
+
 	public function updateContent($id, $title, $content)
 	{
 		// select by content->url
@@ -48,6 +63,7 @@ class mcontent extends model
 	public function saveProperties($conds){
 		$sql = "update cake_contents set ";
 
+		$id=0;
 		foreach ($conds as $key => $value) {
 			if($key == "id"){
 				$id = $value;
@@ -62,7 +78,12 @@ class mcontent extends model
 
 		$sql .= " where id=".$id;
 		$ret = $this->_db->fetch_all_assoc($sql);
-		print_r($ret);die();
+		if(!$ret)
+		{
+			#echo $sql."<br/>\n";
+			#echo 'in mcontents.php'."<br/>\n";
+			#print_r($this->_db);die();
+		}
 		return $ret;
 	}
 

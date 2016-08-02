@@ -20,6 +20,7 @@ $CONFIG['database'] = array(
 	'username' 	=> 'office',
 	'password' 	=> 'officedb',
 	'database' 	=> 'topbox',
+	'charset' 	=> 'utf8',
 	);
 
 
