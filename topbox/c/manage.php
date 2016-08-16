@@ -7,6 +7,8 @@ class manage extends CommonController
 	
 	public function __construct()
 	{
+		$this->httpauth();
+		
 		// load Access Token
 		$datafile = "data/oakey.ps";
 		$reget_token = true;

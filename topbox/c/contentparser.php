@@ -10,7 +10,9 @@ class ContentParser extends CommonController
 	public $html;
 	
 
-	public function __construct(){	
+	public function __construct(){
+		$this->httpauth();
+
 	}
 
 

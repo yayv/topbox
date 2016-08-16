@@ -5,6 +5,8 @@ class catelogs extends CommonController
 {
 	public function __construct()
 	{
+		$this->httpauth();
+
 	}
 	
 	public function index()

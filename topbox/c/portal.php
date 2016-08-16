@@ -3,6 +3,11 @@ include_once('commoncontroller.php');
 
 class portal extends CommonController
 {
+    function __construct()
+    {
+        $this->httpauth();        
+    }
+
 	private function createMenu()
 	{
         $this->tpl->assign('currentItems',

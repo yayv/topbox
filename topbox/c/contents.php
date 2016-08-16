@@ -6,6 +6,7 @@ class contents extends CommonController
 {
 	public function __construct()
 	{
+		$this->httpauth();
 
 		// $objMain 的几个属性需要用 core 初始化，并赋值给 $objMain
   //  		$this->initDb();

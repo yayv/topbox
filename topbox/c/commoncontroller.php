@@ -76,7 +76,21 @@ abstract class CommonController extends Controller
     {
         return true;
     }
+
+    public function httpauth()
+    {
+        include_once('http_auth.php');
+        doHttpAuthWithDie(myhttpauth);
+    }
 }
 
 
-
+function myhttpauth($user, $password)
+{
+    if($user=='liuce' && $password=='cccccc')
+    {
+        return true;
+    }
+    else
+        return false;
+}

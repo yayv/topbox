@@ -8,4 +8,4 @@
     // map maptonewcontroller ==> newcontroller
     $cmap['maptonewcontroller'] =  'newcontroller';
 */
-
+#$cmap[''] = '';

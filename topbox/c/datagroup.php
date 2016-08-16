@@ -5,6 +5,8 @@ class datagroup extends CommonController
 {
 	public function __construct()
 	{
+		$this->httpauth();
+		
 	}
 
 

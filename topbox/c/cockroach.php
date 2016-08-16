@@ -8,6 +8,8 @@ class cockroach extends CommonController
 {
 	public function __construct()
 	{
+		$this->httpauth();
+		
 		$this->_kitchen = new kitchen();
 	}
 
