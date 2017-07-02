@@ -68,4 +68,14 @@ class manage extends CommonController
 
 		header("location:/manage/");
 	}
+
+	public function logout()
+	{
+		session_destroy();
+	}
+
+	public function dologout()
+	{
+
+	}
 }
