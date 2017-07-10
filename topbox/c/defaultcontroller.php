@@ -31,10 +31,6 @@ class defaultcontroller extends CommonController
 		*/
 
 		// TODO: 在下面实现对标签与分类的判断，并进行实现
-		if($_GET['controller'])
-			echo $_GET['controller'];
-		die();
-		
 		$nav  = $this->tpl->fetch('navigatebar.tpl.html');
         $this->tpl->assign('navigatebar',$nav);
         $this->tpl->assign('body',"<br/><br/><br/>");
