@@ -134,6 +134,69 @@ class portal extends CommonController
 		$this->tpl->display('index.tpl.html');
     }
 
+    public function config()
+    {
+        parent::init();
+
+        $projectid = $_GET['id'];
+
+        // TODO: 获得公共模板的名称， 这个功能需要重新考虑，或许叫做内置模板什么的
+        // $templatesname = $this->getModel('mtemplates')->getTemplatesNames();
+
+        // 获得项目模板列表
+        $templates = $this->getModel('mtopic')->getTemplates($projectid);
+
+        if($templates)
+        foreach($templates as $k=>$v)
+        {
+            if( isset ($templatesname[$v->from_templateid]) )
+            {
+                $templates[$k]->name = $templatesname[$v->from_templateid];
+            }
+            else
+            {
+                $templates[$k]->name = '';
+            }
+        }
+
+        // 获得项目页面列表
+        $pages = $this->getModel('mtopic')->getPages($projectid);
+
+        // 获得项目数据组列表
+        $datagroup = $this->getModel('mdatagroup')->getDatagroups($projectid);
+
+        $project = $this->getModel('mtopic')->getAllProjectInfo($projectid);
+
+        $checkname=$this->getModel('mtopic')->checkfile($project->zipname);
+
+        if($checkname)
+        {
+            $this->tpl->assign('dir', $project->zipname); 
+        }
+        else
+        {
+            $this->tpl->assign('dir', '还没有上传资源');
+        }
+        if($project->zipname=='')
+        {
+          $this->tpl->assign('dir', '还没有上传资源');
+        }
+
+        $this->createMenu();
+      
+        $this->tpl->assign('home',$this->home);     
+        $this->tpl->assign('id',$projectid);        
+        if($templates)
+            $this->tpl->assign('templates',$templates);     
+        $this->tpl->assign('project', $project);
+        $this->tpl->assign('pages',$pages);     
+        $this->tpl->assign('datagroup', $datagroup);
+        $this->tpl->assign('datasource',$datasource);       
+        $c = $this->tpl->fetch('portal_topicconfig.tpl.html');
+        $this->tpl->assign('body',$c);
+        $this->tpl->display('index.tpl.html');
+    }
+
     public function manage()
     {
     	parent::init();
@@ -192,10 +255,12 @@ class portal extends CommonController
 		$this->tpl->assign('pages',$pages);		
 		$this->tpl->assign('datagroup', $datagroup);
 		$this->tpl->assign('datasource',$datasource);		
-		$c = $this->tpl->fetch('portal_topicmanage.tpl.html');
+		$c = $this->tpl->fetch('portal_topicedit.tpl.html');
 		$this->tpl->assign('body',$c);
 		$this->tpl->display('index.tpl.html');
     }
+
+
 
     /**
      * @Description: 填写一个模板
