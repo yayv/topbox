@@ -682,7 +682,6 @@ class portal extends CommonController
         }
     }
 
-// ------- 以上函数已经没有问题了 -------
     //添加资源
     public function addimg()
 	{        

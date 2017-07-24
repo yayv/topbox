@@ -66,9 +66,14 @@
             </tr>
         </table>
     </div>
+</div>
+
+<div class='list-group'>
+    <div class="list-group-item">
+        <h3 style='display:inline-block;'> 资源管理 </h3>
+    </div>
 
     <div class='list-group-item'>
-        <h4 class='list-group-item-heading col-md-12'> 资源管理 </h4>
         <div class='list-group-item-body' >
             <p>已上传资源：{$dir}</p><input type="submit" value="下载">
         {*  <form action="/portal/downloadZip/id-{$id}" method="post" enctype="multipart/form-data" id="form1" name="form1"> </form>*}
@@ -82,10 +87,121 @@
         </div>
 
     </div>
-  
-
-
 </div>
+
+
+<div  class="list-group"> {* 专题参数部分 *}
+  <div class='list-group-item'>
+    <h3 style='display:inline-block;'> 专题参数管理 </h3>
+  </div>
+
+  <div class="list-group-item">
+      <label for="inputTopicname" class="col-xs-2 control-label">专题名称:</label>
+      <div class="col-xs-9">
+      <input name='topicname' type="text" class="form-control" id="inputTopicname" placeholder="专题名称" value='{$topicname}'>
+      </div>
+  </div>
+  <div class="list-group-item">
+      <label for="inputDescription" class="col-xs-2 control-label">专题描述:</label>
+  </div>
+
+  <div class="list-group-item">
+      <label for="inputURL" class="col-xs-2 control-label">发布URL:</label>
+  </div>
+
+  <div class="list-group-item">
+      <label for="inputProgrammer" class="col-xs-2 control-label">程序员:</label>
+  </div>
+
+  <div class="list-group-item">
+      <label for="inputEditor" class="col-xs-2 control-label">编辑:</label>
+  </div>
+
+  <div class="list-group-item">
+      <label for="inputStaticdata" class="col-xs-2 control-label">静态数据:</label>
+  </div>
+
+  <div class="list-group-item">
+      <label for="inputDynamicdata" class="col-xs-2 control-label">动态数据:</label>
+  </div>
+</div>
+{* 隐藏创建表格
+<form class='form-horizontal' name='dd' action="/portal/doCreateTopic" method="POST">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">创建新的专题</h4>
+      </div>
+      <div class="modal-body">
+
+          <div class="form-group row">
+              <label for="inputTopicname" class="col-xs-2 control-label">专题名称:</label>
+              <div class="col-xs-9">
+              <input name='topicname' type="text" class="form-control" id="inputTopicname" placeholder="专题名称" value='{$topicname}'>
+              </div>
+          </div>
+
+          <div class="form-group row">
+              <label for="inputDescription" class="col-xs-2 control-label">专题描述:</label>
+              <div class="col-xs-9">
+              <textarea name='description' type="text" class="form-control" id="inputDescription" placeholder="简要描述专题内容">{$description}</textarea>
+              </div>
+          </div>
+
+          <div class="form-group row">
+              <label for="inputURL" class="col-xs-2 control-label">发布URL:</label>
+              <div class="col-xs-9">
+              <input name='url' type="url" class="form-control" id='inputURL' placeholder="http://" value='{$url}'>
+              </div>
+          </div>
+
+          <div class="form-group row">
+              <label for="inputDirectory" class="col-xs-2 control-label">发布目录:</label>
+              <div class="col-xs-9">
+              <input type="path" class="form-control" id='inputDirectory' name='directory'  placeholder="相对目录" value='{$directory}'>
+              </div>
+          </div>
+
+          <div class="form-group row">
+              <label for="inputProgrammer" class="col-xs-2 control-label">程序员:</label>
+              <div class="col-xs-9">
+              <input type="text" class="form-control" id='inputProgrammer' name='programmer' value='{$programmer}'  placeholder="前端工程师" value='{$programmer}'>
+              </div>
+          </div>
+
+          <div class="form-group row">
+              <label for="inputEditor" class="col-xs-2 control-label">编辑:</label>
+              <div class="col-xs-9">
+              <input type="text" class="form-control" id='inputEditor' name='editor' value='{$editor}'  placeholder="编辑" value='{$editor}'>
+              </div>
+          </div>
+
+          <div class="form-group row">
+              <label for="inputStaticdata" class="col-xs-2 control-label">静态数据:</label>
+              <div class="col-xs-9">
+              <input type="filename" class="form-control" id='inputStaticdata' name='staticdata' value='{$staticdata}'  placeholder="直接编辑的数据">
+              </div>
+          </div>
+
+          <div class="form-group row">
+              <label for="inputDynamicdata" class="col-xs-2 control-label">动态数据:</label>
+              <div class="col-xs-9">
+              <input type="filenmae" class="form-control" id='inputDynamicdata' name='dynamicdata' value='{$dynamicdata}'  placeholder="接口调取的数据">
+              </div>
+          </div>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <button type="reset" class="btn btn-warning" >重填</button>
+        <button type="submit" class="btn btn-primary" >创建</button>
+      </div>
+    </div>
+  </div>
+</form>
+*}
 
 </div>
 
