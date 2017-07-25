@@ -98,33 +98,38 @@
   <div class="list-group-item">
       <label for="inputTopicname" class="col-xs-2 control-label">专题名称:</label>
       <div class="col-xs-9">
-      <input name='topicname' type="text" class="form-control" id="inputTopicname" placeholder="专题名称" value='{$topicname}'>{$project->topicname}
+      <input name='topicname' type="text" class="form-control" id="inputTopicname" placeholder="专题名称" value='{$topicname}'>{$project->title}
       </div><br/>
   </div>
   <div class="list-group-item">
       <label for="inputDescription" class="col-xs-2 control-label">专题描述:</label>
-      {$project->title}
+      {$project->description}
       <br/>
   </div>
 
   <div class="list-group-item">
-      <label for="inputURL" class="col-xs-2 control-label">发布URL:</label><br/>
+      <label for="inputURL" class="col-xs-2 control-label">发布URL:</label>
+      {$project->url}<br/>
   </div>
 
   <div class="list-group-item">
-      <label for="inputProgrammer" class="col-xs-2 control-label">程序员:</label><br/>
+      <label for="inputProgrammer" class="col-xs-2 control-label">程序员:</label>
+      {$project->programmer}<br/>
   </div>
 
   <div class="list-group-item">
-      <label for="inputEditor" class="col-xs-2 control-label">编辑:</label><br/>
+      <label for="inputEditor" class="col-xs-2 control-label">编辑:</label>
+      {$project->editor}<br/>
   </div>
 
   <div class="list-group-item">
-      <label for="inputStaticdata" class="col-xs-2 control-label">静态数据:</label><br/>
+      <label for="inputStaticdata" class="col-xs-2 control-label">静态数据:</label>
+      {$project->staticdata}<br/>
   </div>
 
   <div class="list-group-item">
-      <label for="inputDynamicdata" class="col-xs-2 control-label">动态数据:</label><br/>
+      <label for="inputDynamicdata" class="col-xs-2 control-label">动态数据:</label>
+      {$project->dynamicdata}<br/>
   </div>
 </div>
 {* 隐藏创建表格
@@ -140,7 +145,7 @@
           <div class="form-group row">
               <label for="inputTopicname" class="col-xs-2 control-label">专题名称:</label>
               <div class="col-xs-9">
-              <input name='topicname' type="text" class="form-control" id="inputTopicname" placeholder="专题名称" value='{$topicname}'>
+              <input name='topicname' type="text" class="form-control" id="inputTopicname" placeholder="专题名称" value='{$project->title}'>
               </div>
           </div>
 
