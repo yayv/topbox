@@ -81,8 +81,8 @@ class mproject extends model
 	public function updateProjectInfo($projectid, $key, $value)
 	{
 		$keys = array(
-			'title', 'description', 'author', 'directory','url',
-			'staticdata', 'dynamicdata','writer','dynamic_content'
+			'title', 'description', 'programmer', 'directory','url',
+			'staticdata', 'dynamicdata','editor','dynamic_content'
 		);
          
 		if(in_array($key, $keys))
@@ -210,7 +210,7 @@ class mproject extends model
                     portal_projects(
                         title,
                         description,
-                        author,
+                        programmer,
                         directory,
                         url,
                         `group`,
@@ -218,7 +218,7 @@ class mproject extends model
                         staticdata,
 						dynamicdata,
 						dynamic_content,
-						writer,
+						editor,
 						dateline
                     )
                 values(

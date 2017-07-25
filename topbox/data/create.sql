@@ -247,7 +247,7 @@ CREATE TABLE IF NOT EXISTS `portal_topics` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(200) NOT NULL,
   `description` varchar(255) NOT NULL,
-  `author` varchar(20) NOT NULL,
+  `programmer` varchar(20) NOT NULL,
   `directory` varchar(256) NOT NULL,
   `url` varchar(250) NOT NULL,
   `group` varchar(50) NOT NULL,
@@ -255,7 +255,7 @@ CREATE TABLE IF NOT EXISTS `portal_topics` (
   `dynamicdata` varchar(50) NOT NULL,
   `dynamic_content` text NOT NULL,
   `zipname` varchar(50) NOT NULL,
-  `writer` varchar(255) NOT NULL,
+  `editor` varchar(255) NOT NULL,
   `dateline` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=27 ;
@@ -264,7 +264,7 @@ CREATE TABLE IF NOT EXISTS `portal_topics` (
 -- Dumping data for table `portal_topics`
 --
 
-INSERT INTO `portal_topics` (`id`, `title`, `description`, `author`, `directory`, `url`, `group`, `staticdata`, `dynamicdata`, `dynamic_content`, `zipname`, `writer`, `dateline`) VALUES
+INSERT INTO `portal_topics` (`id`, `title`, `description`, `programmer`, `directory`, `url`, `group`, `staticdata`, `dynamicdata`, `dynamic_content`, `zipname`, `editor`, `dateline`) VALUES
 (17, '演示', '', '延分 ', '/Data/webapps/minisites/show2', 'http://show2.minisite.localhost', '', 's.dump', 'd.dump', '', '', '刘策', '2015-03-24 11:32:25'),
 (26, '首页', '用来做网站首页的专题', 'liuce', './data/topics/indexpage', 'http://www.topbox.localhost/', '', 's.dump', 'd.dump', '', '', 'liuce', '2016-07-03 15:29:03');
 

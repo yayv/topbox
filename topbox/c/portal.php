@@ -45,8 +45,19 @@ class portal extends CommonController
 
 		header('Content-Type:text/html;charset=UTF8');
 
-		$c = 'Hello, World!';
+        $c = "
+        TODO: 尝试做TODO列表<br/>\n
+        TODO： 第二行列表<br/>\n
 
+        编辑页功能：
+            1. 条目的内容编辑
+            2. 条目的命名管理
+            3. 条目类型：
+                3.1 可变的固定内容，方便后期修改内容，但不需要使用时间标签
+                3.2 所有根据时间变化的内容，可以约束为时间或条目数量
+                3.3 分拆静态内容和条目
+
+        ";
 		$this->createMenu();
 		$this->tpl->assign('body',$c);
 		$this->tpl->display('index.tpl.html');
@@ -166,7 +177,7 @@ class portal extends CommonController
         $datagroup = $this->getModel('mdatagroup')->getDatagroups($projectid);
 
         $project = $this->getModel('mtopic')->getAllProjectInfo($projectid);
-
+echo '<pre>';print_r($project);die();
         $checkname=$this->getModel('mtopic')->checkfile($project->zipname);
 
         if($checkname)
