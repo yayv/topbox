@@ -4,8 +4,8 @@ $CONFIG = array();
 $CONFIG['theme']	= 'v/manage';
 $CONFIG['compiled_template'] = 'v/_run';
 
-$CONFIG['baseurl']	= 'http://www.topcms.topbox.localhost';
-$CONFIG['indexpage']= 'http://www.topcms.topbox.localhost/manage/';
+$CONFIG['baseurl']	= 'http://topcms.localhost';
+$CONFIG['indexpage']= 'http://topcms.localhost/manage/';
 $CONFIG['sitename']	= '塔普播客';
 
 $CONFIG['exmailkey']	= '652fc190a09123d34e0c877f50b748d3';
@@ -18,7 +18,7 @@ $CONFIG['database'] = array(
 	'host' 		=> '127.0.0.1',
 	'port' 		=> '3306',
 	'username' 	=> 'root',
-	'password' 	=> 'root',
+	'password' 	=> 'root1234',
 	'database' 	=> 'topbox',
 	);
 
@@ -29,7 +29,7 @@ $CONFIG['include_separator'] = ':';
 	// 专题系统在本虚拟主机下的目录，问题:如果是alias的目录怎么办？
 $CONFIG['basedir']  = '/';  
 	// 发布的专题所在的目录
-$CONFIG['topicdir'] = '/Data/webapps/minisites/';
+$CONFIG['topicdir'] = '/Data/webapps/minisites';
 
 	// 专题发布的根URL
 $CONFIG['topicurl'] = 'http://www.topbox.localhost/minisite';
