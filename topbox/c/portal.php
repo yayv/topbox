@@ -177,7 +177,7 @@ class portal extends CommonController
         $datagroup = $this->getModel('mdatagroup')->getDatagroups($projectid);
 
         $project = $this->getModel('mtopic')->getAllProjectInfo($projectid);
-echo '<pre>';print_r($project);die();
+
         $checkname=$this->getModel('mtopic')->checkfile($project->zipname);
 
         if($checkname)

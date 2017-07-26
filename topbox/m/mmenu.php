@@ -96,7 +96,7 @@ class mmenu extends model
 						'url'=>$this->home.'/portal/manage/id-'.$projectid),
 					array(
 						'title'=>'参数',
-						'url'=>$this->home.'/portal/edit/id-'.$projectid),
+						'url'=>$this->home.'/portal/config/id-'.$projectid),
 					array(
 					    'title'=>'<br/>备份互动数据',
 					    'url'=>$this->home.'/portal/backDynamic/id-'.$projectid),
