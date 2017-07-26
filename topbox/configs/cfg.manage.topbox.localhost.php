@@ -30,7 +30,7 @@ $CONFIG['include_separator'] = ':';
 	// 专题系统在本虚拟主机下的目录，问题:如果是alias的目录怎么办？
 $CONFIG['basedir']  = '/';  
 	// 发布的专题所在的目录
-$CONFIG['topicdir'] = '/Data/webapps/minisites/';
+$CONFIG['topicdir'] = '/Data/webapps/minisites';
 
 	// 专题发布的根URL
 $CONFIG['topicurl'] = 'http://www.topbox.localhost/minisite';

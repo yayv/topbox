@@ -174,7 +174,7 @@ class mtopic extends model
 	}
 
 	public function createDirectory($homedir, $directory)
-	{
+	{echo $homedir."/".$directory;
 		mkdir($homedir.'/'.$directory, 0777);
         mkdir($homedir.'/'.$directory.'/templates', 0777, true);
         mkdir($homedir.'/'.$directory.'/templates_c', 0777, true);
@@ -193,16 +193,16 @@ class mtopic extends model
         return $ret;
 	}
 
-	public function addProject($projectname,	$author, 
+	public function addProject($projectname,	$programmer, 
 								$directory,		$url, 
 								$staticdata,	$dynamicdata,
 								$description,
-                                $homedir,		$writer)
+                                $homedir,		$editor)
 	{
 		$dateline=date('Y-m-d H:i:s');
 
         // 表单检查
-        if($projectname && $author && $directory && $url)
+        if($projectname && $programmer && $directory && $url)
         {
         	rtrim($homedir," /\\");
         	$dir = $homedir . '/' . $directory;
@@ -211,7 +211,7 @@ class mtopic extends model
                     portal_topics(
                         title,
                         description,
-                        author,
+                        programmer,
                         directory,
                         url,
                         `group`,
@@ -219,13 +219,13 @@ class mtopic extends model
                         staticdata,
 						dynamicdata,
 						dynamic_content,
-						writer,
+						editor,
 						dateline
                     )
                 values(
                     '$projectname',
                     '$description',
-                    '$author',
+                    '$programmer',
                     '$dir',
                     '$url',
                     '$group',
@@ -233,7 +233,7 @@ class mtopic extends model
                     '$staticdata',
 					'$dynamicdata',
 					'$dynamic_content',
-					'$writer',
+					'$editor',
 					'$dateline'
                 )
             ";
@@ -260,9 +260,10 @@ class mtopic extends model
                 $this->error_stack[] = array(
                     'message' => 'mkdir failed',
                     'data' => $homedir.'/'.$directory,
-                );
+                );echo 'haha2';
                 return false;
             }
+echo 'haha';
 
 			return $projectid;
         }
@@ -271,7 +272,7 @@ class mtopic extends model
             $this->error_stack[] = array(
                 'message'=>'all must inside',
                 'data' =>"SQL:$sql",
-            );
+            );echo 'haha1';
             // 重填表单
 			return false;
         }
