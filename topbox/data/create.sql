@@ -243,7 +243,10 @@ INSERT INTO `portal_templates_inproject` (`id`, `projectid`, `from_templateid`, 
 -- Table structure for table `portal_topics`
 --
 
-CREATE TABLE IF NOT EXISTS `portal_topics` (
+DROP TABLE IF EXISTS `portal_topics`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `portal_topics` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(200) NOT NULL,
   `description` varchar(255) NOT NULL,
@@ -258,15 +261,19 @@ CREATE TABLE IF NOT EXISTS `portal_topics` (
   `editor` varchar(255) NOT NULL,
   `dateline` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=27 ;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `portal_topics`
 --
 
-INSERT INTO `portal_topics` (`id`, `title`, `description`, `programmer`, `directory`, `url`, `group`, `staticdata`, `dynamicdata`, `dynamic_content`, `zipname`, `editor`, `dateline`) VALUES
-(17, '演示', '', '延分 ', '/Data/webapps/minisites/show2', 'http://show2.minisite.localhost', '', 's.dump', 'd.dump', '', '', '刘策', '2015-03-24 11:32:25'),
-(26, '首页', '用来做网站首页的专题', 'liuce', './data/topics/indexpage', 'http://www.topbox.localhost/', '', 's.dump', 'd.dump', '', '', 'liuce', '2016-07-03 15:29:03');
+LOCK TABLES `portal_topics` WRITE;
+/*!40000 ALTER TABLE `portal_topics` DISABLE KEYS */;
+INSERT INTO `portal_topics` VALUES (17,'演示','','延分 ','/Data/webapps/minisites/show2','http://show2.minisite.localhost','','s.dump','d.dump','','','刘策','2015-03-24 11:32:25'),(26,'首页','用来做网站首页的专题','liuce','./data/topics/indexpage','http://www.topbox.localhost/','','s.dump','d.dump','','','liuce','2016-07-03 15:29:03');
+/*!40000 ALTER TABLE `portal_topics` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 -- --------------------------------------------------------
 

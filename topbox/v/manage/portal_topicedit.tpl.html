@@ -7,8 +7,10 @@
   <div class="list-group-item">
     <h3 class='list-group-item-heading' style='display:inline-block;'> 专题内容编辑 : {$project->title}</h3>
   </div>
-  
-  <div class="list-group-item panel ">  
+</div>
+
+<div class="list-group">  
+  <div class="list-group-item">  
       <div class='panel-heading'><h4>动态内容管理</h4> </div>
       <table class='table panel-body'>
           <tr class='header'>
@@ -39,18 +41,69 @@
               </tr>
               {/if}
           {/section}
-          <tr class='text-right'>
-            <td colspan="8"><a class='btn btn-primary' href='javascript:void(0)' onclick="del_more()" style="cursor:pointer;">多项删除</a></td>
-          </tr>
       </table>
   </div>
+  <div class='text-right list-group-item'>
+    <span class='btn btn-primary' href='javascript:void(0)' onclick="del_more()" style="cursor:pointer;">多项删除</span>
+  </div>
+  <div href='#' class="list-group-item">
+      <code>注: 名称为显示名，与模板内的变量名，说明，类型等信息都不可在这里更改，这些内容是从模板文件中自动分析出来的。</code>
+  </div>
 
-  <div class="list-group-item panel ">  
+</div>
+
+
+<div class="list-group">  
+  <div class="list-group-item">  
       <div class='panel-heading'><h4>静态内容管理</h4> </div>
+  </div>
+  <div class="list-group-item">  
+      <table class='table panel-body'>
+          <tr class='header'>
+              <th>数据组名称</th>
+              <th>说明</th>
+              <th>成员变量</th>
+              <th>数据源</th>
+              <th>数据源类型</th>
+              <th>更新方式</th>
+              <th>使用状态</th>
+          </tr>
+          {section loop=$datagroup name=k}
+              {if $datagroup[k]->type=='single'}{else}
+              <tr><td ><span id='dgun{$datagroup[k]->name}'>{$datagroup[k]->userdefinedname}</span></td>
+                  <td title='{$datagroup[k]->alt}'><a style='cursor:pointer;'>?</a></td>
+                  <td>x</td>
+                  <td><span class='datasource'></span></td>
+                  <td>{if $datagroup[k]->sourcetype=='manual'}录入{else}{$datagroup[k]->sourcetype}{/if}</td>
+                  <td></td>
+                  <td>
+                    {if $datagroup[k]->reference}
+                      使用中 <a href='/portal/editdatagroup/id-{$id}/name-{$datagroup[k]->name}'>编辑</a>
+                      &nbsp;<a onclick='renamedg("{$datagroup[k]->name}", "{$datagroup[k]->showname}","{$datagroup[k]->userdefinedname}")' style="color:#0B55C4; cursor:pointer;">改名</a>
+                    {else}
+                      未使用 <a href='#infoModal' data-url='/portal/deletedgbox/id-{$id}/name-{$datagroup[k]->name}' data-toggle='modal'>删除</a>　<a onclick='renamedg("{$datagroup[k]->name}", "{$datagroup[k]->showname}","{$datagroup[k]->userdefinedname}")' class='thickbox' style="color:#0B55C4; cursor:pointer;">改名</a>　<input type="checkbox" name="del" id="{$datagroup[k]->id}" value="{$datagroup[k]->name}">
+                    {/if}      
+                  </td>
+              </tr>
+              {/if}
+          {/section}
+      </table>
+  </div>
+  <div class='text-right list-group-item'>
+    <span class='btn btn-primary' href='javascript:void(0)' onclick="del_more()" style="cursor:pointer;">多项删除</span>
+  </div>
+  <div href='#' class="list-group-item">
+      <code>注: 名称为显示名，与模板内的变量名，说明，类型等信息都不可在这里更改，这些内容是从模板文件中自动分析出来的。</code>
+  </div>
+
+</div>
+
+<div class="list-group">
+  <div class="list-group-item">  
+      <div class='panel-heading'><h4>页面管理</h4> </div>
   </div>
 
   <div class="list-group-item">
-      <div class='list-group-item-heading'> <h4 class='panel-title'>页面列表</h4> </div>
       <table class='table list-group-item-body'>
         <tr class='header'>
           <th>页面名</th>
@@ -72,90 +125,22 @@
            </td>
         </tr>
         {/section}
-        <tr class='footer text-right'>
-          <td colspan="5"><a class='btn btn-primary' href='/portal/addpage/id-{$id}'>增加页面</a> </td>
-        </tr>
       </table>
   </div>
-  
-  <div class="list-group-item 3 panel ">
-      <div class='panel-heading'><h4>条目编辑</h4> </div>
-      <table class='table panel-body'>
-          <tr class='header'>
-              <th>数据组名称</th>
-              <th>说明</th>
-              <th>成员变量</th>
-              <th>数据源</th>
-              <th>数据源类型</th>
-              <th>更新方式</th>
-              <th>使用状态</th>
-          </tr>
-          {section loop=$datagroup name=k}
-              {if $datagroup[k]->type=='single'}
-              <tr><td ><span id='dgun{$datagroup[k]->name}'>{$datagroup[k]->userdefinedname}</span></td>
-                  <td title='{$datagroup[k]->alt}'><a style='cursor:pointer;'>?</a></td>
-                  <td>x</td>
-                  <td><span class='datasource'></span></td>
-                  <td>{if $datagroup[k]->sourcetype=='manual'}录入{else}{$datagroup[k]->sourcetype}{/if}</td>
-                  <td></td>
-                  <td>
-                    {if $datagroup[k]->reference}
-                      使用中 <a href='/portal/editdatagroup/id-{$id}/name-{$datagroup[k]->name}'>编辑</a>
-                      &nbsp;<a onclick='renamedg("{$datagroup[k]->name}", "{$datagroup[k]->showname}","{$datagroup[k]->userdefinedname}")' style="color:#0B55C4; cursor:pointer;">改名</a>
-                    {else}
-                      未使用 <a href='#infoModal' data-url='/portal/deletedgbox/id-{$id}/name-{$datagroup[k]->name}' data-toggle='modal'>删除</a>　<a onclick='renamedg("{$datagroup[k]->name}", "{$datagroup[k]->showname}","{$datagroup[k]->userdefinedname}")' class='thickbox' style="color:#0B55C4; cursor:pointer;">改名</a>　<input type="checkbox" name="del" id="{$datagroup[k]->id}" value="{$datagroup[k]->name}">
-                    {/if}      
-                  </td>
-              </tr>
-              {/if}
-          {/section}
-          <tr class='text-right'>
-            <td colspan="8"><a class='btn btn-primary' href='javascript:void(0)' onclick="del_more()" style="cursor:pointer;">多项删除</a></td>
-          </tr>
-      </table>
+  <div class='text-right list-group-item'>
+      <a class='btn btn-primary' href='/portal/addpage/id-{$id}'>增加页面</a>
   </div>
 
-  <div href='#' class="list-group-item panel">
-      <code>注: 名称为显示名，与模板内的变量名，说明，类型等信息都不可在这里更改，这些内容是从模板文件中自动分析出来的。</code>
-  </div>
+</div>
 
-  <div href='#' class="list-group-item 2 panel">
-      <div class='panel-heading'><h4 class='panel-title'>页面管理</h4> </div>
-      <table class='table panel-body'>
-        <tr class='header'>
-          <th>页面名</th>
-          <th>文件名</th>
-          <th>模板</th>
-          <th>发布方式</th>
-          <th></th>
-        </tr>
-        {section loop=$pages name=k}
-        <tr>
-          <td>{$pages[k]->pagename}</td>
-          <td>{$pages[k]->filename}</td>
-          <td>{$pages[k]->templatename}</td>
-          <td>{if $pages[k]->publishtype=='dynamic'}动态发布{elseif $pages[k]->publishtype=='static'}静态发布{elseif $pages[k]->publishtype=='manual'}自定义内容{elseif $pages[k]->publishtype=='auto'}自动调取{/if}</td>
-          <td class='text-right'>
-            <a href="{$project->url}/{$pages[k]->filename}" target='publish' class='btn btn-default' >浏览</a>
-            <a href='#infoModal' data-url="/portal/editpage/id-{$id}/pageid-{$pages[k]->id}" data-toggle="modal" data-target='#infoModal' class='btn btn-default'>编辑</a>
-            <a data-target="#infoModal" data-toggle="modal" class="btn btn-primary" data-url="/portal/delpage/id-{$id}/pageid-{$pages[k]->id}" href="#infoModal">删除</a>
-           </td>
-        </tr>
-        {/section}
-        <tr class='footer text-right'>
-          <td colspan="5"><a class='btn btn-primary' href='/portal/addpage/id-{$id}'>增加页面</a> </td>
-        </tr>
-      </table>
-  </div>
-
-  <div class="list-group-item panel">
+<div class="list-group">
+  <div class="list-group-item">
       <div class='panel-body text-right'>
       <a target='publish' class='btn btn-primary' href='/portal/publish/id-{$id}'>发布</a>  
       <a class='btn btn-primary' target='publish' href='{$project->url}'>浏览</a>  
       <a class='btn btn-primary' target='publish' href='{$home}/portal/republish/id-{$id}'>重新发布(危险操作)</a> 
       </div>
   </div>
-
 
 </div> {* end of list-group *}
 
