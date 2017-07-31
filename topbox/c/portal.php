@@ -208,7 +208,7 @@ class portal extends CommonController
         $this->tpl->display('index.tpl.html');
     }
 
-    public function manage()
+    public function edit()
     {
     	parent::init();
 
@@ -339,6 +339,8 @@ class portal extends CommonController
 		
 		$this->tpl->assign('body',$c);
 		$this->tpl->display('index.tpl.html');
+
+        #$this->tpl->display('portal_addsitepage.tpl.html');
 	}
 
     public function editpage()

@@ -69,7 +69,7 @@
               <th>使用状态</th>
           </tr>
           {section loop=$datagroup name=k}
-              {if $datagroup[k]->type=='single'}{else}
+              {if $datagroup[k]->type=='single'}
               <tr><td ><span id='dgun{$datagroup[k]->name}'>{$datagroup[k]->userdefinedname}</span></td>
                   <td title='{$datagroup[k]->alt}'><a style='cursor:pointer;'>?</a></td>
                   <td>x</td>
@@ -85,6 +85,7 @@
                     {/if}      
                   </td>
               </tr>
+              {else}
               {/if}
           {/section}
       </table>
@@ -128,7 +129,7 @@
       </table>
   </div>
   <div class='text-right list-group-item'>
-      <a class='btn btn-primary' href='/portal/addpage/id-{$id}'>增加页面</a>
+      <a href='#infoModal' data-url='/portal/addpage/id-{$id}' class='btn btn-primary' data-toggle="modal" data-target='#infoModal'>增加页面</a> 
   </div>
 
 </div>

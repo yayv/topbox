@@ -51,7 +51,7 @@ class mmenu extends model
 	        array_unshift($menu ,
 	            array(
 	                'title' => '项目:'.$this->projectname,
-	                'link' =>$this->home.'/portal/manage/id-'.$_GET['id']
+	                'link' =>$this->home.'/portal/edit/id-'.$_GET['id']
 	            )
             );
 	    }
@@ -93,7 +93,7 @@ class mmenu extends model
 						'target'=>'publish'),
 					array(
 						'title'=>'编辑',
-						'url'=>$this->home.'/portal/manage/id-'.$projectid),
+						'url'=>$this->home.'/portal/edit/id-'.$projectid),
 					array(
 						'title'=>'参数',
 						'url'=>$this->home.'/portal/config/id-'.$projectid),
