@@ -20,7 +20,7 @@ class mdatagroup extends model
         $sql = "
 select portal_datagroup_inproject.id,portal_datagroup_inproject.projectid,portal_datagroup_inproject.type,portal_datagroup_inproject.name,portal_datagroup_inproject.showname,portal_datagroup_inproject.userdefinedname,portal_datagroup_inproject.members,portal_datagroup_inproject.alt tips, portal_datagroup_inproject.reference,portal_data_inproject.title,portal_data_inproject.url,portal_data_inproject.image,portal_data_inproject.abstract,portal_data_inproject.alt,portal_data_inproject.dateline
 from portal_datagroup_inproject
-inner join portal_data_inproject
+left join portal_data_inproject
 on portal_datagroup_inproject.projectid=portal_data_inproject.projectid and portal_datagroup_inproject.name=portal_data_inproject.datagroupname and portal_datagroup_inproject.type=portal_data_inproject.datagrouptype and portal_datagroup_inproject.type='single' and portal_datagroup_inproject.projectid=$projectid;
         ";
         $ret = $this->_db->fetch_all_object($sql);

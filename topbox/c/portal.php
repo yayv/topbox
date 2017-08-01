@@ -113,7 +113,7 @@ class portal extends CommonController
 										$description,
                                         $homedir,$editor))            
 		{
-			header("Location:/portal/manage/id-$ret");
+			header("Location:/portal/edit/id-$ret");
 			return ;
 		}
         else
@@ -396,7 +396,7 @@ class portal extends CommonController
         
         $this->getModel('mtopic')-> delPage($projectid, $pageid);
 
-        header("location:/portal/manage/id-$projectid");
+        header("location:/portal/edit/id-$projectid");
     }
 
     public function cancelDelPage(){
@@ -404,7 +404,7 @@ class portal extends CommonController
 
         $projectid = $_GET['id'];
         
-        header("location:/portal/manage/id-$projectid");
+        header("location:/portal/edit/id-$projectid");
     }
 
 
@@ -624,8 +624,8 @@ class portal extends CommonController
 
         $this->getModel('mtopic')->updatePageExtInfo($id, $pageid, $_POST['user_hook_filename'], $content );
 
-        #echo "<meta http-equiv='refresh' content='0;url=/portal/manage/id-$id'>";
-        header("location:/portal/manage/id-$id");
+        #echo "<meta http-equiv='refresh' content='0;url=/portal/edit/id-$id'>";
+        header("location:/portal/edit/id-$id");
     }
 
     //分页
@@ -756,7 +756,7 @@ class portal extends CommonController
         {
             // 模板添加或更新完成， 刷新模板相关的变量
             header('Content-Type:text/html;charset=UTF8');
-            echo "<meta http-equiv='refresh' content='3;url=/portal/manage/id-$projectid'>";
+            echo "<meta http-equiv='refresh' content='3;url=/portal/edit/id-$projectid'>";
             $this->refreshData();
             return ;
         }
@@ -995,8 +995,8 @@ class portal extends CommonController
 		// 重新发布文件？ 留到发布时再做吧
 		if($ret)
 		{
-            header("location:/portal/manage/id-$projectid");
-            echo "<meta http-equiv='refresh' content='0;url=/portal/manage/id-$projectid'>";
+            header("location:/portal/edit/id-$projectid");
+            echo "<meta http-equiv='refresh' content='0;url=/portal/edit/id-$projectid'>";
             $this->refreshData();
             return ;
 		}
