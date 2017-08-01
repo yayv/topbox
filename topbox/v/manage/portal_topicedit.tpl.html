@@ -23,7 +23,6 @@
               <th>使用状态</th>
           </tr>
           {section loop=$datagroup name=k}
-              {if $datagroup[k]->type=='single'}{else}
               <tr><td ><span id='dgun{$datagroup[k]->name}'>{$datagroup[k]->userdefinedname}</span></td>
                   <td title='{$datagroup[k]->alt}'><a style='cursor:pointer;'>?</a></td>
                   <td>x</td>
@@ -32,14 +31,13 @@
                   <td></td>
                   <td>
                     {if $datagroup[k]->reference}
-                      使用中 <a href='/portal/editdatagroup/id-{$id}/name-{$datagroup[k]->name}'>编辑</a>
+                      使用中 <a href='/portal/editdatalist/id-{$id}/name-{$datagroup[k]->name}'>编辑</a>
                       &nbsp;<a onclick='renamedg("{$datagroup[k]->name}", "{$datagroup[k]->showname}","{$datagroup[k]->userdefinedname}")' style="color:#0B55C4; cursor:pointer;">改名</a>
                     {else}
                       未使用 <a href='#infoModal' data-url='/portal/deletedgbox/id-{$id}/name-{$datagroup[k]->name}' data-toggle='modal'>删除</a>　<a onclick='renamedg("{$datagroup[k]->name}", "{$datagroup[k]->showname}","{$datagroup[k]->userdefinedname}")' class='thickbox' style="color:#0B55C4; cursor:pointer;">改名</a>　<input type="checkbox" name="del" id="{$datagroup[k]->id}" value="{$datagroup[k]->name}">
                     {/if}      
                   </td>
               </tr>
-              {/if}
           {/section}
       </table>
   </div>
@@ -68,25 +66,22 @@
               <th>更新方式</th>
               <th>使用状态</th>
           </tr>
-          {section loop=$datagroup name=k}
-              {if $datagroup[k]->type=='single'}
-              <tr><td ><span id='dgun{$datagroup[k]->name}'>{$datagroup[k]->userdefinedname}</span></td>
-                  <td title='{$datagroup[k]->alt}'><a style='cursor:pointer;'>?</a></td>
+          {section loop=$staticdata name=k}
+              <tr><td ><span id='dgun{$staticdata[k]->name}'>{$staticdata[k]->userdefinedname}</span></td>
+                  <td title='{$staticdata[k]->tips}'><a style='cursor:pointer;'>?</a></td>
                   <td>x</td>
                   <td><span class='datasource'></span></td>
-                  <td>{if $datagroup[k]->sourcetype=='manual'}录入{else}{$datagroup[k]->sourcetype}{/if}</td>
+                  <td>{if $staticdata[k]->sourcetype=='manual'}录入{else}{$staticdata[k]->sourcetype}{/if}</td>
                   <td></td>
                   <td>
-                    {if $datagroup[k]->reference}
-                      使用中 <a href='/portal/editdatagroup/id-{$id}/name-{$datagroup[k]->name}'>编辑</a>
-                      &nbsp;<a onclick='renamedg("{$datagroup[k]->name}", "{$datagroup[k]->showname}","{$datagroup[k]->userdefinedname}")' style="color:#0B55C4; cursor:pointer;">改名</a>
+                    {if $staticdata[k]->reference}
+                      使用中 <a href='/portal/editstaticdata/id-{$id}/name-{$staticdata[k]->name}'>编辑</a>
+                      &nbsp;<a onclick='renamedg("{$staticdata[k]->name}", "{$staticdata[k]->showname}","{$staticdata[k]->userdefinedname}")' style="color:#0B55C4; cursor:pointer;">改名</a>
                     {else}
-                      未使用 <a href='#infoModal' data-url='/portal/deletedgbox/id-{$id}/name-{$datagroup[k]->name}' data-toggle='modal'>删除</a>　<a onclick='renamedg("{$datagroup[k]->name}", "{$datagroup[k]->showname}","{$datagroup[k]->userdefinedname}")' class='thickbox' style="color:#0B55C4; cursor:pointer;">改名</a>　<input type="checkbox" name="del" id="{$datagroup[k]->id}" value="{$datagroup[k]->name}">
+                      未使用 <a href='#infoModal' data-url='/portal/deletedgbox/id-{$id}/name-{$staticdata[k]->name}' data-toggle='modal'>删除</a>　<a onclick='renamedg("{$staticdata[k]->name}", "{$staticdata[k]->showname}","{$staticdata[k]->userdefinedname}")' class='thickbox' style="color:#0B55C4; cursor:pointer;">改名</a>　<input type="checkbox" name="del" id="{$staticdata[k]->id}" value="{$staticdata[k]->name}">
                     {/if}      
                   </td>
               </tr>
-              {else}
-              {/if}
           {/section}
       </table>
   </div>

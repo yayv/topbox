@@ -45,7 +45,7 @@ class portal extends CommonController
 
 		header('Content-Type:text/html;charset=UTF8');
 
-        $c = "
+        $c = "<pre>
         TODO: 尝试做TODO列表<br/>\n
         TODO： 第二行列表<br/>\n
 
@@ -56,7 +56,7 @@ class portal extends CommonController
                 3.1 可变的固定内容，方便后期修改内容，但不需要使用时间标签
                 3.2 所有根据时间变化的内容，可以约束为时间或条目数量
                 3.3 分拆静态内容和条目
-
+        </pre>
         ";
 		$this->createMenu();
 		$this->tpl->assign('body',$c);
@@ -238,6 +238,7 @@ class portal extends CommonController
 
         // 获得项目数据组列表
         $datagroup = $this->getModel('mdatagroup')->getDatagroups($projectid);
+        $staticdata = $this->getModel('mdatagroup')->getStaticData($projectid);
 
         $project = $this->getModel('mtopic')->getAllProjectInfo($projectid);
 
@@ -265,6 +266,8 @@ class portal extends CommonController
 		$this->tpl->assign('project', $project);
 		$this->tpl->assign('pages',$pages);		
 		$this->tpl->assign('datagroup', $datagroup);
+        $this->tpl->assign('staticdata', $staticdata);
+
 		$this->tpl->assign('datasource',$datasource);		
 		$c = $this->tpl->fetch('portal_topicedit.tpl.html');
 		$this->tpl->assign('body',$c);
@@ -431,9 +434,78 @@ class portal extends CommonController
         header("location:/portal/listall");
     }
 
+    public function editstaticdata()
+    {
+        parent::init();
 
+        $projectid  = $_GET['id'];
+        $dgname     = $_GET['name'];
 
-	public function editdatagroup()
+        $date       =date("y-m-d");
+        $date       =strtotime($date);
+        $t_date     =$date;
+        $y_date     =$date-3600*24;
+        $p_date     =$date-3600*24*2;
+
+        $_SESSION['dgname']=$dgname;
+
+        $dginfo     = $this->getModel('mdatagroup')->getDatagroupInfo($projectid, $dgname);
+        $datalist   = $this->getModel('mdatalist')->getDatalist($projectid, $dgname);
+        $datacount  = $this->getModel('mdatalist')->getDatalist_count($projectid, $dgname);
+        $data_first = $this->getModel('mdatalist')->getDatalist_first($projectid,$dgname);
+
+        $dateline_first=$data_first[0]->dateline;
+        $date_first=date("Y-m-d",$dateline_first);
+
+        $nums=$datacount[0]->nums;
+        $pages=ceil($nums/20);
+
+        for($i=1; $i<=$pages; $i++)
+        {
+             $pp[]=$i;
+        }
+
+        if($datalist)
+        foreach($datalist as $k=>$v)
+        {
+            $datalist[$k]->date = date('md H:i', $datalist[$k]->dateline);
+        }
+
+        if($datalist)
+        foreach($datalist as $k=>$v)
+        {
+               $datalist[$k]->d=$datalist[$k]->dateline-time();
+        }
+
+        $this->createMenu();
+        $this->tpl->assign('pp',$pp);
+        $this->tpl->assign('dg', $dginfo);
+        $this->tpl->assign('datalist', $datalist);
+        $this->tpl->assign('home', $this->home);
+        $this->tpl->assign('id', $projectid);
+        $this->tpl->assign('nums', $nums);
+        $this->tpl->assign('date_first',$date_first);
+
+        $this->tpl->assign('url',$this->config['uploaddir']);
+
+        //$this->smarty->assign('url',file_get_contents("c:/upload/images/31_test_1.jpg"));
+        $this->tpl->assign('t_date', $t_date);
+        $this->tpl->assign('y_date',$y_date);
+        $this->tpl->assign('p_date',$p_date);
+
+        if($nums>20)
+        {
+            $this->tpl->assign('today','今天');
+            $this->tpl->assign('yes','昨天');
+            $this->tpl->assign('pre','前天');
+        }
+        $c = $this->tpl->fetch('portal_editdatagroup.tpl.html');
+
+        $this->tpl->assign('body',$c);
+        $this->tpl->display('index.tpl.html');        
+    }  
+
+	public function editdatalist()
     {
     	parent::init();
 
@@ -1145,7 +1217,7 @@ class portal extends CommonController
             $ret = $this->getModel('mdatalist')->updateone($projectid, $dgname, $dgtype, 1,
                                         $title, $url, $imageurl, $abstract, $alt,1,$time,$writer);
         }
-        header("location:/portal/editdatagroup/id-$projectid/name-$dgname");
+        header("location:/portal/editdatalist/id-$projectid/name-$dgname");
 	    #echo '<script>if(window.parent){window.parent.location.reload()};</script>';
 	    return ;
 	}
@@ -1191,7 +1263,7 @@ class portal extends CommonController
 			$time=strtotime($_POST['edittime']);
 			
 		}
-				
+		
 	    // 检查上传的文件
 	    // TODO: 没有针对上传文件的module
 		if(is_uploaded_file($_FILES['imagedata']['tmp_name']))
@@ -1222,7 +1294,7 @@ class portal extends CommonController
 	    $this->getModel('mdatalist')->updateone($projectid, $dgname, $dgtype, $dataid,
 	                                    $title, $url, $imageurl, $abstract, $alt, $order,$time,$writer);
 	    
-        header("location:/portal/editdatagroup/id-$projectid/name-$dgname");
+        header("location:/portal/editdatalist/id-$projectid/name-$dgname");
 	    return ;
 	}
 
