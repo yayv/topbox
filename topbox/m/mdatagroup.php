@@ -17,13 +17,33 @@ class mdatagroup extends model
 
    public function getStaticData($projectid)
    {
-        $sql = "
-select portal_datagroup_inproject.id,portal_datagroup_inproject.projectid,portal_datagroup_inproject.type,portal_datagroup_inproject.name,portal_datagroup_inproject.showname,portal_datagroup_inproject.userdefinedname,portal_datagroup_inproject.members,portal_datagroup_inproject.alt tips, portal_datagroup_inproject.reference,portal_data_inproject.title,portal_data_inproject.url,portal_data_inproject.image,portal_data_inproject.abstract,portal_data_inproject.alt,portal_data_inproject.dateline
-from portal_datagroup_inproject
-left join portal_data_inproject
-on portal_datagroup_inproject.projectid=portal_data_inproject.projectid and portal_datagroup_inproject.name=portal_data_inproject.datagroupname and portal_datagroup_inproject.type=portal_data_inproject.datagrouptype and portal_datagroup_inproject.type='single' and portal_datagroup_inproject.projectid=$projectid;
-        ";
+        $sql = "select * from portal_datagroup_inproject where type='single' and projectid=$projectid";
         $ret = $this->_db->fetch_all_object($sql);
+
+        $sql = "select * from portal_data_inproject where datagrouptype='single' and projectid=$projectid";
+        $ret2 = $this->_db->fetch_all_object($sql);
+
+        foreach($ret as $k=>$v)
+        {
+            $ret[$k]->tips = $ret[$k]->alt ;
+            $ret[$k]->title = "";
+
+            if($ret2)
+            foreach($ret2 as $kk=>$vv)
+            {
+                if( $vv->datagroupname==$v->name )
+                {
+                    $ret[$k]->title     = $vv->title;
+                    $ret[$k]->url       = $vv->url;
+                    $ret[$k]->image     = $vv->image;
+                    $ret[$k]->abstract  = $vv->abstract;
+                    $ret[$k]->alt       = $vv->alt;
+                    $ret[$k]->dateline  = $vv->dateline;
+                    unset($ret2[$kk]);
+                    break;
+                }
+            }
+        }
 
         return $ret;
    }
