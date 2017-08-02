@@ -71,9 +71,13 @@
                     <span id='dgun{$staticdata[k]->name}' alt=''{$staticdata[k]->tips}''>{$staticdata[k]->userdefinedname}<br/><h6>{$staticdata[k]->tips}</h6></span>
                   </td>
                   <td title='{$staticdata[k]->tips}'>
-                    {if $staticdata[k]->url!=''}<a href='{$staticdata[k]->url}' title='{$staticdata[k]->alt}'>{/if}
+                    {if $staticdata[k]->url!=''}
+                      <a href='{$staticdata[k]->url}' title='{$staticdata[k]->alt}'>
+                        {$staticdata[k]->title}
+                      </a>
+                    {else}
                       {$staticdata[k]->title}
-                    {if $staticdata[k]->url!=''}</a>{/if}
+                    {/if}
                   </td>
                   <td>
                     {if $staticdata[k]->image!=''}<img src='{$staticdata[k]->img}'>{/if}

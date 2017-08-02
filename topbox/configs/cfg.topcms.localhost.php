@@ -29,12 +29,12 @@ $CONFIG['include_separator'] = ':';
 	// 专题系统在本虚拟主机下的目录，问题:如果是alias的目录怎么办？
 $CONFIG['basedir']  = '/';  
 	// 发布的专题所在的目录
-$CONFIG['topicdir'] = '/Data/webapps/minisites';
+$CONFIG['topicdir'] = '/data/webapps/minisites';
 
 	// 专题发布的根URL
 $CONFIG['topicurl'] = 'http://www.topbox.localhost/minisite';
     //  专题资源包上传路径
-$CONFIG['uploaddir']= '/Data/webapps/minisites/data/upload';
+$CONFIG['uploaddir']= '/data/webapps/minisites/data/upload';
 
 	// ----[ smarty  ]---
 	// 主题样式
