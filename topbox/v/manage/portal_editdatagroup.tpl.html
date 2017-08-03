@@ -20,27 +20,28 @@
 </div>
 {/if}
 
-<div class='row well'>
-    <div class='col-md-12'>{$dg->userdefinedname}({$dg->alt})</div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">{$dg->userdefinedname}
+    <span class="badge">{$dg->alt}</span></h3>
+  </div>
+  <div class="panel-body">
+        <div class='col-md-2 text-right'>类型</div>
+        <div class='col-md-4'>{if $dg->type=='list'}内容模块{else}页面内容{/if}</div>
+        <div class='col-md-2 text-right'>名称</div>
+        <div class='col-md-4'>{$dg->name}</div>
 
-    <div class='col-md-2 text-right'>类型</div>
-    <div class='col-md-4'>{if $dg->type=='list'}内容模块{else}页面内容{/if}</div>
-    <div class='col-md-2 text-right'>名称</div>
-    <div class='col-md-4'>{$dg->name}</div>
+        <div class='col-md-2 text-right'>显示为</div>
+        <div class='col-md-4'>{$dg->showname}</div>
+        <div class='col-md-2 text-right'>提示信息</div>
+        <div class='col-md-4'>{$dg->alt}</div>
+        <div class='col-md-2 text-right'>成员</div>
+        <div class='col-md-4'>{$dg->members}(没想起来成员的目的是什么)</div>
 
-    <div class='col-md-2 text-right'>显示为</div>
-    <div class='col-md-4'>{$dg->showname}</div>
-    <div class='col-md-2 text-right'>提示信息</div>
-    <div class='col-md-4'>{$dg->alt}</div>
-    <div class='col-md-2 text-right'>成员</div>
-    <div class='col-md-4'>{$dg->members}(没想起来成员的目的是什么)</div>
-
-    <div class='col-md-6 text-right'>&nbsp</div>
-
-    <div class='col-md-12 text-right'>
-        <button>隐藏</button>
-    </div>
+        <div class='col-md-6 text-right'>&nbsp</div>
+  </div>
 </div>
+
 
 <div class='row'>
 <div class="col-md-6 form-inline form-group">
@@ -77,22 +78,6 @@
 
 <div class='row'>
     <div class='listgroup'>
-        {*
-        <li class='list-group-item'>
-            <div class='col-md-1'>id</div>
-            <div class='col-md-1'>标题</div>
-            <div class='col-md-1'>连接</div>
-            <div class='col-md-1'>图片</div>
-            <div class='col-md-1'>摘要</div>
-            <div class='col-md-1'>&nbsp;</div>
-            <div class='col-md-1'>提示</div>
-            <div class='col-md-1'>操作</div>
-            <div class='col-md-1'>发布时间</div>
-            <div class='col-md-1'>编辑人员</div>
-            <br/>
-        </li>
-        *}
-
     {section loop=$datalist name=k}
         <li class='list-group-item' id='o_{$datalist[k]->id}'>
             <div class='col-md-10'>
