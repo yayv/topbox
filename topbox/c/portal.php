@@ -1068,13 +1068,14 @@ class portal extends CommonController
 
 	    $projectid = $_GET['id'];
 	    $dgname    = $_GET['name'];
-	    $dataid    = $_GET['dataid'];
+	    $dataid    = isset($_GET['dataid'])?$_GET['dataid']:false;
         $dgtype    = isset($_GET['dgtype'])?$_GET['dgtype']:'list';
 	    
 		$row = $this->getModel('mdatalist')->getDataDetail($projectid, $dgname, $dataid);
 
         // 补丁代码，为了表单能正确写入 portal_data_inproject 的 dgtype 值
-        if(!$row) $row->datagrouptype=$dgtype;
+        if(!$row) 
+            {$row= new stdClass;$row->datagrouptype=$dgtype;}
 
         $selectone=array();
 		$selectone=$this->getModel('mdatalist')->selectone($dataid,$projectid,$dgname);
@@ -1088,6 +1089,7 @@ class portal extends CommonController
 		$this->tpl->assign('data', $row);
 	    $this->tpl->assign('home',$this->home);
 	    $this->tpl->display('portal_dataedit.tpl.html');
+print_r($row);
 	}
 	
 	function deletebox()

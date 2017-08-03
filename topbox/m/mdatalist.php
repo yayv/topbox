@@ -100,9 +100,14 @@ class mdatalist extends model
       return $rows;
     }
 
-	public function getDataDetail($projectid, $dgname, $id)
+	public function getDataDetail($projectid, $dgname, $id=false)
 	{
-		$sql = "select * from portal_data_inproject where projectid=$projectid and datagroupname='$dgname' and id=$id";
+    if($id)
+      $append = " and id=$id";
+    else
+      $append = "";
+
+		$sql = "select * from portal_data_inproject where projectid=$projectid and datagroupname='$dgname' $append";
 
 		$rows = $this->_db->fetch_all_object($sql);
 
