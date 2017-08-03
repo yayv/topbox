@@ -14,26 +14,31 @@
 </div>
 *}
 
+{if $msg!=''}
 <div class='row'>
     <p>{$msg}</p>
 </div>
+{/if}
 
 <div class='row well'>
     <div class='col-md-12'>{$dg->userdefinedname}({$dg->alt})</div>
 
-    <div class='col-md-2'>类型:{$dg->type}</div>
-    <div class='col-md-2'>名称:{$dg->name}</div>
-    <div class='col-md-2'>显示为:{$dg->showname}</div>
-    <div class='col-md-2'>提示信息:{$dg->alt}</div>
-    <div class='col-md-4'>成员:{$dg->members}(没想起来成员的目的是什么)</div>
-    <div class='col-md-4'>
-        数据源类型:<span id='sourcetype'>{$dg->sourcetype}</span><input type='button' value='E' onclick='changeSourcetype()'> 
-    </div>
-    <div class='col-md-4'>
-        更新方式:<span id='updatetype'>{$dg->updatetype}</span><input type='button' value='E' onclick='changeUpdatetype()'> 
-    </div>
-    <div class='col-md-11'>
-        数据源:<span id='datasource'>{$dg->datasource}</span> <span class='btn btn-default glyphicon glyphicon-pencil' onclick='changeDatasource()'>Edit</span>
+    <div class='col-md-2 text-right'>类型</div>
+    <div class='col-md-4'>{if $dg->type=='list'}内容模块{else}页面内容{/if}</div>
+    <div class='col-md-2 text-right'>名称</div>
+    <div class='col-md-4'>{$dg->name}</div>
+
+    <div class='col-md-2 text-right'>显示为</div>
+    <div class='col-md-4'>{$dg->showname}</div>
+    <div class='col-md-2 text-right'>提示信息</div>
+    <div class='col-md-4'>{$dg->alt}</div>
+    <div class='col-md-2 text-right'>成员</div>
+    <div class='col-md-4'>{$dg->members}(没想起来成员的目的是什么)</div>
+
+    <div class='col-md-6 text-right'>&nbsp</div>
+
+    <div class='col-md-12 text-right'>
+        <button>隐藏</button>
     </div>
 </div>
 
@@ -145,6 +150,29 @@
         <li><a href='{$home}/portal/editdatagroup/id-26/name-testloop／pt-{$pp[a]}'>{$pp[a]}</a></li>
       {/section}
     </ul>
+</div>
+
+<div class='row list-group'>
+    <div class="list-group-item">
+        <div class='list-group-item-heading'><h4 style='display:inline-block;'>模块参数</h4></div>
+    </div>
+    <div class='list-group-item'>
+        数据源类型:
+            <span id='sourcetype'>{if $dg->sourcetype=='manual'}人工录入{else}自动抓取{/if}</span>
+            <span class='btn btn-default glyphicon glyphicon-pencil' onclick='changeSourcetype()'>Edit</span>
+    </div>
+    <div class='list-group-item'>
+        更新方式:
+            <span id='updatetype'>{$dg->updatetype}</span>
+            
+            <span class='btn btn-default glyphicon glyphicon-pencil' onclick='changeUpdatetype()'>Edit</span>
+    </div>
+    <div class='list-group-item'>
+        数据源:
+            <span id='datasource'>{$dg->datasource}</span> 
+            <span class='btn btn-default glyphicon glyphicon-pencil' onclick='changeDatasource()'>Edit</span>
+    </div>
+
 </div>
 
 
