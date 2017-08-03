@@ -830,7 +830,6 @@ class portal extends CommonController
 		if($pages)
         foreach($pages as $k=>$v)
         {
-			
         	// 发布模板文件
         	$templatecontent = $this->getModel('mtopic')->getTemplateById($v->templateid);
             // $basedir = $this->getModel('mtopic')->getProjectInfo($projectid, 'directory');
@@ -840,10 +839,9 @@ class portal extends CommonController
 
             if($v->publishtype=='static')
             {
-            	// echo $v->filename,'<br/>';
                 $templatefilename = $this->getModel('mtopic')->getTemplateFilename($v->templateid);
                 $mpublish = $this->getModel('mpublish');
-                
+
                 $this->tpl->template_dir = $basedir."/templates";
                 $this->tpl->fetch($templatefilename);
                 if($dump){
@@ -852,8 +850,6 @@ class portal extends CommonController
                         $this->tpl->assign($k1,$v1);
                     }
                 }
-
-                
                 $targetfilename = $v->filename;
                 $targetFilePath = $basedir.'/'.$targetfilename;
                 
