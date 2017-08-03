@@ -4,17 +4,6 @@
  */
 class mdatagroup extends model
 {
-    /*
-   public function Oldinit($db, $config, $home)        
-   {    
-		$this->_db = &$db;
-		$this->config = &$config;
-		$this->home = $home;
-
-        $this->error_stack = array();
-   } 
-   */
-
    public function getStaticData($projectid)
    {
         $sql = "select * from portal_datagroup_inproject where type='single' and projectid=$projectid";
@@ -40,7 +29,6 @@ class mdatagroup extends model
                     $ret[$k]->alt       = $vv->alt;
                     $ret[$k]->dateline  = $vv->dateline;
                     unset($ret2[$kk]);
-                    break;
                 }
             }
         }

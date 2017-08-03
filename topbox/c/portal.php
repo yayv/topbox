@@ -258,7 +258,7 @@ class portal extends CommonController
 		}
 
 		$this->createMenu();
-      
+
 		$this->tpl->assign('home',$this->home);		
 		$this->tpl->assign('id',$projectid);		
 		if($templates)
@@ -1073,8 +1073,12 @@ class portal extends CommonController
 	    $projectid = $_GET['id'];
 	    $dgname    = $_GET['name'];
 	    $dataid    = $_GET['dataid'];
+        $dgtype    = isset($_GET['dgtype'])?$_GET['dgtype']:'list';
 	    
 		$row = $this->getModel('mdatalist')->getDataDetail($projectid, $dgname, $dataid);
+
+        // 补丁代码，为了表单能正确写入 portal_data_inproject 的 dgtype 值
+        if(!$row) $row->datagrouptype=$dgtype;
 
         $selectone=array();
 		$selectone=$this->getModel('mdatalist')->selectone($dataid,$projectid,$dgname);

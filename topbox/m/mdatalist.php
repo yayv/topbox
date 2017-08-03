@@ -103,9 +103,10 @@ class mdatalist extends model
 	public function getDataDetail($projectid, $dgname, $id)
 	{
 		$sql = "select * from portal_data_inproject where projectid=$projectid and datagroupname='$dgname' and id=$id";
+
 		$rows = $this->_db->fetch_all_object($sql);
 
-		return $rows[0];
+    return $rows[0];
 	}
 
    public function dumpToArray($projectid)
