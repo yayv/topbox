@@ -840,20 +840,22 @@ class portal extends CommonController
             if($v->publishtype=='static')
             {
                 $templatefilename = $this->getModel('mtopic')->getTemplateFilename($v->templateid);
-                $mpublish = $this->getModel('mpublish');
+                //$mpublish = $this->getModel('mpublish');
 
                 $this->tpl->template_dir = $basedir."/templates";
-                $this->tpl->fetch($templatefilename);
                 if($dump){
                     foreach($dump as $k1=>$v1)
                     {
                         $this->tpl->assign($k1,$v1);
                     }
                 }
+                $c = $this->tpl->fetch($templatefilename);
+
                 $targetfilename = $v->filename;
                 $targetFilePath = $basedir.'/'.$targetfilename;
                 
-                $mpublish->publishStatic($targetFilePath, $templatecontent->content);
+                #$this->getModel('mpublish')->publishStatic($targetFilePath, $templatecontent->content);
+                $this->getModel('mpublish')->publishStatic($targetFilePath, $c);
             }
             elseif($v->publishtype=='dynamic')
             {
@@ -1089,7 +1091,6 @@ class portal extends CommonController
 		$this->tpl->assign('data', $row);
 	    $this->tpl->assign('home',$this->home);
 	    $this->tpl->display('portal_dataedit.tpl.html');
-print_r($row);
 	}
 	
 	function deletebox()
