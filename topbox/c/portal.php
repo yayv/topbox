@@ -1240,6 +1240,7 @@ class portal extends CommonController
          //echo($this->config['uploaddir']."/".$datalist->image);
 	}
 
+    // 编辑指定的数据项
 	function peditData()
 	{
         parent::init();
@@ -1249,11 +1250,11 @@ class portal extends CommonController
 	    
 		$dataid    = $_POST['dataid'];
 	    $dgtype    = $_POST['dgtype'];
-	    $title     = $_POST['title'];
-	    $url       = $_POST['url'];
-	    $alt       = $_POST['alt'];
-	    $abstract  = $_POST['abstract'];
-	    $imageurl  = $_POST['imageurl'];
+	    $title     = addslashes($_POST['title']);
+	    $url       = addslashes($_POST['url']);
+	    $alt       = addslashes($_POST['alt']);
+	    $abstract  = addslashes($_POST['abstract']);
+	    $imageurl  = addslashes($_POST['imageurl']);
 		$order     = $_POST['orderingroup'];
 		$pubtime   = $_POST['pubtime'];
 
@@ -1311,6 +1312,7 @@ class portal extends CommonController
         echo "{'ret':1, 'msg':'ok', 'value':'$ret'}";
     }
 
+    // TODO: 是不是可以移除这个函数了？ 20170806, 计数：0 。看到这个DIE的输出，则计数加一
 	public function jrenamedg()
 	{
 		die('jrenamedg');

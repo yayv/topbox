@@ -29,10 +29,10 @@
                   <td></td>
                   <td>
                     {if $datagroup[k]->reference}
-                      使用中 <a href='/portal/editdatalist/id-{$id}/name-{$datagroup[k]->name}'>编辑</a>
-                      &nbsp;<a onclick='renamedg("{$datagroup[k]->name}", "{$datagroup[k]->showname}","{$datagroup[k]->userdefinedname}")' style="color:#0B55C4; cursor:pointer;">改名</a>
+                      <nobr>使用中</nobr> <nobr><a href='/portal/editdatalist/id-{$id}/name-{$datagroup[k]->name}'>编辑</a></nobr>
+                      &nbsp;<nobr><a onclick='renamedg("{$datagroup[k]->name}", "{$datagroup[k]->showname}","{$datagroup[k]->userdefinedname}")' style="color:#0B55C4; cursor:pointer;">改名</a></nobr>
                     {else}
-                      未使用 <a href='#infoModal' data-url='/portal/deletedgbox/id-{$id}/name-{$datagroup[k]->name}' data-toggle='modal'>删除</a>　<a onclick='renamedg("{$datagroup[k]->name}", "{$datagroup[k]->showname}","{$datagroup[k]->userdefinedname}")' class='thickbox' style="color:#0B55C4; cursor:pointer;">改名</a>　<input type="checkbox" name="del" id="{$datagroup[k]->id}" value="{$datagroup[k]->name}">
+                      <nobr>未使用</nobr> <nobr><a href='#infoModal' data-url='/portal/deletedgbox/id-{$id}/name-{$datagroup[k]->name}' data-toggle='modal'>删除</a></nobr> <nobr><a onclick='renamedg("{$datagroup[k]->name}", "{$datagroup[k]->showname}","{$datagroup[k]->userdefinedname}")' class='thickbox' style="color:#0B55C4; cursor:pointer;">改名</a><input type="checkbox" name="del" id="{$datagroup[k]->id}" value="{$datagroup[k]->name}"></nobr>
                     {/if}      
                   </td>
               </tr>
@@ -84,11 +84,11 @@
                   </td>
                   <td>
                     {if $staticdata[k]->reference}
-                      使用中 
-                      <a href="#infoModal" data-url="/portal/editbox/id-{$id}/name-{$staticdata[k]->name}/dgtype-single" data-toggle="modal">编辑</a>
-                      &nbsp;<a onclick='renamedg("{$staticdata[k]->name}", "{$staticdata[k]->showname}","{$staticdata[k]->userdefinedname}")' style="color:#0B55C4; cursor:pointer;">改名</a>
+                      <nobr>使用中</nobr> 
+                      <nobr><a href="#infoModal" data-url="/portal/editbox/id-{$id}/name-{$staticdata[k]->name}/dgtype-single" data-toggle="modal">编辑</a></nobr>
+                      <nobr><a onclick='renamedg("{$staticdata[k]->name}", "{$staticdata[k]->showname}","{$staticdata[k]->userdefinedname}")' style="color:#0B55C4; cursor:pointer;">改名</a></nobr>
                     {else}
-                      未使用 <a href='#infoModal' data-url='/portal/deletedgbox/id-{$id}/name-{$staticdata[k]->name}' data-toggle='modal'>删除</a>　<a onclick='renamedg("{$staticdata[k]->name}", "{$staticdata[k]->showname}","{$staticdata[k]->userdefinedname}")' class='thickbox' style="color:#0B55C4; cursor:pointer;">改名</a>　<input type="checkbox" name="del" id="{$staticdata[k]->id}" value="{$staticdata[k]->name}">
+                      <nobr>未使用</nobr> <nobr><a href='#infoModal' data-url='/portal/deletedgbox/id-{$id}/name-{$staticdata[k]->name}' data-toggle='modal'>删除</a></nobr>　<nobr><a onclick='renamedg("{$staticdata[k]->name}", "{$staticdata[k]->showname}","{$staticdata[k]->userdefinedname}")' class='thickbox' style="color:#0B55C4; cursor:pointer;">改名</a>　<input type="checkbox" name="del" id="{$staticdata[k]->id}" value="{$staticdata[k]->name}"></nobr>
                     {/if}      
                   </td>
               </tr>
