@@ -1298,7 +1298,10 @@ class portal extends CommonController
 	    $this->getModel('mdatalist')->updateone($projectid, $dgname, $dgtype, $dataid,
 	                                    $title, $url, $imageurl, $abstract, $alt, $order,$time,$writer);
 	    
-        header("location:/portal/editdatalist/id-$projectid/name-$dgname");
+        if($dgtype="single")
+            header("location:/portal/edit/id-$projectid");
+        else
+            header("location:/portal/editdatalist/id-$projectid/name-$dgname");
 	    return ;
 	}
 
