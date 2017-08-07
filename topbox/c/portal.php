@@ -1078,6 +1078,8 @@ class portal extends CommonController
         // 补丁代码，为了表单能正确写入 portal_data_inproject 的 dgtype 值
         if(!$row) 
             {$row= new stdClass;$row->datagrouptype=$dgtype;}
+        else
+            $dataid=$row->id;
 
         $selectone=array();
 		$selectone=$this->getModel('mdatalist')->selectone($dataid,$projectid,$dgname);
@@ -1091,6 +1093,7 @@ class portal extends CommonController
 		$this->tpl->assign('data', $row);
 	    $this->tpl->assign('home',$this->home);
 	    $this->tpl->display('portal_dataedit.tpl.html');
+      
 	}
 	
 	function deletebox()
