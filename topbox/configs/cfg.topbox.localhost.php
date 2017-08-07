@@ -4,8 +4,8 @@ $CONFIG = array();
 $CONFIG['theme']	= 'v/manage';
 $CONFIG['compiled_template'] = 'v/_run';
 
-$CONFIG['baseurl']	= 'http://topcms.localhost';
-$CONFIG['indexpage']= 'http://topcms.localhost/manage/';
+$CONFIG['baseurl']	= 'http://topbox.localhost';
+$CONFIG['indexpage']= 'http://topbox.localhost/manage/';
 $CONFIG['sitename']	= '塔普播客';
 
 $CONFIG['exmailkey']	= '652fc190a09123d34e0c877f50b748d3';
