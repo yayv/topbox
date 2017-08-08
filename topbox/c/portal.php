@@ -1673,42 +1673,10 @@ class portal extends CommonController
     // 不知道这个函数还有多少用处
     function create($msg='')
     {
-        parent::initAssign($this);
-        $dynamicdata = isset($_POST['dynamicdata'])?$_POST['dynamicdata']:$this->config['defaultdynamicdata'];
-        $staticdata  = isset($_POST['staticdata'])?$_POST['staticdata']:$this->config['defaultdynamicdata'];
-        
-        
-        $this->tpl->assign('author',$_SERVER['PHP_AUTH_USER']);
-        $this->tpl->assign('home', $this->home);
-        $this->tpl->assign('message', $msg);
-        $this->tpl->assign('projectname', $_POST['projectname']);
-        $this->tpl->assign('description', $_POST['description']);
-        //$this->tpl->assign('author', $_POST['author']);
-        $this->tpl->assign('directory', $_POST['directory']);
-        $this->tpl->assign('url', $_POST['url']);
-        $this->tpl->assign('staticdata', $_POST['staticdata']?$_POST['staticdata']:'s.dump');
-        $this->tpl->assign('dynamicdata', $_POST['dynamicdata']?$_POST['dynamicdata']:'d.dump');
-        $c = $this->tpl->fetch('right.project_create.html');
-        
-        #$this->showFrame($c);
-
-        $projectid   = $_GET['id'];
-        $projectname = $this->mproject->getProjectInfo($projectid,'title');
-
-        // get Menu View
-        parent::initSmartyAssign($this);
-        $this->tpl->assign('menulist', $this->mmenu->getMenu($projectid, $projectname));
-        $menulist = $this->tpl->fetch('menu.html');
-
-        // show all
-        parent::initSmartyAssign($this);
-        
-        $this->tpl->assign('home',$this->home);
-        $this->tpl->assign('title','专题项目管理');
-        $this->tpl->assign('menulist',$menulist);
-        $this->tpl->assign('rightpad',$c);
-        $this->tpl->display('main.html');           
+        echo '<pre>';
+        print_r($msg);
+        debug_print_backtrace();
+        die();        
     }
-
 
 }
