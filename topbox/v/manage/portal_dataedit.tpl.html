@@ -67,7 +67,11 @@
 
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        {if $dataid}
+        <input  type='submit' class='btn btn-primary' name='' value='更新'/>
+        {else}
         <input  type='submit' class='btn btn-primary' name='' value='添加'/>
+        {/if}
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
